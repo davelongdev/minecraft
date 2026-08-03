@@ -13,4 +13,5 @@ gamemode adventure @a
 spawnpoint @a 0 65 0
 tp @a 0.5 65 0.5 -90 0
 give @a minecraft:iron_shovel[minecraft:can_break={blocks:"#minecraft:dirt"}]
+scoreboard players set @a ob_joined 1
 tellraw @a {"text":"Welcome to the void. One block, one shovel.","color":"aqua"}
