@@ -4,8 +4,9 @@ Brainstorm of mechanics to add to the dig-through-dirt maze game, roughly
 ordered by effort. Effort notes assume the existing scoreboard/tick/structure
 plumbing.
 
-- [ ] **Speedrun timer** — tick counter starts on first dig, actionbar shows
-  elapsed time, best time kept on a leaderboard per player. (small)
+- [x] **Speedrun timer** — `___start_speedrun` / `___stop_speedrun`: actionbar
+  shows elapsed time, finish detected past the wall, personal best kept per
+  player. (small)
 - [ ] **Dig budget** — only N digs allowed (count dirt broken on a scoreboard);
   run out before the wall and you must reset. Forces route planning instead of
   brute-force tunneling. (small)
