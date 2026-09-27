@@ -18,9 +18,16 @@ plumbing.
 - [ ] **Race mode** — `internal/flip_course` already mirrors the course across
   x=0: two players race mirrored halves, first to the sign wins. Mostly needs
   win detection. (medium)
-- [ ] **Buried keys** — a "key" item hidden somewhere in the maze; the final
-  wall only opens (or the win sign only counts) if you're carrying it. Adds
-  exploration to the dig. (medium)
+- [x] **Keys, locked chest, key door** — first slice of "buried keys": trial-key
+  items given at game start, a chest in the corridor that only opens while
+  holding the Rusty Key (vanilla `lock` component), and an iron door in the
+  dirt wall opened by standing next to it with the Golden Key. (medium)
+- [ ] **Buried keys** — hide the keys in the maze instead of handing them out;
+  the final wall only opens (or the win sign only counts) if you're carrying
+  one. Adds exploration to the dig. (medium)
+- [ ] **One-way doors** — doors or drops you can pass through in only one
+  direction, so route choices commit you (no backtracking to try the other
+  branch). (medium)
 - [ ] **Pursuer** — after a grace period, silverfish spawn periodically in
   tunnels you've already dug, so dawdling gets punished. (medium)
 - [ ] **Level progression** — the named-save system doubles as a level loader:

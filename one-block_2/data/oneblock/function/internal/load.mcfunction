@@ -9,6 +9,9 @@ scoreboard objectives add ob_ds dummy
 scoreboard objectives add ob_dt dummy
 scoreboard objectives add ob_work dummy
 scoreboard objectives add ob_id dummy
+scoreboard objectives add ob_lives dummy {"text":"Lives","color":"yellow"}
+scoreboard objectives add ob_deaths deathCount
+scoreboard objectives setdisplay sidebar ob_lives
 scoreboard players set c20 ob_timer 20
 scoreboard players set c2 ob_timer 2
 execute unless score global ob_init matches 1 run function oneblock:internal/init
