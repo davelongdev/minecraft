@@ -11,6 +11,15 @@ Decisions confirmed with Dave (2026-10-11):
 - Section 1 must cover: **Tab autocomplete**, **T opens chat and frees the mouse so you can click links** (Esc closes), **Up arrow recalls previous commands**, and the words **CLI** and **REPL** in kid terms.
 - Target **Minecraft 26.3** (released 2026-09-15, data pack format **121.0**; Prism instance `26.3`), decided 2026-10-11 so the pack matches what kids install today. This is the first pack in the repo not on 26.2: install into the `26.3` instance's `saves/`, and read the `26.3` instance's `latest.log`. New pack dir `~/minecraft/commands-tutorial/`, namespace `tut` (distinct from slicedlime's `ctg`). Identifiers below were verified against the 26.2 jar and re-checked against the 26.3 jar (see "26.3 differences" section).
 
+## Name
+
+Working title **Command Forge** (chosen 2026-10-12; was "Learn Commands"). Alternates Dave wants kept on the list:
+
+- Command Academy
+- Command Lab
+- Command Dojo
+- Minecraft Command Lab
+
 ## Key design decisions
 
 | Decision | Choice | Why |

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 6 of 10: Big word: REPL",
+    "text": "Quest 6 of 10: REPL",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
@@ -28,13 +28,13 @@
             "bold": true
           },
           {
-            "text": "REPL",
+            "text": "REPL = Read, Evaluate, Print, Loop",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " = Read, Evaluate, Print, Loop. You type a line. Minecraft reads it, evaluates it (runs it), prints a reply, and loops back for your next line.",
+            "text": " - you type a line, Minecraft reads it, evaluates it (runs it), prints a reply, and loops back for your next line.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -49,7 +49,28 @@
             "bold": true
           },
           {
-            "text": "Watch the Print step: type ",
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - Type ",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -72,7 +93,7 @@
             }
           },
           {
-            "text": " and press Enter. Watch Minecraft print a reply in chat.",
+            "text": " and press Enter.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -87,10 +108,79 @@
             "bold": true
           },
           {
-            "text": "Got the stick? ",
+            "text": "",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Watch Minecraft print a reply in chat. That's the Print step.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Got the stick?",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
           },
           {
             "text": "Then press the NEXT QUEST button.",

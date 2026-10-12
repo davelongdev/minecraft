@@ -1,0 +1,2 @@
+# Sign on the hub pad at world spawn (placed by init, re-placed by ___reset_world).
+setblock 0 100 0 oak_sign[rotation=8]{allow_op_features:1b,front_text:{messages:[{"font":"minecraft:uniform","text":"Command Forge","color":"dark_green","bold":true},{"font":"minecraft:uniform","text":"Hang on..."},{"font":"minecraft:uniform","text":"sending you to"},{"font":"minecraft:uniform","text":"your island!"}],has_glowing_text:0b},is_waxed:1b}

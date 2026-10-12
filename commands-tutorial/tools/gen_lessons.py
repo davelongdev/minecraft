@@ -40,6 +40,7 @@ def line(*parts, color="white"):
 
 FADE_TIP = line(t("Text fading? Press t to read it again. Esc closes chat.", color="gray", italic=True))
 NEXT = t("Then press the NEXT QUEST button.", color="green", bold=True)
+BLANK = line("")
 
 
 def write(rel, lines):
@@ -123,8 +124,15 @@ def dialog_part(i, k, n, header, body_lines):
     })
 
 
-def quest(i, short, header, parts):
-    """parts: list of line-lists. The sign shows `short`; chat headers show `header`."""
+def quest(i, short, header, parts, delay=0):
+    """parts: list of line-lists. The sign shows `short`; chat headers show `header`.
+    delay: 0 = the whole part prints at once; N (ticks) = the part prints in blocks N ticks
+    apart; "space" = each block waits for the space bar (a jump), with a gray prompt.
+    Blocks: every body line is its own block unless wrapped in a nested list (one block);
+    blank lines ride with the block before them; the title, a blank, and the first body
+    line always form block 0. Lines are gated on the player's tut_pp score (block index or
+    tick), which internal/show_part sets to 0 and internal/print_tick advances; tut_pm is
+    1 while a space-paced part is waiting for a jump."""
     n = len(parts)
     for old in (ROOT / f"s1/e{i}").glob("part*.mcfunction"):
         old.unlink()
@@ -133,8 +141,25 @@ def quest(i, short, header, parts):
     for k, body in enumerate(parts, start=1):
         head = f"Quest {i + 1} of {TOTAL}: {header}" + (f" (part {k} of {n})" if n > 1 else "")
         footer = [line(t(f"Press QUEST again for part {k + 1}.", color="gray", italic=True))] if k < n else []
-        write(f"s1/e{i}/part{k}.mcfunction", [line(t("━━ " + head + " ━━", color="gold", bold=True))] + body + footer)
-        dialog_part(i, k, n, header, body)
+        blocks = [[line(t("━━ " + head + " ━━", color="gold", bold=True)), BLANK]]
+        for idx, item in enumerate(body + footer):
+            if item == BLANK:
+                blocks[-1].append(item)
+            elif idx == 0:
+                blocks[0].extend(item if isinstance(item, list) else [item])
+            else:
+                blocks.append(item if isinstance(item, list) else [item])
+        space = delay == "space"
+        out = [f"execute if score @s tut_pp matches 0 run scoreboard players set @s tut_pm {1 if space else 0}"]
+        for gi, block in enumerate(blocks):
+            gate = gi if space else gi * delay
+            if space and gi < len(blocks) - 1:
+                block = block + [line(t("Press space for more ... (chat box open? press Esc first)", color="gray", italic=True))]
+            for ln in block:
+                out.append(f"execute if score @s tut_pp matches {gate} run {ln}")
+        out.append(f"execute if score @s tut_pp matches {gate} run scoreboard players set @s tut_pp -1")
+        write(f"s1/e{i}/part{k}.mcfunction", out)
+        dialog_part(i, k, n, header, [ln for item in body for ln in (item if isinstance(item, list) else [item])])
     write(f"s1/e{i}/title.mcfunction", [
         f"scoreboard players set @s tut_parts {n}",
         f'function tut:internal/sign_quest {{n:{i + 1},total:{TOTAL},title:"{short}"}}',
@@ -156,7 +181,7 @@ DID_IT = {"text": "[I did it!]", "font": FONT, "color": "green", "bold": True, "
 QUESTS = [
     dict(short="t and Esc", header="Open and close the chat",
          parts=[[
-             line("Press ", key("t"), ". A box opens at the bottom of the screen. That's the chat box."),
+             line("Press ", key("t"), ". This chat window gets larger and a box opens at the bottom of the screen. That's the chat box."),
              line("Press ", key("Esc"), ". The box closes and you're back in the game."),
              line("Open and close it a few times. ", NEXT),
          ]]),
@@ -181,51 +206,95 @@ QUESTS = [
              line("You glow! ", NEXT, t("   (click the blue text and it jumps into the chat box)", color="gray")),
          ]]),
 
-    dict(short="Big word: CLI", header="Big word: CLI",
+    dict(short="CLI", header="CLI", delay="space",
          parts=[[
-             line(key("CLI"), " = command-line interface. You do things by typing commands instead of using a mouse or touchpad."),
-             line("The chat box is your CLI. Type ", cmd("/xp add @s 3 levels"), " and press Enter."),
-             line("Your green bar jumps to 3. ", NEXT),
+             [line(key("CLI = Command Line Interface"), " - you do things by typing commands instead of using a mouse or touchpad."),
+              line(""),
+              line(key("Interface"), " is just a word for how you interact with something."),
+              line(""),
+              line("The ", key("Chat Box"), " is a ", key("Command Line"), ", a line where you write commands.")],
+             line(""),
+             [line(key("Your Mission"), " - Type ", cmd("/xp add @s 3 levels"), " and press Enter."),
+              line(""),
+              line("Your green bar jumps to 3."),
+              line(""),
+              line(NEXT)],
          ]]),
 
-    dict(short="Big word: REPL", header="Big word: REPL",
+    dict(short="REPL", header="REPL", delay="space",
          parts=[[
-             line(key("REPL"), " = Read, Evaluate, Print, Loop. You type a line. Minecraft reads it, evaluates it (runs it), prints a reply, and loops back for your next line."),
-             line("Watch the Print step: type ", cmd("/give @s stick"), " and press Enter. Watch Minecraft print a reply in chat."),
-             line("Got the stick? ", NEXT),
+             line(key("REPL = Read, Evaluate, Print, Loop"), " - you type a line, Minecraft reads it, evaluates it (runs it), prints a reply, and loops back for your next line."),
+             line(""),
+             [line(key("Your Mission"), " - Type ", cmd("/give @s stick"), " and press Enter."),
+              line(""),
+              line("Watch Minecraft print a reply in chat. That's the Print step."),
+              line(""),
+              line("Got the stick?"),
+              line(""),
+              line(NEXT)],
          ]]),
 
-    dict(short="Tab + help", header="Tab finishes your words",
+    dict(short="Autocomplete", header="Autocomplete", delay="space",
          parts=[[
-             line("Type ", key("/gam"), " and press ", key("Tab"), ". Then a space, then Tab again to pick ", key("creative"), ". Enter."),
-             line("Stuck? ", cmd("/help gamemode"), " shows what a command wants."),
-             line("Goal: ", cmd("/gamemode creative"), "  Creative lets you fly: double-tap Space. ", NEXT),
+             [line(key("Autocomplete"), " - Minecraft types things out for you."),
+              line(""),
+              line(key("Tab"), " - Choose from a list of suggestions with ", key("Tab"), "."),
+              line(""),
+              line("This is sometimes called ", key("Code Completion"), ", ", key("Tab Completion"), ", or ", key("IntelliSense"), ".")],
+             line(""),
+             [line(key("Your Mission"), " - Type ", key("/gam"), " and press ", key("Tab"), ". Then a space, then ", key("Tab"), " twice to pick ", key("creative"), ". Press Enter."),
+              line(""),
+              line("Stuck? ", cmd("/help gamemode"), " shows what a command wants."),
+              line(""),
+              line("Creative lets you fly: double-tap space."),
+              line(""),
+              line(NEXT)],
          ]]),
 
-    dict(short="Snack time", header="Snack time",
+    dict(short="/give", header="/give", delay="space",
          parts=[[
-             line("Commands can give you things:   ", cmd("/give @s cookie 10")),
-             line(key("@s"), " means ME.  ", key("10"), " is how many.  Press Tab after /give @s to see every item name. ", NEXT),
+             [line("Commands can give you things."),
+              line(""),
+              line("Here is an example - ", cmd("/give @s cookie 10"))],
+             line(""),
+             [line(key("/give"), " - the main command"),
+              line(""),
+              line(key("@s"), " - who to give it to - @s is your player"),
+              line(""),
+              line(key("cookie"), " - which item to give"),
+              line(""),
+              line(key("10"), " - how many to give (optional - 1 if left blank)")],
+             line(""),
+             [line(key("Your Mission"), " - Type ", cmd("/give @s cookie 10"), " and press Enter."),
+              line(""),
+              line("Press Tab after /give @s to see every item name."),
+              line(""),
+              line(NEXT)],
          ]]),
 
     dict(short="The Up arrow", header="The Up arrow",
          parts=[[
              line("Press t, then the ", key("Up arrow"), ". Your last command comes back!"),
-             line("Change ", key("cookie"), " to ", key("bread"), ", then Enter. ", NEXT),
+             line(""),
+             line("Change ", key("cookie"), " to ", key("bread"), ", then Enter."),
+             line(""),
+             line(key("Hint"), " - you can move left and right on the ", key("command line"), " with the arrow keys."),
+             line(""),
+             line(NEXT),
          ]]),
 
     dict(short="Teleport X Y Z", header="Teleport with X Y Z",
          parts=[
              [line("Every spot has 3 numbers: ", key("X"), " east, ", key("Y"), " up, ", key("Z"), " south."),
               line("Press ", key("F3"), " to see your own numbers.")],
-             [line("See the glass cage? Type ", cmd("/tp @s ", "/tp @s "), " and the 3 numbers on the sign."),
+             [line("See the bridge to the new platform? Find the glass cage there, then type ", cmd("/tp @s ", "/tp @s "), " and the 3 numbers on the sign."),
               line("Tab trick: look at a block, type /tp @s and press Tab. It types that block's numbers! ", NEXT)],
          ]),
 ]
 TOTAL = len(QUESTS)
 
 for i, q in enumerate(QUESTS):
-    quest(i, q["short"], q["header"], q["parts"])
+    quest(i, q["short"], q["header"], q["parts"], q.get("delay", 0))
 
 write("s1/done.mcfunction", [
     line(t("━━ Section 1 done! ━━", color="gold", bold=True)),

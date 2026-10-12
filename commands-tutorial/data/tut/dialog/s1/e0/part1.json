@@ -40,7 +40,7 @@
             "bold": true
           },
           {
-            "text": ". A box opens at the bottom of the screen. That's the chat box.",
+            "text": ". This chat window gets larger and a box opens at the bottom of the screen. That's the chat box.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"

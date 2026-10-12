@@ -16,7 +16,7 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   dialogue, stats/levels, and loot. Overlaps with the NPC game above for the
   dialogue layer; stats and inventory via scoreboards, storage NBT, and
   `custom_data`-tagged items.
-- [ ] **Commands tutorial map ("Learn Commands"), fully in-game (no videos)** —
+- [ ] **Commands tutorial map ("Command Forge"), fully in-game (no videos)** —
   IN PROGRESS in `commands-tutorial/` (targets 26.3, world `learn_commands`).
   2026-10-11: engine + Section 1 (10 quests) built and playtested by Dave through
   many UI iterations (see CLAUDE.md for the settled rules: chat-only, three

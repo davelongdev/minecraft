@@ -13,3 +13,4 @@ function tut:internal/store_args
 function tut:internal/build_plot with storage tut:main args
 function tut:internal/give_book
 gamemode adventure @s
+function tut:internal/start_intro

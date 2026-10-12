@@ -1,4 +1,6 @@
 # Teacher: jump to an exercise. Run as the kid: /execute as Name run function tut:___goto {sec:1,ex:3}
+function tut:internal/store_args
+function tut:internal/leave_quest with storage tut:main args
 $scoreboard players set @s tut_sec $(sec)
 $scoreboard players set @s tut_ex $(ex)
 execute unless score @s tut_sec matches 1.. run scoreboard players set @s tut_sec 1

@@ -1,4 +1,4 @@
-# Learn Commands (commands-tutorial)
+# Command Forge (commands-tutorial)
 
 A Minecraft Java **26.3** datapack that teaches commands entirely in-game: no videos.
 Each idea is explained in chat, and the
@@ -23,7 +23,7 @@ Minecraft runs from the Prism Launcher flatpak, which can't see this folder, so 
 cd ~/minecraft/commands-tutorial
 rm -f ../zips/commands-tutorial.zip
 zip -r ../zips/commands-tutorial.zip pack.mcmeta data
-SAVES=~/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/26.3/minecraft/saves
+SAVES="$HOME/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/Command Forge/minecraft/saves"
 cp ../zips/commands-tutorial.zip "$SAVES/<world>/datapacks/"
 ```
 

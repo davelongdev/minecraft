@@ -12,6 +12,11 @@ scoreboard objectives add tut_const dummy
 scoreboard objectives add tut_lp dummy
 scoreboard objectives add tut_parts dummy
 scoreboard objectives add tut_flag dummy
+scoreboard objectives add tut_walk dummy
+scoreboard objectives add tut_wx dummy
+scoreboard objectives add tut_pp dummy
+scoreboard objectives add tut_pm dummy
+scoreboard objectives add tut_jump minecraft.custom:minecraft.jump
 scoreboard objectives add tut_quests dummy {"font":"minecraft:uniform","text":"Quests completed","color":"gold","bold":true}
 scoreboard objectives modify tut_quests displayname {"font":"minecraft:uniform","text":"Quests completed","color":"gold","bold":true}
 scoreboard objectives setdisplay sidebar tut_quests

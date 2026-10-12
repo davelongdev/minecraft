@@ -11,3 +11,4 @@ function tut:internal/build_plot with storage tut:main args
 function tut:internal/give_book
 gamemode adventure @s
 tellraw @s {"font":"minecraft:uniform","text":"Fresh start! Your island was reset.","color":"aqua"}
+function tut:internal/start_intro

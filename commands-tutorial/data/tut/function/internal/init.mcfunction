@@ -7,7 +7,7 @@ fill -32 -59 -32 32 -55 32 air
 
 # hub pad: world spawn only, players are moved to their plot one tick after joining
 fill -4 99 -4 4 99 4 smooth_stone
-setblock 0 100 0 oak_sign[rotation=8]{allow_op_features:1b,front_text:{messages:[{"font":"minecraft:uniform","text":"Learn Commands","color":"dark_green","bold":true},{"font":"minecraft:uniform","text":"Hang on..."},{"font":"minecraft:uniform","text":"sending you to"},{"font":"minecraft:uniform","text":"your island!"}],has_glowing_text:0b},is_waxed:1b}
+function tut:internal/hub_sign
 setworldspawn 0 100 0 0 0
 
 gamerule advance_time false
