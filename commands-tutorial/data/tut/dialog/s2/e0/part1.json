@@ -1,0 +1,247 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 1 of 12: Give Yourself a Command Block",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 1",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "extra": [
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "In Section 1, ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "you",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " typed the commands. A ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "command block",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " is a block that runs commands on its own.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Command blocks only open in ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Creative mode",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ".",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - Type ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "/gamemode creative",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true,
+            "click_event": {
+              "action": "suggest_command",
+              "command": "/gamemode creative"
+            },
+            "hover_event": {
+              "action": "show_text",
+              "value": {
+                "text": "Click to put this in your chat box",
+                "font": "minecraft:uniform"
+              }
+            }
+          },
+          {
+            "text": " and press Enter. Then type ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "/give @s command_block",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true,
+            "click_event": {
+              "action": "suggest_command",
+              "command": "/give @s command_block"
+            },
+            "hover_event": {
+              "action": "show_text",
+              "value": {
+                "text": "Click to put this in your chat box",
+                "font": "minecraft:uniform"
+              }
+            }
+          },
+          {
+            "text": " and press Enter.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Look in your inventory. Do you see an orange block? That's a command block! If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Put /gamemode creative in my chat box",
+        "font": "minecraft:uniform"
+      },
+      "tooltip": {
+        "text": "Types it for you. You press Enter.",
+        "font": "minecraft:uniform"
+      },
+      "action": {
+        "type": "minecraft:suggest_command",
+        "command": "/gamemode creative"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:uniform"
+    }
+  }
+}

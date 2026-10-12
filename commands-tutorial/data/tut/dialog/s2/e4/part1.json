@@ -1,0 +1,188 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 5 of 12: Roll the Dice",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 5",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "extra": [
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Board games need dice. Minecraft has them built in: ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "random roll 1..6",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " rolls a six-sided die and shows the result to everyone.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - Break the sparkle block and put a new command block on the blue block. Give it the command ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "random roll 1..6",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " and leave the boxes on ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Impulse",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " and ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Needs Redstone",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ". Put a button on it and press it a few times.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Do you see a dice roll in chat each time you press the button? (Try ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "random roll 1..20",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " for a D20.) If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Got it!",
+        "font": "minecraft:uniform",
+        "color": "green"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:uniform"
+    }
+  }
+}

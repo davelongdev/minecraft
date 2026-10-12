@@ -1,0 +1,374 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 2 of 12: /give + Command Blocks",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 2",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "extra": [
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Take the command block out of your inventory and place it on the ground. ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Right-click",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " it to open it.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "The big box at the top is where the command goes. ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "No slash needed",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - the block already knows it's a command.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "One catch: ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "@s",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " means whoever runs the command. In a block, that's the block! Use ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "@p",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " instead - it means the ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "nearest player",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", and that's you.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - Open the block and type ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "give @p carrot",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " in the box. You should see three boxes side by side right above the ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Done",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " and ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Cancel",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " boxes at the bottom.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "These three boxes set options for how command blocks work. Change the box all the way to the right to say ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Always Active",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " instead of ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Needs Redstone",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ". Leave the other ones (the left box should say ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Impulse",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", and the center box should say ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Unconditional",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": "). Then click ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Done",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ".",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Do you have a carrot in your inventory? If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Got it!",
+        "font": "minecraft:uniform",
+        "color": "green"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:uniform"
+    }
+  }
+}

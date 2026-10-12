@@ -5,9 +5,8 @@ scoreboard players set global tut_init 1
 fill -32 -64 -32 32 -60 32 air
 fill -32 -59 -32 32 -55 32 air
 
-# hub pad: world spawn only, players are moved to their plot one tick after joining
-fill -4 99 -4 4 99 4 smooth_stone
-function tut:internal/hub_sign
+# world spawn: no hub pad any more (removed 2026-10-12, it was visible as a 'second island');
+# a new player hangs in the air here for one tick, then join moves them to their plot
 setworldspawn 0 100 0 0 0
 
 gamerule advance_time false

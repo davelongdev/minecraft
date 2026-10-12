@@ -1,7 +1,7 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 4 of 10: Every command starts with /",
+    "text": "Quest 4 of 12: Click in Chat",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
@@ -28,19 +28,7 @@
             "bold": true
           },
           {
-            "text": "The ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "/",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": " tells Minecraft: this is a command, not chat. Type this and press Enter:",
+            "text": "When the chat box is open, your mouse is free, so you can click things in chat.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -55,29 +43,75 @@
             "bold": true
           },
           {
-            "text": "    ",
+            "text": "",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "/effect give @s glowing",
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Try it: press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "t",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " to open the chat box, then click ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "[Click me!]",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true,
+            "underlined": true,
             "click_event": {
               "action": "suggest_command",
-              "command": "/effect give @s glowing"
+              "command": "/give @s apple"
             },
             "hover_event": {
               "action": "show_text",
               "value": {
-                "text": "Click to put this in your chat box",
+                "text": "Click to put a command in your chat box",
                 "font": "minecraft:uniform"
               }
             }
           },
           {
+            "text": " and watch the chat box fill in. Then press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Enter",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ".",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
             "text": "\n\n"
           },
           {
@@ -87,21 +121,30 @@
             "bold": true
           },
           {
-            "text": "You glow! ",
+            "text": "",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "Then press the NEXT QUEST button.",
+            "text": "\n\n"
+          },
+          {
+            "text": "",
             "font": "minecraft:default",
-            "color": "yellow",
+            "color": "white",
             "bold": true
           },
           {
-            "text": "   (click the blue text and it jumps into the chat box)",
+            "text": "Got an apple? If so, you've completed the quest! ",
             "font": "minecraft:default",
-            "color": "gray",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
             "bold": true
           }
         ]
@@ -112,7 +155,7 @@
   "actions": [
     {
       "label": {
-        "text": "Put /effect give @s glowing in my chat box",
+        "text": "Put the command in my chat box",
         "font": "minecraft:uniform"
       },
       "tooltip": {
@@ -121,7 +164,7 @@
       },
       "action": {
         "type": "minecraft:suggest_command",
-        "command": "/effect give @s glowing"
+        "command": "/give @s apple"
       }
     }
   ],

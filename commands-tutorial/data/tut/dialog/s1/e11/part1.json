@@ -1,0 +1,162 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 12 of 12: Teleport with X Y Z Coordinates  (part 1 of 2)",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 12",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "extra": [
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Every spot has 3 numbers called ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "coordinates",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " (",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "coords",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": "): ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "X",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " east (-X west), ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Y",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " up (-Y down), ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Z",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " south (-Z north).",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "F3",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " to see your own numbers.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Part 2",
+        "font": "minecraft:uniform",
+        "color": "green"
+      },
+      "action": {
+        "type": "minecraft:show_dialog",
+        "dialog": "tut:s1/e11/part2"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:uniform"
+    }
+  }
+}

@@ -1,6 +1,0 @@
-execute store result score @s tut_tmp run clear @s bread 0
-execute if score @s tut_tmp matches 1..9 unless score @s tut_last = @s tut_tmp run tellraw @s [{"font":"minecraft:uniform","text":"Only ","color":"red"},{"font":"minecraft:uniform","score":{"name":"@s","objective":"tut_tmp"}},{"font":"minecraft:uniform","text":" bread? I need exactly 10. Type /clear @s bread to start over, then try again."}]
-execute if score @s tut_tmp matches 11.. unless score @s tut_last = @s tut_tmp run tellraw @s [{"font":"minecraft:uniform","text":"","color":"red"},{"font":"minecraft:uniform","score":{"name":"@s","objective":"tut_tmp"}},{"font":"minecraft:uniform","text":" bread?! That's a bakery! Type /clear @s bread to start over, then try again."}]
-execute positioned ~6 ~ ~6 if entity @e[type=item,distance=..15,nbt={Item:{id:"minecraft:bread"}}] if score @s tut_tmp matches 0 unless score @s tut_last matches 99 run tellraw @s {"font":"minecraft:uniform","text":"Your pockets are full, so the bread fell on the ground! Drop something or press E and clear a slot, then try again.","color":"red"}
-execute positioned ~6 ~ ~6 if entity @e[type=item,distance=..15,nbt={Item:{id:"minecraft:bread"}}] if score @s tut_tmp matches 0 run scoreboard players set @s tut_tmp 99
-scoreboard players operation @s tut_last = @s tut_tmp

@@ -1,0 +1,266 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 7 of 12: Pressure Plate Trap",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 7",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "extra": [
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "A ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "pressure plate",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " sends a redstone signal when you step on it. A command block hidden under one is a ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "trap",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ".",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - Find the ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "red block",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " in the floor. Break it and put a command block in the hole with the command ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "effect give @p levitation 3 1",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " (",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Impulse",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Needs Redstone",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": "). Type ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "/give @s stone_pressure_plate",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true,
+            "click_event": {
+              "action": "suggest_command",
+              "command": "/give @s stone_pressure_plate"
+            },
+            "hover_event": {
+              "action": "show_text",
+              "value": {
+                "text": "Click to put this in your chat box",
+                "font": "minecraft:uniform"
+              }
+            }
+          },
+          {
+            "text": ", put the plate on top, and walk onto it.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Did you float up when you stepped on the plate? (Try ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "slow_falling",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "speed",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", or ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "jump_boost",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " instead.) If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Put /give @s stone_pressure_plate in my chat box",
+        "font": "minecraft:uniform"
+      },
+      "tooltip": {
+        "text": "Types it for you. You press Enter.",
+        "font": "minecraft:uniform"
+      },
+      "action": {
+        "type": "minecraft:suggest_command",
+        "command": "/give @s stone_pressure_plate"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:uniform"
+    }
+  }
+}

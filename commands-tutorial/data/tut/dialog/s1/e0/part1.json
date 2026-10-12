@@ -1,7 +1,7 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 1 of 10: Open and close the chat",
+    "text": "Quest 1 of 12: Open the Book",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
@@ -28,19 +28,19 @@
             "bold": true
           },
           {
-            "text": "Press ",
+            "text": "You have a book! It's the ",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "t",
+            "text": "Little Command Book",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": ". This chat window gets larger and a box opens at the bottom of the screen. That's the chat box.",
+            "text": ", and it's in your hotbar at the bottom of the screen.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -55,7 +55,40 @@
             "bold": true
           },
           {
-            "text": "Press ",
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - Pick the book with its number key or the scroll wheel, then ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "right-click",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " to open it. Read it, then press ",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -67,7 +100,7 @@
             "bold": true
           },
           {
-            "text": ". The box closes and you're back in the game.",
+            "text": " to close it.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -82,13 +115,28 @@
             "bold": true
           },
           {
-            "text": "Open and close it a few times. ",
+            "text": "",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "Then press the NEXT QUEST button.",
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Done reading? If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true

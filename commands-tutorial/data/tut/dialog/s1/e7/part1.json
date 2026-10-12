@@ -1,7 +1,7 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 8 of 10: /give",
+    "text": "Quest 8 of 12: Autocomplete",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
@@ -28,90 +28,13 @@
             "bold": true
           },
           {
-            "text": "Commands can give you things.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "Here is an example - ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "/give @s cookie 10",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true,
-            "click_event": {
-              "action": "suggest_command",
-              "command": "/give @s cookie 10"
-            },
-            "hover_event": {
-              "action": "show_text",
-              "value": {
-                "text": "Click to put this in your chat box",
-                "font": "minecraft:uniform"
-              }
-            }
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "/give",
+            "text": "Autocomplete",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " - the main command",
+            "text": " - Minecraft types things out for you.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -141,49 +64,25 @@
             "bold": true
           },
           {
-            "text": "@s",
+            "text": "Tab",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " - who to give it to - @s is your player",
+            "text": " - Choose from a list of suggestions with ",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "cookie",
+            "text": "Tab",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " - which item to give",
+            "text": ".",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -213,13 +112,25 @@
             "bold": true
           },
           {
-            "text": "10",
+            "text": "Space",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " - how many to give (optional - 1 if left blank)",
+            "text": " picks the highlighted word if you want to add more. ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Enter",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " picks it and runs the command.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -235,6 +146,57 @@
           },
           {
             "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "This is sometimes called ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Code Completion",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Tab Completion",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", or ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "IntelliSense",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ".",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -276,13 +238,103 @@
             "color": "white"
           },
           {
-            "text": "/give @s cookie 10",
+            "text": "/gam",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " and press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Tab",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ". Then a space, then ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Tab",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " twice to land on ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "creative",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ". Press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Enter",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " to select and run it.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Stuck? ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "/help gamemode",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true,
             "click_event": {
               "action": "suggest_command",
-              "command": "/give @s cookie 10"
+              "command": "/help gamemode"
             },
             "hover_event": {
               "action": "show_text",
@@ -293,7 +345,7 @@
             }
           },
           {
-            "text": " and press Enter.",
+            "text": " shows what a command wants.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -323,37 +375,13 @@
             "bold": true
           },
           {
-            "text": "Press Tab after /give @s to see every item name.",
+            "text": "Are you in creative mode now? (Creative lets you fly: double-tap space.) If so, you've completed the quest! ",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "Then press the NEXT QUEST button.",
+            "text": "Press the NEXT QUEST button to continue.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
@@ -366,7 +394,7 @@
   "actions": [
     {
       "label": {
-        "text": "Put /give @s cookie 10 in my chat box",
+        "text": "Put /help gamemode in my chat box",
         "font": "minecraft:uniform"
       },
       "tooltip": {
@@ -375,7 +403,7 @@
       },
       "action": {
         "type": "minecraft:suggest_command",
-        "command": "/give @s cookie 10"
+        "command": "/help gamemode"
       }
     }
   ],

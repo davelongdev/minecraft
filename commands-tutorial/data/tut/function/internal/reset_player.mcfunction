@@ -1,14 +1,4 @@
-function tut:internal/clear_chat
-scoreboard players set @s tut_sec 1
-scoreboard players set @s tut_ex 0
-scoreboard players set @s tut_quests 0
-scoreboard players set @s tut_tick 0
-scoreboard players set @s tut_lp 0
-scoreboard players set @s tut_last -1
-clear @s
-function tut:internal/store_args
-function tut:internal/build_plot with storage tut:main args
-function tut:internal/give_book
-gamemode adventure @s
+# Teacher reset (___reset_player): fresh start including the arrival intro.
+function tut:internal/reset_core
 tellraw @s {"font":"minecraft:uniform","text":"Fresh start! Your island was reset.","color":"aqua"}
 function tut:internal/start_intro

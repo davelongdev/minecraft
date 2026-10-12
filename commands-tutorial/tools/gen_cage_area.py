@@ -1,30 +1,40 @@
 #!/usr/bin/env python3
-"""Generate the quest-10 ("Teleport X Y Z") area functions under data/tut/function/s1/e9/:
-build (instant), anim (appears over ~4.5 s, keyed on tut_tick), clear, sign (macro gx),
-tick, check. One set of geometry constants drives them all.
+"""Generate the quest-11 ("Teleport with X Y Z Coordinates") area functions under
+data/tut/function/s1/e11/: build (instant), anim (the COMMAND / FORGE banner dissolves, then
+the area appears, keyed on tut_tick), clear, sign (macro gx/ix), tick, check. One set of
+geometry constants drives them all.
 
 Run from commands-tutorial/:  python3 tools/gen_cage_area.py
 
 Everything is relative to the island origin (functions run positioned there; the island is
-x 0..11, z 0..11, floor at y -1). A gap in the island's south fence leads over a 3-wide bridge
-to a fenced platform with the glass cage in its middle; the sign in front of the cage shows
-the pocket's coordinates. Floors go in as stone and are recoloured afterwards: that change is
-the light update never-lit void chunks need.
+x 0..11, z 0..11, floor at y -1; the player spawns on the west edge facing east). The banner
+(internal/banner_rel, a wall at x 20, z -11..22, y 2..15) dissolves column by column, then a gap
+in the island's east fence leads over a 3-wide bridge to a fenced platform east of the island
+with the glass cage in its middle; the sign in front of the cage shows the pocket's coordinates
+and a sign inside shows the way back. Floors go in as stone and are recoloured afterwards: that
+change is the light update never-lit void chunks need. ensure_plot skips the banner rebuild
+while quest 12 is active; s1/e11/start restores it so a restart replays the dissolve.
 """
 from pathlib import Path
 
-OUT = Path("data/tut/function/s1/e9")
+OUT = Path("data/tut/function/s1/e11")
 
-BX0, BX1 = 4, 6                 # bridge x
-BZ0, BZ1 = 12, 15               # bridge z (island fence is z 11)
-PX0, PX1 = -4, 15               # platform x (20 wide)
-PZ0, PZ1 = 16, 35               # platform z (20 deep)
-CX, CZ = 5, 26                  # cage centre (x, z)
+BX0, BX1 = 12, 15               # bridge x (island fence is x 11)
+BZ0, BZ1 = 4, 6                 # bridge z (the player's row: spawn z 6.5, sign row z 6)
+PX0, PX1 = 16, 35               # platform x (20 deep)
+PZ0, PZ1 = -4, 15               # platform z (20 wide)
+CX, CZ = 26, 5                  # cage centre (x, z)
 CR = 2                          # cage half-size: 5x5 footprint, 5 tall (y 0..4)
 CH = 4                          # cage top layer y
-SIGN = (CX, 0, PZ0 + 6)         # sign 2 blocks north of the cage, facing north (rotation 8)
-GX_OFF, GY, GZ = CX, 101, CZ    # sign numbers: x = island px + GX_OFF
-LEGACY = [((9, 0, 9), "fill ~8 ~0 ~8 ~10 ~3 ~10 air", "setblock ~7 ~0 ~10 air")]   # old corner cage
+SIGN = (CX - 4, 0, CZ)          # sign 2 blocks west of the cage, facing west (rotation 4) at the player
+INNER_SIGN = (CX - CR + 1, 2, CZ)  # wall sign inside the pocket, on the west glass, facing east
+GX_OFF, GY, GZ = CX, 101, CZ    # "inside the cage" numbers: x = island px + GX_OFF
+HX_OFF, HY, HZ = 1, 100, 6      # "back to the island" numbers = the island spawn (go_home): x = px + HX_OFF
+BANNER_X, BANNER_Y0, BANNER_Y1, BANNER_Z0, BANNER_Z1 = 20, 2, 15, -11, 22   # see tools/gen_banner.py
+# older layouts to sweep (dispatch): marker block -> clear commands
+LEGACY = [((9, 0, 9), ["fill ~8 ~0 ~8 ~10 ~3 ~10 air", "setblock ~7 ~0 ~10 air"]),          # island-corner cage
+          ((5, 0, 21), ["fill ~-4 ~-1 ~12 ~15 ~5 ~35 air", "fill ~4 ~ ~11 ~6 ~ ~11 oak_fence"]),  # small south platform
+          ((5, 0, 26), ["fill ~-4 ~-1 ~12 ~15 ~5 ~35 air", "fill ~4 ~ ~11 ~6 ~ ~11 oak_fence"])]  # south platform (2026-10-12 a.m.)
 
 
 def write(name, lines):
@@ -41,56 +51,78 @@ def cage_layer(y):
     return cmds
 
 
-fence_gap = f"fill ~{BX0} ~ ~11 ~{BX1} ~ ~11 air"
+fence_gap = f"fill ~11 ~ ~{BZ0} ~11 ~ ~{BZ1} air"
 bridge_floor = lambda block: f"fill ~{BX0} ~-1 ~{BZ0} ~{BX1} ~-1 ~{BZ1} {block}"
 platform_floor = lambda block: f"fill ~{PX0} ~-1 ~{PZ0} ~{PX1} ~-1 ~{PZ1} {block}"
 fences = [
-    f"fill ~{BX0 - 1} ~ ~{BZ0} ~{BX0 - 1} ~ ~{BZ1} oak_fence",
-    f"fill ~{BX1 + 1} ~ ~{BZ0} ~{BX1 + 1} ~ ~{BZ1} oak_fence",
-    f"fill ~{PX0} ~ ~{PZ0} ~{PX1} ~ ~{PZ0} oak_fence",
-    f"fill ~{PX0} ~ ~{PZ1} ~{PX1} ~ ~{PZ1} oak_fence",
+    f"fill ~{BX0} ~ ~{BZ0 - 1} ~{BX1} ~ ~{BZ0 - 1} oak_fence",
+    f"fill ~{BX0} ~ ~{BZ1 + 1} ~{BX1} ~ ~{BZ1 + 1} oak_fence",
     f"fill ~{PX0} ~ ~{PZ0} ~{PX0} ~ ~{PZ1} oak_fence",
     f"fill ~{PX1} ~ ~{PZ0} ~{PX1} ~ ~{PZ1} oak_fence",
-    f"fill ~{BX0} ~ ~{PZ0} ~{BX1} ~ ~{PZ0} air",
+    f"fill ~{PX0} ~ ~{PZ0} ~{PX1} ~ ~{PZ0} oak_fence",
+    f"fill ~{PX0} ~ ~{PZ1} ~{PX1} ~ ~{PZ1} oak_fence",
+    f"fill ~{PX0} ~ ~{BZ0} ~{PX0} ~ ~{BZ1} air",
 ]
 sign_call = [
     "scoreboard players operation gx tut_const = @s tut_px",
     f"scoreboard players add gx tut_const {GX_OFF}",
     "execute store result storage tut:main args.gx int 1 run scoreboard players get gx tut_const",
-    "function tut:s1/e9/sign with storage tut:main args",
+    "scoreboard players operation ix tut_const = @s tut_px",
+    f"scoreboard players add ix tut_const {HX_OFF}",
+    "execute store result storage tut:main args.ix int 1 run scoreboard players get ix tut_const",
+    "function tut:s1/e11/sign with storage tut:main args",
 ]
 HEAD = "# GENERATED by tools/gen_cage_area.py — edit the Python, not this file."
 
 # --- sign (macro)
 sx, sy, sz = SIGN
 write("sign", [HEAD,
-    f'$setblock ~{sx} ~{sy} ~{sz} dark_oak_sign[rotation=8]{{allow_op_features:1b,front_text:{{messages:['
+    f'$setblock ~{sx} ~{sy} ~{sz} dark_oak_sign[rotation=4]{{allow_op_features:1b,front_text:{{messages:['
     f'{{"font":"minecraft:uniform","text":"Inside the cage:","color":"yellow"}},'
     f'{{"font":"minecraft:uniform","text":"$(gx) {GY} {GZ}","color":"gold","bold":true}},'
+    f'{{"font":"minecraft:uniform","text":"X  Y  Z","color":"white"}},'
+    f'{{"font":"minecraft:uniform","text":""}}],color:"white",has_glowing_text:1b}},is_waxed:1b}}',
+    # inside the pocket: how to get back (seen after the tp in)
+    f'$setblock ~{INNER_SIGN[0]} ~{INNER_SIGN[1]} ~{INNER_SIGN[2]} dark_oak_wall_sign[facing=east]{{allow_op_features:1b,front_text:{{messages:['
+    f'{{"font":"minecraft:uniform","text":"Back to the island:","color":"yellow"}},'
+    f'{{"font":"minecraft:uniform","text":"$(ix) {HY} {HZ}","color":"gold","bold":true}},'
     f'{{"font":"minecraft:uniform","text":"X  Y  Z","color":"white"}},'
     f'{{"font":"minecraft:uniform","text":""}}],color:"white",has_glowing_text:1b}},is_waxed:1b}}'])
 
 # --- build (instant; floors as stone, tick recolours them)
-write("build", [HEAD, "# Instant build of the quest-10 area (repairs after the animation).",
-    fence_gap, bridge_floor("stone"), platform_floor("stone"), *fences,
+banner_clear = f"fill ~{BANNER_X} ~{BANNER_Y0} ~{BANNER_Z0} ~{BANNER_X} ~{BANNER_Y1} ~{BANNER_Z1} air"
+write("build", [HEAD, "# Instant build of the quest-11 area (repairs after the animation). The banner stays gone.",
+    banner_clear, fence_gap, bridge_floor("stone"), platform_floor("stone"), *fences,
     *[c for y in range(0, CH + 1) for c in cage_layer(y)], *sign_call])
 
-# --- clear
-write("clear", [HEAD, "# Remove the quest-10 area and close the island's south fence again.",
+# --- clear (the banner comes back by itself: ensure_plot rebuilds it off quest 12)
+write("clear", [HEAD, "# Remove the quest-11 area and close the island's east fence again.",
     f"fill ~{PX0} ~-1 ~{PZ0} ~{PX1} ~{CH + 1} ~{PZ1} air",
-    f"fill ~{BX0 - 1} ~-1 ~{BZ0} ~{BX1 + 1} ~1 ~{BZ1} air",
-    f"fill ~{BX0} ~ ~11 ~{BX1} ~ ~11 oak_fence"])
+    f"fill ~{BX0} ~-1 ~{BZ0 - 1} ~{BX1} ~1 ~{BZ1 + 1} air",
+    f"fill ~11 ~ ~{BZ0} ~11 ~ ~{BZ1} oak_fence"])
 
 # --- anim
-anim = [HEAD, "# The area appears step by step, keyed on tut_tick (1 = the quest's start tick)."]
+anim = [HEAD, "# The banner dissolves, then the area appears step by step, keyed on tut_tick (1 = the quest's start tick)."]
 def at(t, cmd): anim.append(f"execute if score @s tut_tick matches {t} run {cmd}")
-def sound(t, name, pitch=1.0): at(t, f"playsound minecraft:{name} master @s ~{CX} ~ ~{CZ} 1 {pitch:.2f}")
-at(2, fence_gap); sound(2, "block.wooden_door.open")
-t = 4
-for z in range(BZ0, BZ1 + 1):
-    at(t, f"fill ~{BX0} ~-1 ~{z} ~{BX1} ~-1 ~{z} stone"); sound(t, "block.stone.place", 0.8 + 0.1 * (z - BZ0)); t += 4
-for z in range(PZ0, PZ1 + 1):
-    at(t, f"fill ~{PX0} ~-1 ~{z} ~{PX1} ~-1 ~{z} stone"); sound(t, "block.stone.place"); t += 2
+def sound(t, name, pitch=1.0, where=None):
+    x, z = where or (CX, CZ)
+    at(t, f"playsound minecraft:{name} master @s ~{x} ~ ~{z} 1 {pitch:.2f}")
+t = 2
+# banner: two columns per tick, from the player's left (-z) to right (+z)
+for z in range(BANNER_Z0, BANNER_Z1 + 1, 2):
+    z2 = min(z + 1, BANNER_Z1)
+    at(t, f"fill ~{BANNER_X} ~{BANNER_Y0} ~{z} ~{BANNER_X} ~{BANNER_Y1} ~{z2} air")
+    at(t, f"particle minecraft:large_smoke ~{BANNER_X} ~{(BANNER_Y0 + BANNER_Y1) / 2} ~{z + 0.5} 0.3 {(BANNER_Y1 - BANNER_Y0) / 2} 0.5 0.02 40 normal @s")
+    if (z - BANNER_Z0) % 6 == 0:
+        sound(t, "block.fire.extinguish", 0.6 + 0.02 * (z - BANNER_Z0), (BANNER_X, z))
+    t += 1
+t += 2
+at(t, fence_gap); sound(t, "block.wooden_door.open", 1.0, (11, CZ))
+t += 2
+for x in range(BX0, BX1 + 1):
+    at(t, f"fill ~{x} ~-1 ~{BZ0} ~{x} ~-1 ~{BZ1} stone"); sound(t, "block.stone.place", 0.8 + 0.1 * (x - BX0), (x, CZ)); t += 4
+for x in range(PX0, PX1 + 1):
+    at(t, f"fill ~{x} ~-1 ~{PZ0} ~{x} ~-1 ~{PZ1} stone"); sound(t, "block.stone.place", 1.0, (x, CZ)); t += 2
 for c in fences: at(t, c)
 sound(t, "block.wood.place"); t += 4
 at(t, bridge_floor("stone_bricks")); at(t, platform_floor("grass_block")); sound(t, "block.grass.place"); t += 4
@@ -101,7 +133,7 @@ for y in range(0, CH + 1):
 for c in sign_call: at(t, c)
 sound(t, "block.note_block.bell", 1.2)
 END = t
-anim.insert(2, f"# END = {END}: after this tick s1/e9/tick repairs missing blocks with s1/e9/build")
+anim.insert(2, f"# END = {END}: after this tick s1/e11/tick repairs missing blocks with s1/e11/build")
 write("anim", anim)
 
 # --- tick
@@ -109,16 +141,21 @@ px0, pz0 = CX - CR + 1, CZ - CR + 1      # pocket corner
 pocket = f"positioned ~{px0} ~1 ~{pz0} if entity @s[dx={2 * CR - 2},dy={CH - 2},dz={2 * CR - 2}]"
 on_top = f"positioned ~{CX - CR} ~{CH + 1} ~{CZ - CR} if entity @s[dx={2 * CR},dy=2,dz={2 * CR}]"
 write("tick", [HEAD,
-    f"execute if score @s tut_tick matches ..{END} run function tut:s1/e9/anim",
+    f"execute if score @s tut_tick matches ..{END} run function tut:s1/e11/anim",
     "# after the animation: rebuild anything missing (chunk not loaded, or a kid broke it)",
-    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{CX} ~0 ~{CZ} gold_block run function tut:s1/e9/build",
-    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{CX} ~{CH} ~{CZ} glass run function tut:s1/e9/build",
-    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{CX - CR} ~1 ~{CZ} glass run function tut:s1/e9/build",
-    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{sx} ~{sy} ~{sz} dark_oak_sign run function tut:s1/e9/build",
-    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{CX} ~-1 ~{BZ0 + 1} stone unless block ~{CX} ~-1 ~{BZ0 + 1} stone_bricks run function tut:s1/e9/build",
+    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{CX} ~0 ~{CZ} gold_block run function tut:s1/e11/build",
+    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{CX} ~{CH} ~{CZ} glass run function tut:s1/e11/build",
+    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{CX - CR} ~1 ~{CZ} glass run function tut:s1/e11/build",
+    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{sx} ~{sy} ~{sz} dark_oak_sign run function tut:s1/e11/build",
+    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{INNER_SIGN[0]} ~{INNER_SIGN[1]} ~{INNER_SIGN[2]} dark_oak_wall_sign run function tut:s1/e11/build",
+    f"execute if score @s tut_tick matches {END + 1}.. unless block ~{BX0 + 1} ~-1 ~{CZ} stone unless block ~{BX0 + 1} ~-1 ~{CZ} stone_bricks run function tut:s1/e11/build",
     "# floors placed as stone take their final colour next tick (light update)",
-    f"execute if block ~{CX} ~-1 ~{BZ0 + 1} stone run {bridge_floor('stone_bricks')}",
-    f"execute if block ~{CX} ~-1 ~{PZ0 + 2} stone run {platform_floor('grass_block')}",
+    f"execute if block ~{BX0 + 1} ~-1 ~{CZ} stone run {bridge_floor('stone_bricks')}",
+    f"execute if block ~{PX0 + 2} ~-1 ~{CZ} stone run {platform_floor('grass_block')}",
+    "# remember the visit: the check runs at the island buttons, far from the cage (s1/e11/start resets it)",
+    f"execute {pocket} run scoreboard players set @s tut_cage 1",
+    "# back on the island after the visit: swap the posts for the TP TO NEXT ISLAND button (internal/finish_island)",
+    "execute if score @s tut_cage matches 1 if score @s tut_end matches 0 positioned ~ ~-1 ~ if entity @s[dx=11,dy=5,dz=11] positioned ~ ~1 ~ run function tut:internal/finish_island",
     "scoreboard players set @s tut_tmp 0",
     f"execute {on_top} run scoreboard players set @s tut_tmp 1",
     "execute positioned ~-40 ~-50 ~-40 unless entity @s[dx=91,dy=119,dz=91] run scoreboard players set @s tut_tmp 2",
@@ -127,8 +164,10 @@ write("tick", [HEAD,
     "scoreboard players operation @s tut_last = @s tut_tmp"])
 
 # --- check
-write("check", [HEAD, f"execute {pocket} run return 1", "return fail"])
+write("check", [HEAD, "execute if score @s tut_cage matches 1 run return 1", f"execute {pocket} run return 1", "return fail"])
 
-# --- dispatch's leftover sweep lines (printed for reference)
+# --- dispatch's sweep lines (printed for reference; dispatch.mcfunction is hand-maintained)
 print(f"wrote build/anim/clear/sign/tick/check; END = {END}")
-print(f"sweep: ~{CX} ~0 ~{CZ} gold_block -> clear; legacy: {[l[0] for l in LEGACY]}")
+print(f"sweep: unless tut_ex 11, if block ~{CX} ~0 ~{CZ} gold_block -> s1/e11/clear")
+for (x, y, z), cmds in LEGACY:
+    print(f"legacy: if block ~{x} ~{y} ~{z} gold_block -> {cmds}")

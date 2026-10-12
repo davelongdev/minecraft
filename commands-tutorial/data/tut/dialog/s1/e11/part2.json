@@ -1,13 +1,13 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 10 of 10: Teleport with X Y Z  (part 2 of 2)",
+    "text": "Quest 12 of 12: Teleport with X Y Z Coordinates  (part 2 of 2)",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
   },
   "external_title": {
-    "text": "Quest 10",
+    "text": "Quest 12",
     "font": "minecraft:default"
   },
   "pause": false,
@@ -66,13 +66,87 @@
             "bold": true
           },
           {
-            "text": "Tab trick: look at a block, type /tp @s and press Tab. It types that block's numbers! ",
+            "text": "",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "Then press the NEXT QUEST button.",
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Tab trick",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - look at any block, type ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "/tp @s ",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true,
+            "click_event": {
+              "action": "suggest_command",
+              "command": "/tp @s "
+            },
+            "hover_event": {
+              "action": "show_text",
+              "value": {
+                "text": "Click to put this in your chat box",
+                "font": "minecraft:uniform"
+              }
+            }
+          },
+          {
+            "text": " and press Tab. It types that block's numbers! (It can't see through glass, so use the sign's numbers for the cage.)",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Made it inside? If so, you've completed the quest! The sign in the cage shows the numbers to get back to your island. ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 7 of 10: Autocomplete",
+    "text": "Quest 7 of 12: REPL",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
@@ -28,127 +28,13 @@
             "bold": true
           },
           {
-            "text": "Autocomplete",
+            "text": "REPL = Read, Evaluate, Print, Loop",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " - Minecraft types things out for you.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "Tab",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": " - Choose from a list of suggestions with ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Tab",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ".",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "This is sometimes called ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Code Completion",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ", ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Tab Completion",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ", or ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "IntelliSense",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ".",
+            "text": " - you type a line, Minecraft reads it, evaluates it (runs it), prints a reply, and loops back for your next line.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -190,91 +76,13 @@
             "color": "white"
           },
           {
-            "text": "/gam",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": " and press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Tab",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ". Then a space, then ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Tab",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": " twice to pick ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "creative",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ". Press Enter.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "Stuck? ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "/help gamemode",
+            "text": "/give @s stick",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true,
             "click_event": {
               "action": "suggest_command",
-              "command": "/help gamemode"
+              "command": "/give @s stick"
             },
             "hover_event": {
               "action": "show_text",
@@ -285,7 +93,7 @@
             }
           },
           {
-            "text": " shows what a command wants.",
+            "text": " and press Enter.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -315,7 +123,7 @@
             "bold": true
           },
           {
-            "text": "Creative lets you fly: double-tap space.",
+            "text": "Watch Minecraft print a reply in chat. That's the Print step.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -345,7 +153,13 @@
             "bold": true
           },
           {
-            "text": "Then press the NEXT QUEST button.",
+            "text": "Got the stick? If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
@@ -358,7 +172,7 @@
   "actions": [
     {
       "label": {
-        "text": "Put /help gamemode in my chat box",
+        "text": "Put /give @s stick in my chat box",
         "font": "minecraft:uniform"
       },
       "tooltip": {
@@ -367,7 +181,7 @@
       },
       "action": {
         "type": "minecraft:suggest_command",
-        "command": "/help gamemode"
+        "command": "/give @s stick"
       }
     }
   ],

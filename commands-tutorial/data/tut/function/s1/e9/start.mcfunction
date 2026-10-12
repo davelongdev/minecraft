@@ -1,3 +1,4 @@
 scoreboard players set @s tut_last -1
-function tut:s1/e9/clear
+clear @s cookie
+execute positioned ~6 ~ ~6 run kill @e[type=item,distance=..15]
 function tut:s1/e9/title

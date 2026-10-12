@@ -1,7 +1,7 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 9 of 10: The Up arrow",
+    "text": "Quest 9 of 12: View All Commands",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
@@ -28,19 +28,7 @@
             "bold": true
           },
           {
-            "text": "Press t, then the ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Up arrow",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ". Your last command comes back!",
+            "text": "Minecraft has lots of commands. You don't have to remember them - the game can show you the whole list.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -70,31 +58,49 @@
             "bold": true
           },
           {
-            "text": "Change ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "cookie",
+            "text": "/ then Tab",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " to ",
+            "text": " - press ",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "bread",
+            "text": "t",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": ", then Enter.",
+            "text": ", type ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "/",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", then press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Tab",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ". A list of every command pops up.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -124,25 +130,43 @@
             "bold": true
           },
           {
-            "text": "Hint",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": " - you can move left and right on the ",
+            "text": "You can scroll through the list of commands with ",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
           },
           {
-            "text": "command line",
+            "text": "Tab",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true
           },
           {
-            "text": " with the arrow keys.",
+            "text": " (down), ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Shift + Tab",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " (up), or the ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Up / Down arrow keys",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ".",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -172,9 +196,206 @@
             "bold": true
           },
           {
-            "text": "Then press the NEXT QUEST button.",
+            "text": "Your Mission",
             "font": "minecraft:default",
             "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " - Open the list and scroll through it. Spot ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "xp",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "gamemode",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ", and ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "give",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": "?",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Now scroll to ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "effect",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " and press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "space",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " to type it. Finish the line so it says ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "/effect give @s invisibility",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true,
+            "click_event": {
+              "action": "suggest_command",
+              "command": "/effect give @s invisibility"
+            },
+            "hover_event": {
+              "action": "show_text",
+              "value": {
+                "text": "Click to put this in your chat box",
+                "font": "minecraft:uniform"
+              }
+            }
+          },
+          {
+            "text": " and press Enter.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Are you invisible? Your hand should be gone. Press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "F5",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": " to look at yourself from behind - nothing there! (F5 again to go back.) If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Curious what a command does? /help plus its name tells you.",
+            "font": "minecraft:default",
+            "color": "gray",
             "bold": true
           }
         ]
@@ -185,9 +406,16 @@
   "actions": [
     {
       "label": {
-        "text": "Got it!",
-        "font": "minecraft:uniform",
-        "color": "green"
+        "text": "Put /effect give @s invisibility in my chat box",
+        "font": "minecraft:uniform"
+      },
+      "tooltip": {
+        "text": "Types it for you. You press Enter.",
+        "font": "minecraft:uniform"
+      },
+      "action": {
+        "type": "minecraft:suggest_command",
+        "command": "/effect give @s invisibility"
       }
     }
   ],

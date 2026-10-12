@@ -1,7 +1,7 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 2 of 10: Say hello",
+    "text": "Quest 2 of 12: t and Esc",
     "font": "minecraft:default",
     "color": "gold",
     "bold": true
@@ -40,31 +40,7 @@
             "bold": true
           },
           {
-            "text": ", type ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "hello",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ", press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Enter",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ". Your words appear in chat, and all players can read your message.",
+            "text": ". This chat window gets larger, and a box opens at the bottom of the screen. That's the chat box.",
             "font": "minecraft:default",
             "bold": true,
             "color": "white"
@@ -79,7 +55,70 @@
             "bold": true
           },
           {
-            "text": "Then press the NEXT QUEST button.",
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Press ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Esc",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": true
+          },
+          {
+            "text": ". The box closes, and you're back in the game.",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
+            "bold": true
+          },
+          {
+            "text": "Open and close it a few times. Did the box open and close? If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": true,
+            "color": "white"
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": true

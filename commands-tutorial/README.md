@@ -41,7 +41,7 @@ every zip update.
    Chat shows gentle red corrections when something's not quite right.
 3. Stuck? Press QUEST again to reread the current part.
    Three buttons on the island: QUEST (press again for the next part), NEXT QUEST (checks the task first), PREVIOUS QUEST.
-   A "Quests completed" sidebar counts each quest once per player.
+   A "Leaderboard" sidebar (every player, sorted by points, persists offline) scores each quest once per player: 1 point for a section 1 quest, 2 for a section 2 quest. Redoing a quest adds nothing.
    From chat: `/function tut:___quest`, `/function tut:___previous`.
 4. Lost? `/function tut:___start` replays the current exercise and teleports home.
 
@@ -52,7 +52,9 @@ Run these *as the kid* from your own chat: `/execute as <Name> run function tut:
 | Function | Does |
 |---|---|
 | `tut:___skip` | mark the current exercise done |
-| `tut:___goto {sec:1,ex:3}` | jump to an exercise (ex 0 = section intro) |
+| `tut:___top` | announce the top 5 online players by points to everyone, medals for the top 3 |
+| `tut:___goto_quest {q:"1.4"}` | jump to section 1, quest 4 (quests 10 and 11 need the quotes: `{q:"1.10"}`) |
+| `tut:___goto {sec:1,ex:3}` | same, 0-based exercise index |
 | `tut:___reset_player` | back to the start, plot rebuilt, inventory cleared (keeps their plot) |
 | `tut:___reset_world` | reset every online player |
 | `tut:___restart_section` | redo the current section |
