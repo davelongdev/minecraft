@@ -16,14 +16,17 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   dialogue, stats/levels, and loot. Overlaps with the NPC game above for the
   dialogue layer; stats and inventory via scoreboards, storage NBT, and
   `custom_data`-tagged items.
-- [ ] **Commands tutorial map for 26.2, fully in-game (no videos)** — our own
-  version of slicedlime's Command Training Grounds for the Newburgh Creates
-  kids, but every explanation lives in the world: `/dialog` screens for lesson
-  text and hints, written books / lecterns for reference, signs and `tellraw`
-  for exercise prompts, worked examples as pre-filled command blocks the kid
-  can open and read. Keep his 11-section order as the spine, add
-  functions/datapacks early and the second half he never filmed, per-player
-  progress, sandboxed outcome checks. Design notes in
+- [ ] **Commands tutorial map ("Learn Commands"), fully in-game (no videos)** —
+  IN PROGRESS in `commands-tutorial/` (targets 26.3, world `learn_commands`).
+  2026-10-11: engine + Section 1 (10 quests) built and playtested by Dave through
+  many UI iterations (see CLAUDE.md for the settled rules: chat-only, three
+  physical buttons, nothing automatic). Open items: a second-player LAN test
+  (per-player islands untested with two accounts); quests 1–2 can't be verified
+  (chat/keys invisible to datapacks); the "Triggered [tut_btn]" line still shows
+  for book links. Next: Section 2 (command blocks, using the sandbox chunk for
+  checks), then slicedlime's remaining sections and the second half he never
+  filmed (functions early, execute store, data, components, macros). Design in
+  `commands-tutorial/PLAN.md`; research in
   `reports/Teaching Minecraft Java commands.md`.
 
 ## Game-type ideas
