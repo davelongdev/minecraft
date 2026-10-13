@@ -1,0 +1,2 @@
+# Macro (name, greeting, l1..l0, n1..n0): the dialog screen with 0 button(s). Inline dialog, nothing on disk.
+$dialog show @s {type:"minecraft:multi_action",title:{text:"$(name)",color:"gold",bold:true},external_title:"$(name)",pause:false,can_close_with_escape:true,after_action:"close",body:[{type:"minecraft:plain_message",width:300,contents:"$(greeting)"}],columns:1,actions:[],exit_action:{label:"Bye"}}
