@@ -49,6 +49,34 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   in-game reload shortcuts instead for now. Build only if the manual zip/copy
   step becomes a bother again.
 
+## Java modding environment — follow-ups (2026-10-13)
+
+Report: `reports/Minecraft and Hytale Java mod setup.md`; reader doc `java-notes.md`.
+
+- [ ] `sudo pacman -S jdk25-openjdk`, then `sudo archlinux-java set java-25-openjdk` or
+  `org.gradle.java.home=/usr/lib/jvm/java-25-openjdk` in `~/.gradle/gradle.properties`
+  (JDK 27 can't run the template wrappers; the path is Arch's naming convention,
+  unverified until installed).
+- [ ] Generate a Fabric 26.3 template (fabricmc.net/develop/template), `./gradlew
+  runClient`, then `build` and copy the jar into the Prism 26.3 instance after
+  installing Fabric Loader 0.19.5 + Fabric API 0.162.0+26.3 there (Edit → Version →
+  Install).
+- [ ] Pick the editor route and test the report's untested snippets: nvim-jdtls
+  ftplugin (Mason jdtls / java-debug-adapter / java-test, exclude jdtls from
+  `automatic_enable`, `-Xmx`, `java.import.gradle.java.home`), or Emacs lsp-java /
+  eglot-java, or `pacman -S intellij-idea-community-edition` + Minecraft Development.
+- [ ] Start the learning sequence from the report (dev.java → Runestone "Java for
+  Python Programmers" → Exercism → first item mod; Kaupenjoe Fabric-Tutorial-26.X
+  branches via `git diff`).
+- [ ] Hytale: decide whether to buy an account ($19.99) and try
+  `HytaleModding/plugin-template` on JDK 25; whether the server runs on JDK 27 is
+  unverified; the API is unstable (Update 7 broke plugins).
+- [ ] Kids track (later): pre-built per-laptop project, seeded Gradle cache for
+  `--offline`, the account question (Prism needs an owning Microsoft account per
+  laptop).
+- [ ] Unverified claims to check on first use: Loom's run dir (`run/`), Prism
+  "export instance" path, measured build times on the studio laptops.
+
 ## Game-type ideas
 
 Kinds of games that work well as vanilla datapacks, grouped by genre. Not
