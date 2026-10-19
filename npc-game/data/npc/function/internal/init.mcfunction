@@ -1,13 +1,13 @@
 # One-time world setup: a small island in the void, two starter characters on it.
-scoreboard players set global npc_init 1
+scoreboard players set global npc_init 4
 fill -32 -64 -32 32 -60 32 air
 fill -32 -59 -32 32 -55 32 air
-fill -6 63 -6 6 63 6 grass_block
-fill -6 62 -6 6 62 6 dirt
-fill -7 64 -7 7 64 -7 oak_fence
-fill -7 64 7 7 64 7 oak_fence
-fill -7 64 -7 -7 64 7 oak_fence
-fill 7 64 -7 7 64 7 oak_fence
+fill -25 63 -25 24 63 24 grass_block
+fill -25 62 -25 24 62 24 dirt
+fill -25 64 -25 24 64 -25 oak_fence
+fill -25 64 24 24 64 24 oak_fence
+fill -25 64 -25 -25 64 24 oak_fence
+fill 24 64 -25 24 64 24 oak_fence
 setworldspawn 0 65 0 0 0
 spawnpoint @a 0 65 0
 tp @a 0.5 65 0.5 0 0
@@ -18,4 +18,4 @@ gamerule respawn_radius 0
 defaultgamemode adventure
 gamemode adventure @a
 function npc:internal/starters
-tellraw @a {"text":"NPC island loaded. Right-click a character to talk. /function npc:___help shows how to make your own.","color":"aqua"}
+tellraw @a {"text":"NPC island loaded. Right-click a character to talk. The NPC Forge Book in your inventory tells you how to make your own.","color":"aqua"}

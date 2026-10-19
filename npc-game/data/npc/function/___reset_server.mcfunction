@@ -1,0 +1,3 @@
+# Teacher: start the whole world over (every character, name, island button, achievement; everyone back at spawn with fresh
+# books; Bob and Mira seeded again). Asks first; the Yes button also gets Minecraft's own command confirmation.
+dialog show @s {type:"minecraft:confirmation",title:{text:"Reset the whole server?",color:"red",bold:true},external_title:"Reset the whole server?",pause:false,body:[{type:"minecraft:plain_message",width:300,contents:{text:"Every player's NPCs, names, island buttons, and achievements are erased. Bob and Mira come back.",color:"white"}}],yes:{label:{text:"Reset everything",color:"red"},action:{type:"minecraft:run_command",command:"function npc:internal/reset_server"}},no:{label:"Cancel"}}

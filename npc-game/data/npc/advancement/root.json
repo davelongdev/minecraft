@@ -1,0 +1,11 @@
+{
+  "criteria": {"here": {"trigger": "minecraft:tick"}},
+  "display": {
+    "icon": {"id": "minecraft:villager_spawn_egg"},
+    "title": "NPC Forge",
+    "description": "Make characters, give them buttons, earn islands.",
+    "background": "minecraft:gui/advancements/backgrounds/adventure",
+    "show_toast": false,
+    "announce_to_chat": false
+  }
+}
