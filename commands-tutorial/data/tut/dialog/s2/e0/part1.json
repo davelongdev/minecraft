@@ -1,14 +1,14 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 1 of 12: Give Yourself a Command Block",
-    "font": "minecraft:default",
+    "text": "Quest 1 of 12",
+    "font": "tut:clean",
     "color": "gold",
     "bold": true
   },
   "external_title": {
     "text": "Quest 1",
-    "font": "minecraft:default"
+    "font": "tut:clean"
   },
   "pause": false,
   "can_close_with_escape": true,
@@ -19,127 +19,106 @@
       "width": 320,
       "contents": {
         "text": "",
-        "font": "minecraft:default",
+        "font": "tut:clean",
+        "color": "#CFE8FF",
         "extra": [
           {
+            "text": "Give Yourself a Command Block",
+            "font": "tut:clean",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "In Section 1, ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "you",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " typed the commands. A ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "command block",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " is a block that runs commands on its own.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Command blocks only open in ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "Creative mode",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": ".",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Your Mission",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " - Type ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "/gamemode creative",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true,
+            "bold": false,
             "click_event": {
               "action": "suggest_command",
               "command": "/gamemode creative"
@@ -154,15 +133,15 @@
           },
           {
             "text": " and press Enter. Then type ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "/give @s command_block",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true,
+            "bold": false,
             "click_event": {
               "action": "suggest_command",
               "command": "/give @s command_block"
@@ -177,45 +156,39 @@
           },
           {
             "text": " and press Enter.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Look in your inventory. Do you see an orange block? That's a command block! If so, you've completed the quest! ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Press the NEXT QUEST button to continue.",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           }
         ]
       }
@@ -226,11 +199,11 @@
     {
       "label": {
         "text": "Put /gamemode creative in my chat box",
-        "font": "minecraft:uniform"
+        "font": "tut:clean"
       },
       "tooltip": {
         "text": "Types it for you. You press Enter.",
-        "font": "minecraft:uniform"
+        "font": "tut:clean"
       },
       "action": {
         "type": "minecraft:suggest_command",
@@ -241,7 +214,7 @@
   "exit_action": {
     "label": {
       "text": "Close",
-      "font": "minecraft:uniform"
+      "font": "tut:clean"
     }
   }
 }

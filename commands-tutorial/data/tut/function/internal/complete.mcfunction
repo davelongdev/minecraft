@@ -15,6 +15,6 @@ scoreboard players set @s tut_tick 0
 scoreboard players set @s tut_lp 0
 scoreboard players set @s tut_pp -1
 scoreboard players set @s tut_last -1
-# the Little Command Book gains a note for every quest completed (tools/gen_book.py)
-function tut:internal/give_book
+# the Little Command Book arrives after quest 2 and gains a note for every quest completed (tools/gen_book.py)
+execute if score @s tut_quests matches 2.. run function tut:internal/give_book
 $execute if score @s tut_ex > s$(sec) tut_const run function tut:internal/section_complete with storage tut:main args

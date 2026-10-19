@@ -1,14 +1,14 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 2 of 12: t and Esc",
-    "font": "minecraft:default",
+    "text": "Quest 2 of 12",
+    "font": "tut:clean",
     "color": "gold",
     "bold": true
   },
   "external_title": {
     "text": "Quest 2",
-    "font": "minecraft:default"
+    "font": "tut:clean"
   },
   "pause": false,
   "can_close_with_escape": true,
@@ -19,109 +19,94 @@
       "width": 320,
       "contents": {
         "text": "",
-        "font": "minecraft:default",
+        "font": "tut:clean",
+        "color": "#CFE8FF",
         "extra": [
           {
+            "text": "Say Hello",
+            "font": "tut:clean",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "t",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
-            "text": ". This chat window gets larger, and a box opens at the bottom of the screen. That's the chat box.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": ", type ",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "Press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Esc",
-            "font": "minecraft:default",
+            "text": "hello",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
-            "text": ". The box closes, and you're back in the game.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": ", press ",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
-            "text": "\n\n"
+            "text": "Enter",
+            "font": "tut:clean",
+            "color": "yellow",
+            "bold": false
           },
           {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": ". Your words appear in chat, and all players can read your message.",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
-            "text": "Open and close it a few times. Did the box open and close? If so, you've completed the quest! ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": "Did your words show up in chat? If so, you've completed the quest! ",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Press the NEXT QUEST button to continue.",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           }
         ]
       }
@@ -132,7 +117,7 @@
     {
       "label": {
         "text": "Got it!",
-        "font": "minecraft:uniform",
+        "font": "tut:clean",
         "color": "green"
       }
     }
@@ -140,7 +125,7 @@
   "exit_action": {
     "label": {
       "text": "Close",
-      "font": "minecraft:uniform"
+      "font": "tut:clean"
     }
   }
 }

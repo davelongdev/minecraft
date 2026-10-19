@@ -1,14 +1,14 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 9 of 12: View All Commands",
-    "font": "minecraft:default",
+    "text": "Quest 9 of 12",
+    "font": "tut:clean",
     "color": "gold",
     "bold": true
   },
   "external_title": {
     "text": "Quest 9",
-    "font": "minecraft:default"
+    "font": "tut:clean"
   },
   "pause": false,
   "can_close_with_escape": true,
@@ -19,289 +19,238 @@
       "width": 320,
       "contents": {
         "text": "",
-        "font": "minecraft:default",
+        "font": "tut:clean",
+        "color": "#CFE8FF",
         "extra": [
           {
+            "text": "View All Commands",
+            "font": "tut:clean",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Minecraft has lots of commands. You don't have to remember them - the game can show you the whole list.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "/ then Tab",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " - press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "t",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": ", type ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "/",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": ", then press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "Tab",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": ". A list of every command pops up.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "You can scroll through the list of commands with ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "Tab",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " (down), ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "Shift + Tab",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " (up), or the ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "Up / Down arrow keys",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": ".",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Your Mission",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " - Open the list and scroll through it. Spot ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "xp",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": ", ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "gamemode",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": ", and ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "give",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": "?",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Now scroll to ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "effect",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " and press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "space",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " to type it. Finish the line so it says ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "/effect give @s invisibility",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true,
+            "bold": false,
             "click_event": {
               "action": "suggest_command",
               "command": "/effect give @s invisibility"
@@ -316,87 +265,66 @@
           },
           {
             "text": " and press Enter.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Are you invisible? Your hand should be gone. Press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "F5",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " to look at yourself from behind - nothing there! (F5 again to go back.) If so, you've completed the quest! ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Press the NEXT QUEST button to continue.",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Curious what a command does? /help plus its name tells you.",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "gray",
-            "bold": true
+            "bold": false
           }
         ]
       }
@@ -407,11 +335,11 @@
     {
       "label": {
         "text": "Put /effect give @s invisibility in my chat box",
-        "font": "minecraft:uniform"
+        "font": "tut:clean"
       },
       "tooltip": {
         "text": "Types it for you. You press Enter.",
-        "font": "minecraft:uniform"
+        "font": "tut:clean"
       },
       "action": {
         "type": "minecraft:suggest_command",
@@ -422,7 +350,7 @@
   "exit_action": {
     "label": {
       "text": "Close",
-      "font": "minecraft:uniform"
+      "font": "tut:clean"
     }
   }
 }

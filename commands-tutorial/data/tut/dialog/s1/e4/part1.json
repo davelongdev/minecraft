@@ -1,14 +1,14 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 5 of 12: The Forward Slash",
-    "font": "minecraft:default",
+    "text": "Quest 5 of 12",
+    "font": "tut:clean",
     "color": "gold",
     "bold": true
   },
   "external_title": {
     "text": "Quest 5",
-    "font": "minecraft:default"
+    "font": "tut:clean"
   },
   "pause": false,
   "can_close_with_escape": true,
@@ -19,67 +19,61 @@
       "width": 320,
       "contents": {
         "text": "",
-        "font": "minecraft:default",
+        "font": "tut:clean",
+        "color": "#CFE8FF",
         "extra": [
           {
+            "text": "The Forward Slash",
+            "font": "tut:clean",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "The ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "/",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": " tells Minecraft: this is a command, not chat. Type this and press Enter:",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "    ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "/effect give @s glowing",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true,
+            "bold": false,
             "click_event": {
               "action": "suggest_command",
               "command": "/effect give @s glowing"
@@ -97,42 +91,27 @@
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
             "text": "Are you glowing? If so, you've completed the quest! ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "Press the NEXT QUEST button to continue.",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
             "text": "   (click the blue text and it jumps into the chat box)",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "gray",
-            "bold": true
+            "bold": false
           }
         ]
       }
@@ -143,11 +122,11 @@
     {
       "label": {
         "text": "Put /effect give @s glowing in my chat box",
-        "font": "minecraft:uniform"
+        "font": "tut:clean"
       },
       "tooltip": {
         "text": "Types it for you. You press Enter.",
-        "font": "minecraft:uniform"
+        "font": "tut:clean"
       },
       "action": {
         "type": "minecraft:suggest_command",
@@ -158,7 +137,7 @@
   "exit_action": {
     "label": {
       "text": "Close",
-      "font": "minecraft:uniform"
+      "font": "tut:clean"
     }
   }
 }

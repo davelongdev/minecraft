@@ -4,8 +4,8 @@
 Run from the pack root:  python3 tools/gen_book.py
 The book fills in as quests are completed: every quest adds a note to a page (LEARN below).
 Level = quests completed so far (tut_quests: section 1 quest n -> n, section 2 quest n -> 12 + n);
-give_book picks book_<level>. internal/complete re-gives the book after every quest; join,
-reset_core and the ___book trigger give it too. Pages are small (about 14 short lines).
+give_book picks book_<level>. The book is first given when quest 2 is completed (internal/complete
+re-gives it after every quest); join and the ___book trigger give it only once tut_quests >= 2. Pages are small (about 14 short lines).
 """
 import json
 import pathlib
@@ -33,9 +33,9 @@ JOIN = {"know": "\n", "bknow": "\n"}  # list pages: one entry per line; the rest
 
 # (section, quest number completed, page key, note)
 LEARN = [
-    (1, 1, "book", "Right-click the book to read your notes. A new note appears after every quest."),
-    (1, 2, "chat", "t = open chat.\nEsc = close chat."),
-    (1, 3, "chat", "Type words and press Enter: everyone sees them."),
+    (1, 2, "book", "Right-click the book to read your notes. A new note appears after every quest."),
+    (1, 1, "chat", "t = open chat.\nEsc = close chat."),
+    (1, 2, "chat", "Type words and press Enter: everyone sees them."),
     (1, 4, "chat", "With chat open, you can click things in chat."),
     (1, 5, "commands", "Type / first: it's a command, not chat."),
     (1, 5, "know", "/effect give @s glowing"),
@@ -92,9 +92,8 @@ def book(level):
             text = f"{title}\n\n{body}"
             assert len(text) <= 256, f"page {key} too long at level {level}: {len(text)}"
             pages.append(page(text))
-    pages.append(page("Stuck?\n\n", extra=[{"font": FONT, "text": "[Start this exercise over]", "color": "red",
-                                             "click_event": {"action": "run_command", "command": "trigger tut_btn set 3"}}]))
-    pages.append(page("For teachers\n\n/function tut:___skip\n/function tut:___goto_quest {q:1.4}\n/function tut:___fix_island\n/function tut:___top\n/function tut:___reset_player\n/function tut:___reset_world\n\nRun one as a kid:\n/execute as Name run function tut:___skip"))
+    # the "Stuck? [Start this exercise over]" page (trigger tut_btn set 3) was removed 2026-10-18 at Dave's request;
+    # TODO.md notes it may come back after a particular quest
     return pages
 
 

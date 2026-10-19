@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the chat-only quest text from Python data.
+"""Generate the quest text from Python data: dialog screens (what the SHOW QUEST button opens since 2026-10-18) and the older chat part functions (kept, no longer printed).
 
 Run from the pack root:  python3 tools/gen_lessons.py
 For each quest it writes s1/eN/part1.mcfunction (.. partK) for chat and the matching
@@ -72,7 +72,8 @@ def find_suggest(components):
     return None
 
 
-DIALOG_FONT = "minecraft:default"  # bolder than uniform: easier to read over the blurred game view
+DIALOG_FONT = "tut:clean"  # Liberation Sans TTF from resourcepacks/no-moon (Dave 2026-10-18: default was blocky); needs the pack
+DIALOG_BODY = "#CFE8FF"  # pale blue body text, key words stay yellow
 
 
 def restyle(c):
@@ -81,17 +82,34 @@ def restyle(c):
         return c
     c = dict(c)
     c["font"] = DIALOG_FONT
-    c["bold"] = True
+    c["bold"] = False  # Dave 2026-10-18: no bold in dialogs (blocky/blurry), same as the intro
     if c.get("color") in ("aqua", "green"):
         c["color"] = "yellow"
     elif c.get("color") in (None, "white"):
-        c["color"] = "white"
+        c["color"] = DIALOG_BODY
     return c
+
+
+def dt(text, **style):
+    """Dialog text (buttons, titles) in the dialog font."""
+    return {"text": text, "font": DIALOG_FONT, **style}
 
 
 def dialog_part(sec, i, k, n, header, body_lines):
     """Build a multi_action dialog for part k of quest i from the same lines used for chat."""
-    comps = []
+    # the green closer (CONTINUE / NEXT) goes on its own line in the dialog
+    split = []
+    for l in body_lines:
+        cs = tellraw_components(l)
+        if len(cs) > 2 and cs[-1] in (CONTINUE, NEXT):
+            split.append("tellraw @s " + json.dumps(cs[:-1], ensure_ascii=False))
+            split.append("tellraw @s " + json.dumps([cs[0], cs[-1]], ensure_ascii=False))
+        else:
+            split.append(l)
+    # chat blank lines are not needed in the dialog: every line already gets one blank line after it
+    body_lines = [l for l in split if l != BLANK]
+    # the quest's name is the first line of the body; the window title is just "Quest N of T" (Dave 2026-10-18)
+    comps = [dt(header, color="gold"), {"text": "\n\n"}]
     suggest = None
     for idx, l in enumerate(body_lines):
         cs = tellraw_components(l)
@@ -102,15 +120,21 @@ def dialog_part(sec, i, k, n, header, body_lines):
     actions = []
     if suggest:
         command, label = suggest
-        actions.append({"label": t("Put " + (label if label.startswith("/") else "the command") + " in my chat box"),
-                        "tooltip": t("Types it for you. You press Enter."),
+        actions.append({"label": dt("Put " + (label if label.startswith("/") else "the command") + " in my chat box"),
+                        "tooltip": dt("Types it for you. You press Enter."),
                         "action": {"type": "minecraft:suggest_command", "command": command}})
     if k < n:
-        actions.append({"label": t(f"Part {k + 1}", color="green"),
+        actions.append({"label": dt(f"Part {k + 1}", color="green"),
                         "action": {"type": "minecraft:show_dialog", "dialog": f"tut:s{sec}/e{i}/part{k + 1}"}})
+    if sec == 1 and i == 0:
+        # quest 1: no NEXT QUEST post yet. "Try it" just closes the screen; "I did it!" completes the quest
+        # (trigger 6 -> internal/try_complete). Stacked in that order, no extra Close button (Dave 2026-10-18).
+        actions.append({"label": dt("Try it", color="yellow")})
+        actions.append({"label": dt("I did it!", color="green"),
+                        "action": {"type": "minecraft:run_command", "command": "trigger tut_btn set 6"}})
     if not actions:
-        actions.append({"label": t("Got it!", color="green")})
-    title = f"Quest {i + 1} of {TOTAL}: {header}" + (f"  (part {k} of {n})" if n > 1 else "")
+        actions.append({"label": dt("Got it!", color="green")})
+    title = f"Quest {i + 1} of {TOTAL}" + (f"  (part {k} of {n})" if n > 1 else "")
     write_dialog(f"s{sec}/e{i}/part{k}.json", {
         "type": "minecraft:multi_action",
         "title": {"text": title, "font": DIALOG_FONT, "color": "gold", "bold": True},
@@ -118,10 +142,10 @@ def dialog_part(sec, i, k, n, header, body_lines):
         "pause": False,
         "can_close_with_escape": True,
         "after_action": "close",
-        "body": [{"type": "minecraft:plain_message", "width": 320, "contents": {"text": "", "font": DIALOG_FONT, "extra": comps}}],
+        "body": [{"type": "minecraft:plain_message", "width": 320, "contents": {"text": "", "font": DIALOG_FONT, "color": DIALOG_BODY, "extra": comps}}],
         "columns": 1,
         "actions": actions,
-        "exit_action": {"label": t("Close")},
+        **({} if (sec == 1 and i == 0) else {"exit_action": {"label": dt("Close")}}),
     })
 
 
@@ -181,22 +205,15 @@ DID_IT = {"text": "[I did it!]", "font": FONT, "color": "green", "bold": True, "
           "hover_event": {"action": "show_text", "value": t("Click me")}}
 
 QUESTS = [
-    dict(short="Open the|Book", header="Open the Book",
-         parts=[[
-             line("You have a book! It's the ", key("Little Command Book"), ", and it's in your hotbar at the bottom of the screen."),
-             line(""),
-             line(key("Your Mission"), " - Pick the book with its number key or the scroll wheel, then ", key("right-click"), " to open it. Read it, then press ", key("Esc"), " to close it."),
-             line(""),
-             line("Done reading? If so, you've completed the quest! ", CONTINUE),
-         ]]),
-
     dict(short="t and Esc", header="t and Esc",
          parts=[[
-             line("Press ", key("t"), ". This chat window gets larger, and a box opens at the bottom of the screen. That's the chat box."),
+             line("When you press ", key("t"), ", a chat window in the bottom left of the screen opens up."),
              line(""),
-             line("Press ", key("Esc"), ". The box closes, and you're back in the game."),
+             line("When you press ", key("Esc"), ", the box closes, and you're back in the game."),
              line(""),
-             line("Open and close it a few times. Did the box open and close? If so, you've completed the quest! ", CONTINUE),
+             line("Click ", key("Try it"), " to close this window and test it out."),
+             line(""),
+             line("Once you've done it, click ", t("I did it!", color="#55FF55"), " to move to your next quest!"),
          ]]),
 
     dict(short="Say Hello", header="Say Hello",
@@ -204,6 +221,15 @@ QUESTS = [
              line("Press ", key("t"), ", type ", key("hello"), ", press ", key("Enter"), ". Your words appear in chat, and all players can read your message."),
              line(""),
              line("Did your words show up in chat? If so, you've completed the quest! ", CONTINUE),
+         ]]),
+
+    dict(short="Open the|Book", header="Open the Book",
+         parts=[[
+             line("You just earned a book! It's the ", key("Little Command Book"), ", and it's in your hotbar at the bottom of the screen."),
+             line(""),
+             line(key("Your Mission"), " - Open the book. Do you see the 9 inventory boxes at the bottom of the screen? You can select the first one by pressing ", key("1"), " on the keyboard. Then ", key("right-click"), " to open it."),
+             line(""),
+             line("Done reading? If so, you've completed the quest! ", CONTINUE),
          ]]),
 
     dict(short="The Chat Box", header="Click in Chat",

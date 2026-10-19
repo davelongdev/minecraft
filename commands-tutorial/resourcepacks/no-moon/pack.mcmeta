@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Command Forge: no sun/moon, darker menu blur, clean dialog font",
+    "min_format": 97,
+    "max_format": [
+      97,
+      99
+    ]
+  }
+}

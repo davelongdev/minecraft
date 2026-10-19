@@ -1,14 +1,14 @@
 {
   "type": "minecraft:multi_action",
   "title": {
-    "text": "Quest 1 of 12: Open the Book",
-    "font": "minecraft:default",
+    "text": "Quest 1 of 12",
+    "font": "tut:clean",
     "color": "gold",
     "bold": true
   },
   "external_title": {
     "text": "Quest 1",
-    "font": "minecraft:default"
+    "font": "tut:clean"
   },
   "pause": false,
   "can_close_with_escape": true,
@@ -19,127 +19,121 @@
       "width": 320,
       "contents": {
         "text": "",
-        "font": "minecraft:default",
+        "font": "tut:clean",
+        "color": "#CFE8FF",
         "extra": [
           {
-            "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
-          },
-          {
-            "text": "You have a book! It's the ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "Little Command Book",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": ", and it's in your hotbar at the bottom of the screen.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": "t and Esc",
+            "font": "tut:clean",
+            "color": "gold"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": "When you press ",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "t",
+            "font": "tut:clean",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ", a chat window in the bottom left of the screen opens up.",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
-            "text": "Your Mission",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": " - Pick the book with its number key or the scroll wheel, then ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
-          },
-          {
-            "text": "right-click",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
-          },
-          {
-            "text": " to open it. Read it, then press ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": "When you press ",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "Esc",
-            "font": "minecraft:default",
+            "font": "tut:clean",
             "color": "yellow",
-            "bold": true
+            "bold": false
           },
           {
-            "text": " to close it.",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": ", the box closes, and you're back in the game.",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
-            "text": "",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": "Click ",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "Try it",
+            "font": "tut:clean",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " to close this window and test it out.",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
             "text": "\n\n"
           },
           {
             "text": "",
-            "font": "minecraft:default",
-            "color": "white",
-            "bold": true
+            "font": "tut:clean",
+            "color": "#CFE8FF",
+            "bold": false
           },
           {
-            "text": "Done reading? If so, you've completed the quest! ",
-            "font": "minecraft:default",
-            "bold": true,
-            "color": "white"
+            "text": "Once you've done it, click ",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": true
+            "text": "I did it!",
+            "font": "tut:clean",
+            "color": "#55FF55",
+            "bold": false
+          },
+          {
+            "text": " to move to your next quest!",
+            "font": "tut:clean",
+            "bold": false,
+            "color": "#CFE8FF"
           }
         ]
       }
@@ -149,16 +143,21 @@
   "actions": [
     {
       "label": {
-        "text": "Got it!",
-        "font": "minecraft:uniform",
+        "text": "Try it",
+        "font": "tut:clean",
+        "color": "yellow"
+      }
+    },
+    {
+      "label": {
+        "text": "I did it!",
+        "font": "tut:clean",
         "color": "green"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger tut_btn set 6"
       }
     }
-  ],
-  "exit_action": {
-    "label": {
-      "text": "Close",
-      "font": "minecraft:uniform"
-    }
-  }
+  ]
 }

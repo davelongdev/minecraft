@@ -25,7 +25,7 @@ function tut:internal/ensure_plot with storage tut:main args
 
 # walking in from the end of the path: night turns to day
 execute if score @s tut_walk matches 2 run function tut:internal/intro_tick with storage tut:main args
-execute if score @s tut_walk matches 3 run function tut:internal/intro_wait
+execute if score @s tut_walk matches 3 run function tut:internal/intro_wait with storage tut:main args
 execute if score @s tut_walk matches 1 run function tut:internal/walk_in
 
 # fell off the world
@@ -34,8 +34,9 @@ execute if entity @s[y=-200,dy=199] run function tut:internal/void_catch with st
 # chat links and the book all go through /trigger tut_btn (1 = a quest's chat link was clicked)
 execute if score @s tut_btn matches 1 run scoreboard players set @s tut_flag 1
 execute if score @s tut_btn matches 3 run function tut:___start
-execute if score @s tut_btn matches 4 run function tut:internal/give_book
+execute if score @s tut_btn matches 4 if score @s tut_quests matches 2.. run function tut:internal/give_book
 execute if score @s tut_btn matches 5 run function tut:___quest
+execute if score @s tut_btn matches 6 run function tut:internal/try_complete with storage tut:main args
 
 # tut_sneak counts consecutive ticks spent sneaking (0 when not), so "matches 1" is the
 # tick shift was pressed: holding it pages once, not every tick
@@ -52,11 +53,8 @@ function tut:internal/buttons with storage tut:main args
 execute if score @s tut_sec > maxsec tut_const run function tut:internal/all_done with storage tut:main args
 execute unless score @s tut_sec > maxsec tut_const run function tut:internal/dispatch with storage tut:main args
 
-# dev mode (___dev): shift + space = ___rr (reload + reset player, back to quest 1 and the intro),
-# anywhere; space on the island = ___rq (reload + restart quest). tut_jump is consumed here
-# every tick, so intro_wait (above) sees a jump only on the tick it happened
-execute if score dev tut_const matches 1 if score @s tut_jump matches 1.. if predicate tut:sneaking run function tut:___rr
-execute if score dev tut_const matches 1 if score @s tut_walk matches 0 if score @s tut_jump matches 1.. unless predicate tut:sneaking run function tut:___rq
+# tut_jump is consumed here every tick, so intro_wait (above) sees a jump only on the tick it happened
+# (the dev-mode space / shift+space reload shortcuts were removed 2026-10-16: space must stay free for flying)
 scoreboard players set @s tut_jump 0
 
 scoreboard players set @s tut_btn 0

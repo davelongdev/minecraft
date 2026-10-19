@@ -54,3 +54,5 @@ execute unless score global tut_init matches 1 run function tut:internal/init
 
 # one-time: wipe the retired hub pad (2026-10-12)
 execute unless score hub_gone tut_const matches 1 run function tut:internal/hub_clear
+# noon on every reload (a dusk experiment on 2026-10-18 was dropped: the darkened menu blur in the resource pack does the job)
+time set noon
