@@ -1,0 +1,50 @@
+# /etc/systemd/system/minecraft@.service
+# One Fabric server per instance name: minecraft@npc-game uses /srv/mc/npc-game
+[Unit]
+Description=Minecraft Fabric server %i
+After=network-online.target
+Wants=network-online.target
+PartOf=minecraft.target
+
+[Service]
+Type=simple
+User=minecraft
+Group=minecraft
+WorkingDirectory=/srv/mc/%i
+EnvironmentFile=/srv/mc/%i/.env
+ExecStart=/usr/lib/jvm/java-25-openjdk/bin/java @/srv/mc/_shared/jvm.flags -Xms${HEAP} -Xmx${HEAP} -jar fabric-server-launcher.jar nogui
+ExecStop=/usr/bin/mcrcon -H 127.0.0.1 -P ${RCON_PORT} -p ${RCON_PASSWORD} "say Server stopping" "save-all flush" "stop"
+TimeoutStopSec=120
+SuccessExitStatus=0 143
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# resources: P-cores are logical CPUs 0-11 on this i5-13400 (lscpu -e, 2026-10-20)
+MemoryMax=5G
+CPUAffinity=0-11
+Nice=-5
+
+# sandbox: Java-safe (no MemoryDenyWriteExecute)
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/srv/mc/%i
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+LockPersonality=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RestrictNamespaces=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+
+[Install]
+WantedBy=minecraft.target

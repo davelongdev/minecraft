@@ -80,7 +80,18 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   TP TO NEXT ISLAND) and **Section 2 (8 command block quests on island 2)**
   built and playtested through 2026-10-12 (see CLAUDE.md for the rules, text
   style, points/leaderboard, growing Little Command Book, reset post, goto
-  tools). Open items: a second-player LAN test (per-player islands, the
+  tools). 2026-10-18: quest text moved from chat to dialog screens (SHOW
+  QUEST post; TrueType font + pale blue + darker menu blur via the no-moon
+  resource pack, sun and moon hidden), sealed pitch-black intro room, NEXT/
+  PREVIOUS posts only after quest 1 (quest 1 completes from its own Try it /
+  I did it! buttons), Stuck page dropped from the book. Open from that
+  evening: Dave reported "a white box around the text" in a dialog before the
+  world was reopened — get a screenshot and check; the intro, welcome, and
+  the two notice dialogs still use the normal font; the resource pack must be
+  on every laptop that plays singleplayer (or the dialogs show boxes) — fine
+  once the server sends it; review all 20 quest dialogs in the new style;
+  remember dialog JSON needs a world re-enter, not /reload. Older open items:
+  a second-player LAN test (per-player islands, the
   leaderboard, and the medal name prefixes are untested with two accounts);
   quests 2–3 pass on trust (chat/keys invisible to datapacks); the "Triggered
   [tut_btn]" line still shows for book links; `tools/__pycache__/` got staged —
@@ -105,28 +116,84 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
 
 Hosting research (`reports/Minecraft server hosting options.md`) picked exaroton,
 then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
-"Studio server"). It's updated and reachable over SSH from the home LAN.
+"Studio server"). It's at the studio since 2026-10-20, on the studio Wi-Fi at
+192.168.0.250 (router reservation), reachable with `ssh dell`.
 
-- [ ] **Decide Docker vs plain** (itzg containers with pinned Java vs
-  `jdk25-openjdk` + one systemd unit per game). Dave asked "why docker?" and
-  the trade-offs are laid out; nothing installed yet.
-- [ ] **First server:** Docker or JDK install, `/srv/minecraft/npc-game/`
-  with the `npc-game` world copied from Prism and `zips/npc-game.zip` in its
-  `datapacks/`, online mode + whitelist (`lazerbrain6562` op), port 25565,
-  nftables (SSH + game ports), LAN join test from the laptop. Then one folder
-  per game (Command Forge, tile game, one-block…) on 25566+.
-- [ ] **Move the box to the studio** with an Ethernet cable; fixed LAN address
-  there; auto-restart of the game servers at boot (LUKS passphrase still typed
-  by hand — fine while nobody plays unattended; TPM unlock or a reinstall
-  without LUKS if that changes).
+- [x] **Decide Docker vs plain** (2026-10-19): plain Java per the report; Dave's
+  version-juggling worry is covered by one launcher jar per game folder and
+  side-by-side `jre17/21/25` packages. The box came back on `linux-lts`
+  6.18.57.
+- [x] **First server** (2026-10-19): `/srv/mc/npc-game/` on 25565 with the
+  `npc-game` world + pack, whitelist + op for `lazerbrain6562`, LAN join from
+  the laptop works (state in CLAUDE.md "First server running").
+- [ ] **Next steps on the server, in order** (each step = Dave runs the
+  commands, one at a time, with explanations; report section "Recommended
+  setup for this box, in order" has the exact files):
+  1. ~~Tidy-ups~~: ops level 4 confirmed 2026-10-20; `world.fresh/` still
+     there, delete it when convenient.
+  2. AUR helper + RCON client: install `paru-bin` (git clone from the AUR,
+     `makepkg -si`), then `paru -S mcrcon`.
+  3.–5. **Files ready (2026-10-20):** `server-config/{minecraft@.service,
+     minecraft.target,jvm.flags}` in this repo, copied to `~` on the box;
+     `CPUAffinity=0-11` already set from `lscpu -e`. Dave still has to run
+     the install commands (in CLAUDE.md "Service step prepared"): `install`
+     the units + flags, write the root-only `.env` (password pulled from
+     `server.properties`), `daemon-reload`, `enable --now minecraft.target
+     minecraft@npc-game`, watch `journalctl -fu` for "Done".
+  6. Checks: `mcrcon … list`; `systemctl stop` ends `inactive` (not
+     `failed`); `systemd-analyze security minecraft@npc-game.service`; journal
+     has no `SYSCALL` lines; `taskset -cp <pid>` shows 0-11. Later add the
+     `notify@.service` oneshot the report's `OnFailure=` line expects (left
+     out of the unit for now).
+  7. Firewall: `/etc/nftables.conf` from the report (policy drop, game
+     ports 25565–25570 only, SSH on `tailscale0` or rate-limited on LAN),
+     `nft -f`, `enable --now nftables`; from the laptop confirm 25565
+     connects and 25575 doesn't.
+  8. Backups: `restic init -r /srv/backups/restic`, `/usr/local/bin/mc-backup`
+     (`save-off` / `save-all flush` / restic / `save-on` with a trap),
+     `mc-backup@.service` + hourly `mc-backup@.timer`, run once by hand,
+     `restic snapshots`.
+  9. More games: repeat 1–5 + 8 per folder on the next port pair
+     (`command-forge` 25566/25576, `tile-game` 25567/25577, `one-block`
+     25568/25578 …), each with its world from Prism and pack zip in
+     `world/datapacks/`; `enable` each instance so `minecraft.target` owns
+     them all. `npc-game` and the two `oneblock` packs must stay in separate
+     servers (same namespace / storage).
+  10. Tailscale + SSH hardening (`tailscale up --ssh`, key-only sshd
+     drop-ins, `AllowUsers dave`); parent handout for the Xbox
+     multiplayer toggle (under-16 accounts are blocked by default). The box
+     left the house before this was done (2026-10-20); the studio router
+     reservation is done.
+  Later: `%wheel NOPASSWD` → per-command lines, LUKS remote unlock (TPM2 or
+  initramfs SSH), Uptime Kuma, pull backups to the laptop.
+- [x] **Move the box to the studio** (2026-10-20): on studio Wi-Fi, DHCP
+  reservation 192.168.0.250 on the TP-Link BE6500 (`ssh dell`). Still open:
+  Ethernet cable (then a second reservation for `enp1s0`, e.g. .251);
+  auto-restart of the game servers at boot = the service step above; LUKS
+  passphrase still typed by hand at the box after any power cut (fine while
+  nobody plays unattended; TPM unlock or a reinstall without LUKS if that
+  changes).
 - [ ] **PXE + Clonezilla imaging** for the studio laptops on the same box:
   dnsmasq proxy-DHCP + TFTP, iPXE menu, Clonezilla Live over HTTP/NFS, images
   on `/home`; Clonezilla SE for multicast class-set restores; needs a switch
   and wired laptops, UEFI boot files, Secure Boot off.
 - [ ] **Housekeeping on the box:** merge/delete the `.pacnew` files (keep the
-  live `mkinitcpio.conf`), decide whether `%wheel NOPASSWD` stays, add the
-  `studio` SSH alias on the laptop (Dave to approve), weekly update + reboot
-  habit when he's on site.
+  live `mkinitcpio.conf`), decide whether `%wheel NOPASSWD` stays, weekly
+  update + reboot habit when he's on site. Done 2026-10-19: `ssh dell` alias
+  on the laptop (now 192.168.0.250 at the studio), fresh US
+  mirrorlist, dotfiles (`dot-files-dell-arch`, cloned from the system76 repo
+  with a `system76` remote for cherry-picks), nvim, tmux + tpm, wezterm.
+- [x] **Git pushes from the box** (done 2026-10-19): `gh auth setup-git` +
+  `git_protocol https`, so plain `git push` uses the gh token; its
+  `id_ed25519` has a passphrase and no agent, so SSH pushes stay broken.
+- [ ] **Trim the dell dotfiles** (`~/dot-files` on the box, repo
+  `dot-files-dell-arch`): commit the polybar edits (dell interfaces, laptop
+  modules dropped); strip kmonad, brightness keys, and the HDMI mirror toggle
+  from the i3 config, the touchpad `xorg.conf.d` entry; pin
+  `branch = 'master'` on nvim-treesitter (+ textobjects) in
+  `neovim-config`'s `lazy-plugins.lua` (both machines), later migrate
+  `treesitter-setup.lua` to the `main` API. Try `iw dev wlp2s0 set
+  power_save off` for the SSH lag until the box is on Ethernet.
 - [ ] **Server-side Fabric mod** (the "instructor plumbing" from the modding
   report), now with a server to run it on: dialog `dynamic/custom` → mixin
   on `handleCustomClickAction` → write to command storage / run functions, so

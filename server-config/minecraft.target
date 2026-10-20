@@ -1,0 +1,6 @@
+# /etc/systemd/system/minecraft.target
+# systemctl start/stop/restart minecraft.target acts on every enabled minecraft@ instance
+[Unit]
+Description=All Minecraft servers
+[Install]
+WantedBy=multi-user.target
