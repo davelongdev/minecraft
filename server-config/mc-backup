@@ -1,0 +1,27 @@
+#!/bin/bash
+# /usr/local/bin/mc-backup <name>   run as root by mc-backup@<name>.timer (hourly)
+# Freezes the live world (save-off / save-all flush), snapshots the whole
+# /srv/mc/<name> folder into the restic repo, applies retention, then save-on.
+set -euo pipefail
+n=$1
+d=/srv/mc/$n
+. "$d/.env"
+export RESTIC_REPOSITORY=/home/backups/restic
+export RESTIC_PASSWORD_FILE=/root/.restic-pw
+
+rcon() { mcrcon -H 127.0.0.1 -P "$RCON_PORT" -p "$RCON_PASSWORD" "$@"; }
+
+if systemctl is-active -q "minecraft@$n"; then
+  trap 'rcon save-on >/dev/null' EXIT
+  rcon save-off "save-all flush" >/dev/null
+  sleep 2
+  sync
+fi
+
+restic backup "$d" --tag "$n" \
+  --exclude '*.jar' --exclude logs --exclude cache \
+  --exclude libraries --exclude .fabric --exclude versions \
+  --exclude world.fresh
+
+restic forget --tag "$n" \
+  --keep-hourly 24 --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune

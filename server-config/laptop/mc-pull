@@ -1,0 +1,11 @@
+#!/bin/bash
+# ~/.local/bin/mc-pull   run by the user timer mc-pull.timer on the laptop
+# Mirrors the box's restic repo to the laptop over Tailscale. The repo is
+# root-owned on the box, so rsync runs there under sudo (dave is NOPASSWD).
+set -euo pipefail
+dest=~/mc-backups/restic
+mkdir -p "$dest"
+rsync -a --delete \
+  -e 'ssh -o ConnectTimeout=15 -o BatchMode=yes' \
+  --rsync-path='sudo rsync' \
+  dell-ts:/home/backups/restic/ "$dest/"

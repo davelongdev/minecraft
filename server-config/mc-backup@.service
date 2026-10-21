@@ -1,0 +1,10 @@
+# /etc/systemd/system/mc-backup@.service
+[Unit]
+Description=restic backup of Minecraft server %i
+After=minecraft@%i.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/mc-backup %i
+Nice=10
+IOSchedulingClass=idle

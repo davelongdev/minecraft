@@ -129,41 +129,56 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
 - [ ] **Next steps on the server, in order** (each step = Dave runs the
   commands, one at a time, with explanations; report section "Recommended
   setup for this box, in order" has the exact files):
-  1. ~~Tidy-ups~~: ops level 4 confirmed 2026-10-20; `world.fresh/` still
-     there, delete it when convenient.
-  2. AUR helper + RCON client: install `paru-bin` (git clone from the AUR,
-     `makepkg -si`), then `paru -S mcrcon`.
-  3.–5. **Files ready (2026-10-20):** `server-config/{minecraft@.service,
-     minecraft.target,jvm.flags}` in this repo, copied to `~` on the box;
-     `CPUAffinity=0-11` already set from `lscpu -e`. Dave still has to run
-     the install commands (in CLAUDE.md "Service step prepared"): `install`
-     the units + flags, write the root-only `.env` (password pulled from
-     `server.properties`), `daemon-reload`, `enable --now minecraft.target
-     minecraft@npc-game`, watch `journalctl -fu` for "Done".
-  6. Checks: `mcrcon … list`; `systemctl stop` ends `inactive` (not
-     `failed`); `systemd-analyze security minecraft@npc-game.service`; journal
-     has no `SYSCALL` lines; `taskset -cp <pid>` shows 0-11. Later add the
-     `notify@.service` oneshot the report's `OnFailure=` line expects (left
-     out of the unit for now).
-  7. Firewall: `/etc/nftables.conf` from the report (policy drop, game
-     ports 25565–25570 only, SSH on `tailscale0` or rate-limited on LAN),
-     `nft -f`, `enable --now nftables`; from the laptop confirm 25565
-     connects and 25575 doesn't.
-  8. Backups: `restic init -r /srv/backups/restic`, `/usr/local/bin/mc-backup`
-     (`save-off` / `save-all flush` / restic / `save-on` with a trap),
-     `mc-backup@.service` + hourly `mc-backup@.timer`, run once by hand,
-     `restic snapshots`.
+  1. ~~Tidy-ups~~: ops level 4 confirmed 2026-10-20; `world.fresh/` (the
+     default world the first start generated) stays as a blank test world
+     (Dave, 2026-10-20) — rename/move it so it isn't mistaken for the live one.
+  2.–6. [x] Done 2026-10-20: `paru` (built from source, `paru-bin` is stale
+     against pacman 7.1), `mcrcon`, units + flags + `.env` installed,
+     `minecraft@npc-game` enabled under `minecraft.target`, all checks
+     passed (RCON list, clean stop, no `SYSCALL` lines, affinity 0-11). Open:
+     the `notify@.service` oneshot for `OnFailure=`.
+  7. [x] Firewall (2026-10-20): `server-config/nftables.conf` installed and
+     enabled; from the laptop 25565 open, 25575 filtered, SSH open from the
+     LAN (rate-limited) and `tailscale0`. PXE ports are a commented block.
+  8. Backups (files written 2026-10-20; Dave's call: repo on the box's
+     `/home` plus a copy on the laptop). **Pick up here (2026-10-21, stopped
+     for class):** done = `pass minecraft/restic` on the laptop (12 chars,
+     Dave's choice), `/root/.restic-pw` 0600 and
+     `/home/backups` 0700 verified (not re-checked: `restic`/`rsync` installed on the box). Next = step 4: `scp` the three
+     `server-config/mc-backup*` files to `dell:/tmp/`, `install` the script
+     (755, `/usr/local/bin/`) and units (644, `/etc/systemd/system/`),
+     `daemon-reload`, `sudo restic init --repo /home/backups/restic
+     --password-file /root/.restic-pw`; then step 5: `systemctl start
+     mc-backup@npc-game`, read the journal, enable the timer; then the laptop
+     pull. Original plan:
+     `server-config/mc-backup` (+ `mc-backup@.service`/`.timer`, hourly,
+     repo `/home/backups/restic`, password `/root/.restic-pw`) and
+     `server-config/laptop/mc-pull` (+ user `mc-pull.service`/`.timer`,
+     hourly rsync over `dell-ts` with `--rsync-path='sudo rsync'` into
+     `~/mc-backups/restic/`). Steps, in order: `pass generate
+     minecraft/restic 24` + `pacman -S restic` on the laptop; box `pacman -S
+     restic rsync`, password file, `/home/backups` 0700; install script +
+     units, `restic init`; first `mc-backup@npc-game` by hand, enable the
+     timer; laptop install + first `mc-pull`, `restic snapshots` on the copy,
+     enable the user timer. Keep a sudo line for `/usr/bin/rsync` when
+     NOPASSWD goes.
   9. More games: repeat 1–5 + 8 per folder on the next port pair
      (`command-forge` 25566/25576, `tile-game` 25567/25577, `one-block`
      25568/25578 …), each with its world from Prism and pack zip in
      `world/datapacks/`; `enable` each instance so `minecraft.target` owns
      them all. `npc-game` and the two `oneblock` packs must stay in separate
      servers (same namespace / storage).
-  10. Tailscale + SSH hardening (`tailscale up --ssh`, key-only sshd
-     drop-ins, `AllowUsers dave`); parent handout for the Xbox
+  10. [x] Tailscale on the box (2026-10-20: `arch-dell` 100.97.207.31,
+     `--ssh`) and the laptop (`arch-76` 100.117.24.107, logged in after the
+     reboot; `ssh dell-ts` verified, direct 4 ms path on the studio LAN).
+     Open: SSH hardening (key-only sshd drop-ins, `AllowUsers dave`); parent handout for the Xbox
      multiplayer toggle (under-16 accounts are blocked by default). The box
      left the house before this was done (2026-10-20); the studio router
      reservation is done.
+  Open: joining takes ~9 s even on an immediate rejoin (not the empty-pause,
+  not the network — both ends reach Mojang in 50 ms); client-side? compare
+  with a join from another laptop. NTP was off on the box (clock 5 min fast)
+  until 2026-10-20, fixed with `timedatectl set-ntp true`.
   Later: `%wheel NOPASSWD` → per-command lines, LUKS remote unlock (TPM2 or
   initramfs SSH), Uptime Kuma, pull backups to the laptop.
 - [x] **Move the box to the studio** (2026-10-20): on studio Wi-Fi, DHCP

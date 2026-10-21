@@ -1,0 +1,7 @@
+# ~/.config/systemd/user/mc-pull.service
+[Unit]
+Description=pull the studio box's Minecraft restic repo
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/mc-pull

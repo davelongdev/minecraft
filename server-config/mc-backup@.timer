@@ -1,0 +1,11 @@
+# /etc/systemd/system/mc-backup@.timer
+[Unit]
+Description=hourly restic backup of Minecraft server %i
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

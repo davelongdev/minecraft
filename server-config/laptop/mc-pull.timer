@@ -1,0 +1,11 @@
+# ~/.config/systemd/user/mc-pull.timer
+[Unit]
+Description=hourly pull of the Minecraft restic repo (skips quietly when the box is unreachable)
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
