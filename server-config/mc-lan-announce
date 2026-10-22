@@ -1,0 +1,87 @@
+#!/usr/bin/python3
+# /usr/local/bin/mc-lan-announce — make the dedicated servers show up under
+# "LAN worlds" in the Minecraft multiplayer screen, so nobody has to type an
+# address. A singleplayer world that is "Open to LAN" sends one UDP multicast
+# packet every 1.5 s to 224.0.2.60:4445 containing
+#     [MOTD]<name>[/MOTD][AD]<port>[/AD]
+# and the client lists it using the packet's source IP + that port (checked
+# against the 26.3 client's LanServerPinger). This script sends the same thing
+# for every server folder under /srv/mc whose port is currently accepting
+# connections, using the motd from its server.properties as the name.
+#
+# Run as the minecraft user (mc-lan-announce.service). Wi-Fi only carries
+# multicast to players on the same network, which is the studio LAN.
+
+import glob
+import socket
+import time
+
+MC_ROOT = "/srv/mc"
+GROUP = ("224.0.2.60", 4445)
+INTERVAL = 1.5        # seconds between announcements (what the game uses)
+RESCAN_EVERY = 10     # re-read server.properties / re-check ports every N rounds
+
+
+def read_props(path):
+    props = {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, _, value = line.partition("=")
+                props[key.strip()] = value.strip()
+    except OSError:
+        pass
+    return props
+
+
+def port_open(port):
+    try:
+        with socket.create_connection(("127.0.0.1", port), timeout=0.5):
+            return True
+    except OSError:
+        return False
+
+
+def live_servers():
+    """[(name, port)] for every /srv/mc/<game>/server.properties with a listening port."""
+    found = []
+    for path in sorted(glob.glob(f"{MC_ROOT}/*/server.properties")):
+        props = read_props(path)
+        try:
+            port = int(props.get("server-port", "25565"))
+        except ValueError:
+            continue
+        name = props.get("motd") or path.split("/")[-2]
+        name = name.replace("\\n", " ")   # motd may hold a literal \n
+        if port_open(port):
+            found.append((name, port))
+    return found
+
+
+def main():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 1)
+    servers = []
+    rounds = 0
+    while True:
+        if rounds % RESCAN_EVERY == 0:
+            new = live_servers()
+            if new != servers:
+                print("announcing:", ", ".join(f"{n} ({p})" for n, p in new) or "nothing",
+                      flush=True)
+                servers = new
+        for name, port in servers:
+            payload = f"[MOTD]{name}[/MOTD][AD]{port}[/AD]".encode("utf-8")
+            try:
+                sock.sendto(payload, GROUP)
+            except OSError as e:
+                print("send failed:", e, flush=True)
+        rounds += 1
+        time.sleep(INTERVAL)
+
+
+if __name__ == "__main__":
+    main()

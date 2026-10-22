@@ -150,7 +150,10 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
      `daemon-reload`, `sudo restic init --repo /home/backups/restic
      --password-file /root/.restic-pw`; then step 5: `systemctl start
      mc-backup@npc-game`, read the journal, enable the timer; then the laptop
-     pull. Original plan:
+     pull. **Before step 4: walk Dave through the files in
+     `server-config/` so he understands them** (`mc-backup`, `mc-backup@.service`,
+     `mc-backup@.timer`, `laptop/mc-pull` + its user service/timer,
+     `nftables.conf`) — one file at a time, what each line does. Original plan:
      `server-config/mc-backup` (+ `mc-backup@.service`/`.timer`, hourly,
      repo `/home/backups/restic`, password `/root/.restic-pw`) and
      `server-config/laptop/mc-pull` (+ user `mc-pull.service`/`.timer`,
@@ -162,9 +165,20 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
      timer; laptop install + first `mc-pull`, `restic snapshots` on the copy,
      enable the user timer. Keep a sudo line for `/usr/bin/rsync` when
      NOPASSWD goes.
-  9. More games: repeat 1–5 + 8 per folder on the next port pair
-     (`command-forge` 25566/25576, `tile-game` 25567/25577, `one-block`
-     25568/25578 …), each with its world from Prism and pack zip in
+  9. [x] 2026-10-22: `survival-basic` 25566/25576 and `creative-basic`
+     25567/25577 (vanilla, random seeds, keep_inventory) via
+     `server-config/new-server.sh`; backups skipped for now at Dave's
+     request. Same day: `command-forge` 25568/25578 (+ `mc-www.service` on
+     8080 serving `no-moon.zip`, required pack), `tile-game` 25569/25579,
+     `one-block` 25570/25580 (= one-block_2); nftables widened to 25580.
+     Also 2026-10-22: `server-config/mc-lan-announce` + `.service` installed
+     and enabled on the box — all six servers show up under LAN worlds in the
+     multiplayer screen on the studio Wi-Fi (verified from the laptop), so
+     nobody types an address in the studio.
+     Open: add the kids to `whitelist.json`/`ops.json` (level 2) on each
+     server; jump-game(s) on 25571+ if wanted; backups now cover six folders;
+     the three new `server-config/` files (mc-www, new-server.sh,
+     mc-lan-announce) are uncommitted., each with its world from Prism and pack zip in
      `world/datapacks/`; `enable` each instance so `minecraft.target` owns
      them all. `npc-game` and the two `oneblock` packs must stay in separate
      servers (same namespace / storage).

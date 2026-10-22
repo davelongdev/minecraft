@@ -1,0 +1,24 @@
+# /etc/systemd/system/mc-lan-announce.service
+# Multicasts a "LAN world" announcement for every running server so they
+# appear automatically in the multiplayer screen of clients on the studio
+# Wi-Fi. Script: /usr/local/bin/mc-lan-announce (reads
+# /srv/mc/*/server.properties for motd + port, announces listening ports only).
+[Unit]
+Description=Minecraft LAN discovery announcer
+After=network-online.target minecraft.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=minecraft
+Group=minecraft
+ExecStart=/usr/local/bin/mc-lan-announce
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
