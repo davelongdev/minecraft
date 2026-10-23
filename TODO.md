@@ -138,50 +138,50 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
      passed (RCON list, clean stop, no `SYSCALL` lines, affinity 0-11). Open:
      the `notify@.service` oneshot for `OnFailure=`.
   7. [x] Firewall (2026-10-20): `server-config/nftables.conf` installed and
-     enabled; from the laptop 25565 open, 25575 filtered, SSH open from the
-     LAN (rate-limited) and `tailscale0`. PXE ports are a commented block.
-  8. Backups (files written 2026-10-20; Dave's call: repo on the box's
-     `/home` plus a copy on the laptop). **Pick up here (2026-10-21, stopped
-     for class):** done = `pass minecraft/restic` on the laptop (12 chars,
-     Dave's choice), `/root/.restic-pw` 0600 and
-     `/home/backups` 0700 verified (not re-checked: `restic`/`rsync` installed on the box). Next = step 4: `scp` the three
-     `server-config/mc-backup*` files to `dell:/tmp/`, `install` the script
-     (755, `/usr/local/bin/`) and units (644, `/etc/systemd/system/`),
-     `daemon-reload`, `sudo restic init --repo /home/backups/restic
-     --password-file /root/.restic-pw`; then step 5: `systemctl start
-     mc-backup@npc-game`, read the journal, enable the timer; then the laptop
-     pull. **Before step 4: walk Dave through the files in
-     `server-config/` so he understands them** (`mc-backup`, `mc-backup@.service`,
-     `mc-backup@.timer`, `laptop/mc-pull` + its user service/timer,
-     `nftables.conf`) — one file at a time, what each line does. Original plan:
-     `server-config/mc-backup` (+ `mc-backup@.service`/`.timer`, hourly,
-     repo `/home/backups/restic`, password `/root/.restic-pw`) and
-     `server-config/laptop/mc-pull` (+ user `mc-pull.service`/`.timer`,
-     hourly rsync over `dell-ts` with `--rsync-path='sudo rsync'` into
-     `~/mc-backups/restic/`). Steps, in order: `pass generate
-     minecraft/restic 24` + `pacman -S restic` on the laptop; box `pacman -S
-     restic rsync`, password file, `/home/backups` 0700; install script +
-     units, `restic init`; first `mc-backup@npc-game` by hand, enable the
-     timer; laptop install + first `mc-pull`, `restic snapshots` on the copy,
-     enable the user timer. Keep a sudo line for `/usr/bin/rsync` when
-     NOPASSWD goes.
+     enabled; SSH from the LAN (rate-limited) and `tailscale0`; PXE ports
+     are a commented block. 2026-10-23: `mc_ports` narrowed back to the
+     game ports (the 2026-10-22 widening to 25580 had exposed RCON
+     25575–25580 to the LAN/Tailscale), now 25565–25573; widen by one per
+     new server. Box timezone set to America/New_York the same day.
+  8. [x] Backups (2026-10-23; state in CLAUDE.md "Backups running"):
+     script + units installed, repo initialised, hourly timers for all
+     nine games, restic password rotated (`pass minecraft-restic` = the
+     entry's real name), laptop copy via `mc-pull` **by hand** (Dave: no
+     timer; `/updates` reminds when `~/mc-backups/.last-pull` is > 1 day
+     old). Two fixes went into `server-config/mc-backup` (`--retry-lock`,
+     `RESTIC_CACHE_DIR`) and `laptop/mc-pull` (manual, stamp file,
+     `GPG_TTY`). Open: `restic forget --tag survival-basic --tag
+     creative-basic --prune` to drop the two pre-rename snapshots (Dave
+     noticed them in the `mc-pull` table; asked, not yet answered); a sudo
+     line for `/usr/bin/rsync` when NOPASSWD goes.
   9. [x] 2026-10-22: `survival-basic` 25566/25576 and `creative-basic`
      25567/25577 (vanilla, random seeds, keep_inventory) via
-     `server-config/new-server.sh`; backups skipped for now at Dave's
-     request. Same day: `command-forge` 25568/25578 (+ `mc-www.service` on
-     8080 serving `no-moon.zip`, required pack), `tile-game` 25569/25579,
-     `one-block` 25570/25580 (= one-block_2); nftables widened to 25580.
+     `server-config/new-server.sh`. Same day: `command-forge` 25568/25578
+     (+ `mc-www.service` on 8080 serving `no-moon.zip`, required pack),
+     `tile-game` 25569/25579, `one-block` 25570/25580 (= one-block_2).
      Also 2026-10-22: `server-config/mc-lan-announce` + `.service` installed
-     and enabled on the box — all six servers show up under LAN worlds in the
+     and enabled on the box — every server shows up under LAN worlds in the
      multiplayer screen on the studio Wi-Fi (verified from the laptop), so
      nobody types an address in the studio.
-     Open: add the kids to `whitelist.json`/`ops.json` (level 2) on each
-     server; jump-game(s) on 25571+ if wanted; backups now cover six folders;
-     the three new `server-config/` files (mc-www, new-server.sh,
-     mc-lan-announce) are uncommitted., each with its world from Prism and pack zip in
-     `world/datapacks/`; `enable` each instance so `minecraft.target` owns
-     them all. `npc-game` and the two `oneblock` packs must stay in separate
-     servers (same namespace / storage).
+     2026-10-23: `survival-basic`/`creative-basic` renamed `survival-1`/
+     `creative-1`; `survival-2` 25571/25581 and `creative-2` 25572/25582
+     added (fresh worlds); `jump-game` 25573/25583 (the jump-game-2 world +
+     zip, motd "Jump Game"); `max-players=20` everywhere; nine servers.
+     Done 2026-10-23: the eleven studio accounts are whitelisted on every
+     server and op level 2 on command-forge (`whitelist add` / `op` over
+     RCON). **Standardize the account names at Microsoft:** the first account
+     is `NCMC1` (no underscore; `NCMC_1` doesn't exist at Mojang, whitelisted
+     as NCMC1 "for now"), and 2–4 are stored lowercase (`ncmc_2`, `ncmc_3`,
+     `ncmc_4`) while 5–11 are `NCMC_5`..`NCMC_11`. Rename them to one
+     pattern at account.xbox.com / minecraft.net (one free change per 30
+     days per account); the whitelists follow the account ID, so no server
+     change is needed after a rename.
+     Rule for any new server: world from Prism + pack zip in
+     `world/datapacks/`, `enable` the instance so `minecraft.target` owns
+     it, widen `mc_ports`, enable its `mc-backup@` timer. `npc-game` and the
+     two `oneblock` packs must stay in separate servers (same namespace /
+     storage). Nothing hostable is left in the repo (the original
+     jump-game and one-block are subsets of what runs).
   10. [x] Tailscale on the box (2026-10-20: `arch-dell` 100.97.207.31,
      `--ssh`) and the laptop (`arch-76` 100.117.24.107, logged in after the
      reboot; `ssh dell-ts` verified, direct 4 ms path on the studio LAN).
@@ -193,8 +193,12 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
   not the network — both ends reach Mojang in 50 ms); client-side? compare
   with a join from another laptop. NTP was off on the box (clock 5 min fast)
   until 2026-10-20, fixed with `timedatectl set-ntp true`.
+     2026-10-23: Tailscale SSH's `check` policy (browser re-auth every 12 h)
+     changed to `accept` by Dave in the admin console; from home everything
+     goes over Tailscale (relayed via DERP nyc, ~15 ms; no port forwarding
+     wanted).
   Later: `%wheel NOPASSWD` → per-command lines, LUKS remote unlock (TPM2 or
-  initramfs SSH), Uptime Kuma, pull backups to the laptop.
+  initramfs SSH), Uptime Kuma.
 - [x] **Move the box to the studio** (2026-10-20): on studio Wi-Fi, DHCP
   reservation 192.168.0.250 on the TP-Link BE6500 (`ssh dell`). Still open:
   Ethernet cable (then a second reservation for `enp1s0`, e.g. .251);

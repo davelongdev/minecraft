@@ -8,6 +8,7 @@ d=/srv/mc/$n
 . "$d/.env"
 export RESTIC_REPOSITORY=/home/backups/restic
 export RESTIC_PASSWORD_FILE=/root/.restic-pw
+export RESTIC_CACHE_DIR=/var/cache/restic   # systemd gives us no $HOME
 
 rcon() { mcrcon -H 127.0.0.1 -P "$RCON_PORT" -p "$RCON_PASSWORD" "$@"; }
 
@@ -18,10 +19,10 @@ if systemctl is-active -q "minecraft@$n"; then
   sync
 fi
 
-restic backup "$d" --tag "$n" \
+restic backup "$d" --tag "$n" --retry-lock 10m \
   --exclude '*.jar' --exclude logs --exclude cache \
   --exclude libraries --exclude .fabric --exclude versions \
   --exclude world.fresh
 
-restic forget --tag "$n" \
+restic forget --tag "$n" --retry-lock 10m \
   --keep-hourly 24 --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune

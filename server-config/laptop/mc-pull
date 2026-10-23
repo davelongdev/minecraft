@@ -1,11 +1,19 @@
 #!/bin/bash
-# ~/.local/bin/mc-pull   run by the user timer mc-pull.timer on the laptop
-# Mirrors the box's restic repo to the laptop over Tailscale. The repo is
-# root-owned on the box, so rsync runs there under sudo (dave is NOPASSWD).
+# ~/.local/bin/mc-pull   run BY HAND on the laptop (no timer — Dave's call
+# 2026-10-23; /updates reminds him when the last pull is over a day old).
+# Mirrors the box's restic repo to the laptop over Tailscale, stamps the time,
+# then lists the newest snapshot per server from the copy to prove it reads.
+# The repo is root-owned on the box, so rsync runs there under sudo.
 set -euo pipefail
+# gpg's terminal pinentry needs to know which terminal to draw in
+export GPG_TTY=${GPG_TTY:-$(tty)}
 dest=~/mc-backups/restic
 mkdir -p "$dest"
-rsync -a --delete \
+rsync -a --delete --info=stats1 \
   -e 'ssh -o ConnectTimeout=15 -o BatchMode=yes' \
   --rsync-path='sudo rsync' \
   dell-ts:/home/backups/restic/ "$dest/"
+date -Is > ~/mc-backups/.last-pull
+echo "--- newest snapshot per server in the laptop copy:"
+RESTIC_PASSWORD_COMMAND="pass show minecraft-restic" \
+  restic -r "$dest" snapshots --compact --latest 1
