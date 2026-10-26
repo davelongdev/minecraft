@@ -1,0 +1,11 @@
+execute if score @s tut_pp matches 0 run scoreboard players set @s tut_pm 0
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "━━ Quest 1 of 12: t and Esc ━━", "font": "minecraft:uniform", "color": "gold", "bold": true}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "When you press ", "font": "minecraft:uniform"}, {"text": "t", "font": "minecraft:uniform", "color": "aqua", "bold": true}, {"text": ", a chat window in the bottom left of the screen opens up.", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "When you press ", "font": "minecraft:uniform"}, {"text": "Esc", "font": "minecraft:uniform", "color": "aqua", "bold": true}, {"text": ", the box closes, and you're back in the game.", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "Click ", "font": "minecraft:uniform"}, {"text": "Try it", "font": "minecraft:uniform", "color": "aqua", "bold": true}, {"text": " to close this window and test it out.", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "Once you've done it, click ", "font": "minecraft:uniform"}, {"text": "I did it!", "font": "minecraft:uniform", "color": "#55FF55"}, {"text": " to move to your next quest!", "font": "minecraft:uniform"}]
+execute if score @s tut_pp matches 0 run scoreboard players set @s tut_pp -1

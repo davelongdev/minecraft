@@ -1,0 +1,179 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 11 of 12",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 11",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "color": "#CFE8FF",
+        "extra": [
+          {
+            "text": "The Up Arrow",
+            "font": "minecraft:default",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Press t, then the ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "Up arrow",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ". Your last command comes back!",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Change ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "cookie",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " to ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "bread",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ", then Enter.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Hint",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " - you can move left and right on the ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "command line",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " with the arrow keys.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Got the bread? If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Got it!",
+        "font": "minecraft:default",
+        "color": "green"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:default"
+    }
+  }
+}

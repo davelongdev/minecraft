@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:universal",
+    "forge:commands_day",
+    "forge:commands_moon",
+    "forge:commands_early_game"
+  ]
+}

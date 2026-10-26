@@ -1,0 +1,10 @@
+# /etc/systemd/system/mc-hub-snapshot.timer
+[Unit]
+Description=Game Forge hub snapshot every 5 minutes (skipped while nobody plays)
+
+[Timer]
+OnCalendar=*:2/5
+Persistent=false
+
+[Install]
+WantedBy=timers.target

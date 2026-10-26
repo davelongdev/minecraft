@@ -1,0 +1,2 @@
+# Positioned at island 1's origin: the welcome sign (replaced by the quest sign once a quest starts).
+setblock ~7 ~ ~6 dark_oak_sign[rotation=4]{allow_op_features:1b,front_text:{messages:[{"font":"minecraft:uniform","text":"Welcome to","color":"white"},{"font":"minecraft:uniform","text":"Command Forge","color":"yellow","bold":true},{"font":"minecraft:uniform","text":"Press a button","color":"white"},{"font":"minecraft:uniform","text":"to begin.","color":"white"}],color:"white",has_glowing_text:1b},is_waxed:1b}

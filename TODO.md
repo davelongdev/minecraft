@@ -10,6 +10,25 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   world with islands per game or separate worlds, how progress and the
   leaderboard carry across, and which pack's conventions win (trigger words,
   books, buttons). First step is a short design note before touching code.
+  A `game-forge` server exists since 2026-10-24 (25587, creative, only
+  lazerbrain6562 + NCMC_11 at op 4), for now just a copy of the one-block_2
+  world as a starting point.
+- [ ] **Boss battle arena** (`boss-battle-arena/`, Dave's ask 2026-10-23) —
+  create it; a companion to `pvp-arena/`, to fold into game-forge later.
+  Nothing designed yet.
+- [ ] **Fight resets with per-player kits** (Dave, 2026-10-23) for the PvP and
+  boss battle games: a reset that gives every player a set of items for the
+  fight. Boss battles: the weapons match the boss's level (stronger boss,
+  better kit). Today `pvp-arena` hands one fixed kit to each player on
+  `/trigger fight` (`internal/kit`) and `___reset_arena` only resets kills;
+  there are no rounds yet.
+- [ ] **Playtest PvP Arena and Build Plots** with kids (servers on 25585 and
+  25586 since 2026-10-23): arena fight/kit/deaths/leave/sidebar, plot
+  assignment, borders and signs, creative-only-in-your-plot switching.
+- [ ] **Rounds** (Dave, 2026-10-23) for the PvP and boss battle games: a round
+  starts, players fight, the round ends with a winner, then the next round
+  (ties in with the kit reset above). Details not decided (countdown, last
+  one standing vs a timer, how many rounds, what carries over).
 - [ ] **Tile-based game** — IN PROGRESS as `tile-game/` (world `tile-game` in
   the `26.3_mini_games` instance). 2026-10-12 evening, per Dave: **3×3 board of
   3×3×3 tiles (nine total), not 9×9**; editor done (place/remove whole tiles by
@@ -119,6 +138,10 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
 "Studio server"). It's at the studio since 2026-10-20, on the studio Wi-Fi at
 192.168.0.250 (router reservation), reachable with `ssh dell`.
 
+- [ ] **RAM headroom** (2026-10-24): thirteen servers use ~47 GB Java RSS of
+  62 GB (~14 GB available). Before adding more than one more, lower `HEAP` in
+  the `.env` of idle games (e.g. 2G for the void-world packs) or stop unused
+  ones.
 - [x] **Decide Docker vs plain** (2026-10-19): plain Java per the report; Dave's
   version-juggling worry is covered by one launcher jar per game folder and
   side-by-side `jre17/21/25` packages. The box came back on `linux-lts`
@@ -175,7 +198,12 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
      `ncmc_4`) while 5–11 are `NCMC_5`..`NCMC_11`. Rename them to one
      pattern at account.xbox.com / minecraft.net (one free change per 30
      days per account); the whitelists follow the account ID, so no server
-     change is needed after a rename.
+     change is needed after a rename. **NCMC_11 owns the Realm** (2026-10-23):
+     staff only, keep it off the kids' laptops; remove the other ten NCMC
+     names from the Realm's Players tab (owner login → Configure → Players)
+     so kids on the studio accounts can't enter it; optional later: a
+     Fabric client mod that hides the Realms button, or move the Realm to
+     an adult account (download world, cancel on NCMC_11, new Realm).
      Rule for any new server: world from Prism + pack zip in
      `world/datapacks/`, `enable` the instance so `minecraft.target` owns
      it, widen `mc_ports`, enable its `mc-backup@` timer. `npc-game` and the
@@ -197,15 +225,21 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
      changed to `accept` by Dave in the admin console; from home everything
      goes over Tailscale (relayed via DERP nyc, ~15 ms; no port forwarding
      wanted).
+  Open 2026-10-23: a rebuild checklist in `server-config/README.md` (worlds
+  from restic, files from the repo, the package/user/Tailscale steps);
+  `CLAUDE.md` is gitignored in this repo, so the server notes exist only on
+  the laptop — decide where they get backed up.
   Later: `%wheel NOPASSWD` → per-command lines, LUKS remote unlock (TPM2 or
   initramfs SSH), Uptime Kuma.
 - [x] **Move the box to the studio** (2026-10-20): on studio Wi-Fi, DHCP
   reservation 192.168.0.250 on the TP-Link BE6500 (`ssh dell`). Still open:
   Ethernet cable (then a second reservation for `enp1s0`, e.g. .251);
-  auto-restart of the game servers at boot = the service step above; LUKS
-  passphrase still typed by hand at the box after any power cut (fine while
-  nobody plays unattended; TPM unlock or a reinstall without LUKS if that
-  changes).
+  auto-restart of the game servers at boot works (all thirteen came back by
+  themselves after the 2026-10-24 power cuts); LUKS passphrase still typed by
+  hand at the box after any power cut (needed twice on 2026-10-24 during the
+  studio's electrical work; fine while nobody plays unattended; TPM unlock or
+  a reinstall without LUKS if that changes, and a small UPS would cover
+  short outages).
 - [ ] **PXE + Clonezilla imaging** for the studio laptops on the same box:
   dnsmasq proxy-DHCP + TFTP, iPXE menu, Clonezilla Live over HTTP/NFS, images
   on `/home`; Clonezilla SE for multicast class-set restores; needs a switch
@@ -230,13 +264,22 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
 - [ ] **Server-side Fabric mod** (the "instructor plumbing" from the modding
   report), now with a server to run it on: dialog `dynamic/custom` → mixin
   on `handleCustomClickAction` → write to command storage / run functions, so
-  the NPC Forge forms submit with no confirmation screen; chosen display name
+  the NPC Forge forms submit with no confirmation screen and without op
+  (the eleven NCMC accounts are op level 2 on npc-game since 2026-10-23
+  only because form submits need it; de-op them once the mod lands); chosen display name
   in chat/tab/name tag (Dave expected `choose_name` to change his chat name —
   vanilla can't); a chat listener so Command Forge's "Say Hello" quest is
   checked for real (the server sees chat; "t and Esc" never leaves the
   client, so it stays on trust or merges into Say Hello) — Dave 2026-10-18;
   later per-player entity hiding. Prereqs in the Java section
   below (JDK 25, Fabric template).
+- [ ] **Studio PC mouse "gyration" in Minecraft only** (2026-10-23, open): the
+  camera wobbles when the mouse moves. Raw Input isn't shown in that PC's
+  Mouse Settings (26.3 hides it when GLFW reports no raw-motion support).
+  Still to try: Windows "Enhance pointer precision" off, `rawMouseInput:true`
+  in `.minecraft/options.txt` with the game closed, sensitivity ~100%,
+  Touchscreen Mode off, frame rate on F3, the mouse's own software, another
+  mouse.
 
 ## Java modding environment — follow-ups (2026-10-13)
 

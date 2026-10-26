@@ -1,0 +1,26 @@
+#!/bin/bash
+# /usr/local/bin/mc-hub-snapshot   run as root by mc-hub-snapshot.timer (every 5 minutes)
+# While anyone is on Game Forge: snapshot the hub as structures forge:hub_auto/<time>_west/_east
+# in the world's generated/ folder and list them in storage forge:main hub_auto (newest last).
+# Every snapshot is kept (Dave, 2026-10-25; ~165 KB each); forge:___hub_snapshots lists the newest 20,
+# click one to restore.
+# Uses /usr/local/lib/mc-hub/snapshot_hub.py (+ make_void_world.py), from game-forge/tools/.
+set -euo pipefail
+gf=/srv/mc/game-forge
+. "$gf/.env"
+rcon() { mcrcon -H 127.0.0.1 -P "$RCON_PORT" -p "$RCON_PASSWORD" "$@"; }
+
+systemctl is-active -q minecraft@game-forge || exit 0
+rcon list | grep -q 'There are 0 of' && exit 0
+
+rcon "save-all flush" >/dev/null
+name=$(date +%Y-%m-%d_%H-%M)
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+python3 -I /usr/local/lib/mc-hub/snapshot_hub.py "$gf/world/dimensions/minecraft/overworld/region" "$tmp" >/dev/null
+dest=$gf/world/generated/forge/structure/hub_auto
+install -d -o minecraft -g minecraft "$dest"
+install -o minecraft -g minecraft -m 644 "$tmp/hub/west.nbt" "$dest/${name}_west.nbt"
+install -o minecraft -g minecraft -m 644 "$tmp/hub/east.nbt" "$dest/${name}_east.nbt"
+
+rcon "data modify storage forge:main hub_auto append value \"$name\"" >/dev/null

@@ -1,0 +1,2 @@
+# /trigger clear_all_npcs: are you sure? Delete runs delete_mine as the player (only their own characters).
+dialog show @s {type:"minecraft:confirmation",title:{text:"Delete ALL your NPCs?",color:"red",bold:true},external_title:"Delete all your NPCs?",pause:false,body:[],yes:{label:{text:"Delete them all",color:"red"},action:{type:"minecraft:run_command",command:"function npc:internal/delete_mine"}},no:{label:"Keep them"}}

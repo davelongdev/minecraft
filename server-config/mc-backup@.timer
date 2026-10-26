@@ -1,10 +1,10 @@
 # /etc/systemd/system/mc-backup@.timer
 [Unit]
-Description=hourly restic backup of Minecraft server %i
+Description=restic backup of Minecraft server %i every 10 minutes (skipped while nobody plays)
 
 [Timer]
-OnCalendar=hourly
-RandomizedDelaySec=5min
+OnCalendar=*:0/10
+RandomizedDelaySec=1min
 Persistent=true
 
 [Install]

@@ -1,0 +1,179 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 8 of 12",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 8",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "color": "#CFE8FF",
+        "extra": [
+          {
+            "text": "Teleporter",
+            "font": "minecraft:default",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Section 1 ended with ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "/tp",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ". Now a block does it for you - that's how a game sends players to the next level.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Across the island is a ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "gold pad",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ". The ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "TARGET",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " sign next to the blue block shows the pad's coordinates.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " - Put a new command block with a button on the blue block. Its command: ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "tp @p",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " followed by the three numbers on the TARGET sign, with spaces between them. Press the button.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Did you land on the gold pad? That's a teleporter - every adventure map has one. If so, you've completed the quest! Walk back to the buttons. ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Got it!",
+        "font": "minecraft:default",
+        "color": "green"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:default"
+    }
+  }
+}

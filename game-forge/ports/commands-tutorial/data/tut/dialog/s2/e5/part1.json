@@ -1,0 +1,203 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 6 of 12",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 6",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "color": "#CFE8FF",
+        "extra": [
+          {
+            "text": "Chain",
+            "font": "minecraft:default",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "A ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "Chain",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " command block runs right after the block pointing into it. That's how one press does two things.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Look at the ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "arrow",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " on a command block - it points the way the chain goes.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " - Open the command block on the blue block (put a new one there if it's gone) and change its command to ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "give @p cake",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ". Then put a second command block right where its arrow points. Set the new block's left box to ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "Chain",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " and right box to ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "Always Active",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ", and give it the command ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "say Enjoy your cake!",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ". Press the button.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Do you get a cake and a nice message in chat each time you press the button? If so, you've completed the quest! ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Press the NEXT QUEST button to continue.",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Got it!",
+        "font": "minecraft:default",
+        "color": "green"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Close",
+      "font": "minecraft:default"
+    }
+  }
+}

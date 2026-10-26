@@ -1,0 +1,163 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Quest 1 of 12",
+    "font": "minecraft:default",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Quest 1",
+    "font": "minecraft:default"
+  },
+  "pause": false,
+  "can_close_with_escape": true,
+  "after_action": "close",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": {
+        "text": "",
+        "font": "minecraft:default",
+        "color": "#CFE8FF",
+        "extra": [
+          {
+            "text": "t and Esc",
+            "font": "minecraft:default",
+            "color": "gold"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "When you press ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "t",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ", a chat window in the bottom left of the screen opens up.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "When you press ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "Esc",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": ", the box closes, and you're back in the game.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Click ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "Try it",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " to close this window and test it out.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "#CFE8FF",
+            "bold": false
+          },
+          {
+            "text": "Once you've done it, click ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          },
+          {
+            "text": "I did it!",
+            "font": "minecraft:default",
+            "color": "#55FF55",
+            "bold": false
+          },
+          {
+            "text": " to move to your next quest!",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "#CFE8FF"
+          }
+        ]
+      }
+    }
+  ],
+  "columns": 1,
+  "actions": [
+    {
+      "label": {
+        "text": "Try it",
+        "font": "minecraft:default",
+        "color": "yellow"
+      }
+    },
+    {
+      "label": {
+        "text": "I did it!",
+        "font": "minecraft:default",
+        "color": "green"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger tut_btn set 6"
+      }
+    }
+  ]
+}

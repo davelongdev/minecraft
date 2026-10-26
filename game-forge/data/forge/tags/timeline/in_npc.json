@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:universal",
+    "forge:npc_day",
+    "forge:npc_moon",
+    "forge:npc_early_game"
+  ]
+}

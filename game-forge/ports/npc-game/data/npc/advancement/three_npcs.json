@@ -1,0 +1,13 @@
+{
+  "parent": "npc:root",
+  "criteria": {"made": {"trigger": "minecraft:impossible"}},
+  "display": {
+    "icon": {"id": "minecraft:polished_blackstone_button"},
+    "title": "Island Builder",
+    "description": "Create three NPCs. Reward: an Island Button that takes anyone who presses it to your own island.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "rewards": {"function": "npc:internal/unlock_island"}
+}

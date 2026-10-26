@@ -1,0 +1,4 @@
+# The Magic Compass: right-click to go back to the hub. A carrot on a stick wearing the compass model,
+# because right-clicking it is counted by a statistic (forge_compass) that the pack can see.
+execute if items entity @s hotbar.8 * run return run give @s carrot_on_a_stick[item_model="minecraft:compass",custom_name={text:"Magic Compass",color:"light_purple",italic:false},lore=[{text:"Right-click to go back to the hub",color:"gray",italic:false}],enchantment_glint_override=true,custom_data={forge_hub:1b}]
+item replace entity @s hotbar.8 with carrot_on_a_stick[item_model="minecraft:compass",custom_name={text:"Magic Compass",color:"light_purple",italic:false},lore=[{text:"Right-click to go back to the hub",color:"gray",italic:false}],enchantment_glint_override=true,custom_data={forge_hub:1b}]

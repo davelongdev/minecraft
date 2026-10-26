@@ -1,0 +1,9 @@
+# /etc/systemd/system/mc-hub-snapshot.service
+[Unit]
+Description=Game Forge hub snapshot (structures for forge:___hub_snapshots)
+After=minecraft@game-forge.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/mc-hub-snapshot
+Nice=10

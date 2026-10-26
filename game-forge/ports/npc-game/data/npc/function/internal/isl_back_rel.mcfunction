@@ -1,0 +1,1 @@
+execute positioned ~3 ~2 ~ align xyz positioned ~0.5 ~0.5 ~0.5 if block ~ ~ ~ polished_blackstone_button unless entity @e[type=marker,tag=npc_isl,distance=..0.2] run summon marker ~ ~ ~ {Tags:["npc_isl"]}
