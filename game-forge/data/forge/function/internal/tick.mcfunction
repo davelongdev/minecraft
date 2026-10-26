@@ -21,6 +21,8 @@ execute in forge:arena run team join forge_arena @a[distance=0..,team=!forge_are
 execute in forge:npc run team join forge_npc @a[distance=0..,team=!forge_npc]
 # Command Forge: remember who finished section 1 (on island 1 in the finished state)
 execute in forge:commands run scoreboard players set @a[distance=0..,scores={tut_sec=1,tut_ex=11,tut_end=1..}] forge_s1 1
+# Personal Workshops: dialog buttons, owner creative / visitors adventure
+function forge:workshop/tick
 # hub lava/fire sweep, once a second
 scoreboard players add clock forge_tmp 1
 execute if score clock forge_tmp matches 20.. run function forge:internal/sweep

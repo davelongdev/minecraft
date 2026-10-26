@@ -1,0 +1,19 @@
+{
+	"schemaVersion": 1,
+	"id": "chat_counter",
+	"version": "${version}",
+	"name": "Chat Counter",
+	"description": "Server-only: counts each player's chat messages in the chat_count scoreboard objective (if a data pack made it), and keeps #mod chat_count at 1 so packs can tell the mod is there.",
+	"authors": ["Newburgh Creates"],
+	"license": "MIT",
+	"environment": "server",
+	"entrypoints": {
+		"server": ["org.newburghcreates.chatcounter.ChatCounter"]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

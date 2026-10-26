@@ -1,0 +1,11 @@
+{
+  "type": "forge:workshop",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:snowy_plains"
+    },
+    "settings": "minecraft:overworld"
+  }
+}

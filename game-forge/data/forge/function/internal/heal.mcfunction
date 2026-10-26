@@ -60,3 +60,13 @@ execute unless score c forge_tmp matches 1 run scoreboard players set ok forge_t
 execute if score ok forge_tmp matches 1 run scoreboard players set h6 forge_tmp 0
 execute if score ok forge_tmp matches 0 positioned 31.5 64 7.5 if entity @a[distance=..48] run scoreboard players add h6 forge_tmp 1
 execute if score h6 forge_tmp matches 40.. run function forge:internal/spawn6
+# Workshop
+tp @e[type=villager,tag=forge_7] 58.5 63 0.5 90 0
+scoreboard players set ok forge_tmp 1
+execute store result score c forge_tmp if entity @e[type=villager,tag=forge_7]
+execute unless score c forge_tmp matches 1 run scoreboard players set ok forge_tmp 0
+execute store result score c forge_tmp if entity @e[type=interaction,tag=forge_7]
+execute unless score c forge_tmp matches 1 run scoreboard players set ok forge_tmp 0
+execute if score ok forge_tmp matches 1 run scoreboard players set h7 forge_tmp 0
+execute if score ok forge_tmp matches 0 positioned 58.5 63 0.5 if entity @a[distance=..48] run scoreboard players add h7 forge_tmp 1
+execute if score h7 forge_tmp matches 40.. run function forge:internal/spawn7

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 6 of 12",
     "font": "minecraft:default",
@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "minecraft:default",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "Chain",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "A ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Chain",
@@ -52,7 +52,7 @@
             "text": " command block runs right after the block pointing into it. That's how one press does two things.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -60,14 +60,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Look at the ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "arrow",
@@ -79,7 +79,7 @@
             "text": " on a command block - it points the way the chain goes.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -87,7 +87,7 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -100,7 +100,7 @@
             "text": " - Open the command block on the blue block (put a new one there if it's gone) and change its command to ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "give @p cake",
@@ -112,7 +112,7 @@
             "text": ". Then put a second command block right where its arrow points. Set the new block's left box to ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Chain",
@@ -124,7 +124,7 @@
             "text": " and right box to ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Always Active",
@@ -136,7 +136,7 @@
             "text": ", and give it the command ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "say Enjoy your cake!",
@@ -148,7 +148,7 @@
             "text": ". Press the button.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -156,14 +156,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Do you get a cake and a nice message in chat each time you press the button? If so, you've completed the quest! ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -171,11 +171,11 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": false
@@ -184,20 +184,11 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Got it!",
-        "font": "minecraft:default",
-        "color": "green"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
-      "text": "Close",
-      "font": "minecraft:default"
+      "text": "Continue",
+      "font": "minecraft:default",
+      "color": "green"
     }
   }
 }

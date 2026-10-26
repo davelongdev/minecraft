@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "minecraft:default",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "Click in Chat",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "When the chat box is open, your mouse is free, so you can click things in chat.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -48,14 +48,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Try it: press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "t",
@@ -67,7 +67,7 @@
             "text": " to open the chat box, then click ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "[Click me!]",
@@ -91,7 +91,7 @@
             "text": " and watch the chat box fill in. Then press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Enter",
@@ -103,7 +103,7 @@
             "text": ".",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -111,14 +111,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Got an apple? If so, you've completed the quest! ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -126,11 +126,11 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": false
@@ -158,8 +158,9 @@
   ],
   "exit_action": {
     "label": {
-      "text": "Close",
-      "font": "minecraft:default"
+      "text": "Continue",
+      "font": "minecraft:default",
+      "color": "green"
     }
   }
 }

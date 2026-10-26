@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "tut:clean",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "REPL",
@@ -33,7 +33,7 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -46,7 +46,7 @@
             "text": " - you type a line, Minecraft reads it, evaluates it (runs it), prints a reply, and loops back for your next line.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -54,7 +54,7 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -67,7 +67,7 @@
             "text": " - Type ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/give @s stick",
@@ -90,7 +90,7 @@
             "text": " and press Enter.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -98,14 +98,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Watch Minecraft print a reply in chat. That's the Print step.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -113,14 +113,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Got the stick? If so, you've completed the quest! ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -128,11 +128,11 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "tut:clean",
             "color": "yellow",
             "bold": false
@@ -160,8 +160,9 @@
   ],
   "exit_action": {
     "label": {
-      "text": "Close",
-      "font": "tut:clean"
+      "text": "Continue",
+      "font": "tut:clean",
+      "color": "green"
     }
   }
 }

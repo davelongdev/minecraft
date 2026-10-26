@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "minecraft:default",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "Autocomplete",
@@ -33,7 +33,7 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -46,7 +46,7 @@
             "text": " - Minecraft types things out for you.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -54,7 +54,7 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -67,7 +67,7 @@
             "text": " - Choose from a list of suggestions with ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Tab",
@@ -79,7 +79,7 @@
             "text": ".",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -87,7 +87,7 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -100,7 +100,7 @@
             "text": " picks the highlighted word if you want to add more. ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Enter",
@@ -112,7 +112,7 @@
             "text": " picks it and runs the command.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -120,14 +120,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "This is sometimes called ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Code Completion",
@@ -139,7 +139,7 @@
             "text": ", ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Tab Completion",
@@ -151,7 +151,7 @@
             "text": ", or ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "IntelliSense",
@@ -163,7 +163,7 @@
             "text": ".",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -171,7 +171,7 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -184,7 +184,7 @@
             "text": " - Type ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/gam",
@@ -196,7 +196,7 @@
             "text": " and press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Tab",
@@ -208,7 +208,7 @@
             "text": ". Then a space, then ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Tab",
@@ -220,7 +220,7 @@
             "text": " twice to land on ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "creative",
@@ -232,7 +232,7 @@
             "text": ". Press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Enter",
@@ -244,7 +244,7 @@
             "text": " to select and run it.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -252,14 +252,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Stuck? ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/help gamemode",
@@ -282,7 +282,7 @@
             "text": " shows what a command wants.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -290,14 +290,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Are you in creative mode now? (Creative lets you fly: double-tap space.) If so, you've completed the quest! ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -305,11 +305,11 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": false
@@ -337,8 +337,9 @@
   ],
   "exit_action": {
     "label": {
-      "text": "Close",
-      "font": "minecraft:default"
+      "text": "Continue",
+      "font": "minecraft:default",
+      "color": "green"
     }
   }
 }

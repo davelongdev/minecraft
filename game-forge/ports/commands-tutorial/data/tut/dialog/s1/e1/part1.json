@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 2 of 12",
     "font": "minecraft:default",
@@ -20,10 +20,10 @@
       "contents": {
         "text": "",
         "font": "minecraft:default",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
-            "text": "Say Hello",
+            "text": "Say Something in Chat",
             "font": "minecraft:default",
             "color": "gold"
           },
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press ",
+            "text": "When you press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "t",
@@ -49,22 +49,10 @@
             "bold": false
           },
           {
-            "text": ", type ",
+            "text": ", type something, and then press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
-          },
-          {
-            "text": "hello",
-            "font": "minecraft:default",
-            "color": "yellow",
-            "bold": false
-          },
-          {
-            "text": ", press ",
-            "font": "minecraft:default",
-            "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Enter",
@@ -73,10 +61,10 @@
             "bold": false
           },
           {
-            "text": ". Your words appear in chat, and all players can read your message.",
+            "text": ", your words appear in chat for all players to read.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -84,14 +72,35 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
+            "bold": false
+          },
+          {
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " - Say hello, or type any message into chat, to complete the quest.",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "white"
+          },
+          {
+            "text": "\n\n"
+          },
+          {
+            "text": "",
+            "font": "minecraft:default",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Did your words show up in chat? If so, you've completed the quest! ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -99,11 +108,11 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": false
@@ -112,20 +121,11 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Got it!",
-        "font": "minecraft:default",
-        "color": "green"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
-      "text": "Close",
-      "font": "minecraft:default"
+      "text": "Continue",
+      "font": "minecraft:default",
+      "color": "green"
     }
   }
 }

@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "minecraft:default",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "The Forward Slash",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "The ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/",
@@ -52,7 +52,7 @@
             "text": " tells Minecraft: this is a command, not chat. Type this and press Enter:",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -60,14 +60,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "    ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/effect give @s glowing",
@@ -92,17 +92,17 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Are you glowing? If so, you've completed the quest! ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": false
@@ -136,8 +136,9 @@
   ],
   "exit_action": {
     "label": {
-      "text": "Close",
-      "font": "minecraft:default"
+      "text": "Continue",
+      "font": "minecraft:default",
+      "color": "green"
     }
   }
 }

@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "minecraft:default",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "Teleport with X Y Z Coordinates",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "See the bridge to the new platform? Find the glass cage there, then type ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/tp @s ",
@@ -63,7 +63,7 @@
             "text": " and the 3 numbers on the sign.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -71,7 +71,7 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -84,7 +84,7 @@
             "text": " - look at any block, type ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/tp @s ",
@@ -107,7 +107,7 @@
             "text": " and press Tab. It types that block's numbers! (It can't see through glass, so use the sign's numbers for the cage.)",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -115,14 +115,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Made it inside? If so, you've completed the quest! The sign in the cage shows the numbers to get back to your island. ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -130,11 +130,11 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "Then go back and press the TP TO NEXT ISLAND button.",
             "font": "minecraft:default",
             "color": "yellow",
             "bold": false
@@ -162,8 +162,9 @@
   ],
   "exit_action": {
     "label": {
-      "text": "Close",
-      "font": "minecraft:default"
+      "text": "Continue",
+      "font": "minecraft:default",
+      "color": "green"
     }
   }
 }

@@ -19,5 +19,5 @@ execute if score @s tut_pp matches 2 run tellraw @s [{"text": "", "font": "minec
 execute if score @s tut_pp matches 2 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "", "font": "minecraft:uniform"}]
 execute if score @s tut_pp matches 2 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "Press Tab after /give @s to see every item name.", "font": "minecraft:uniform"}]
 execute if score @s tut_pp matches 2 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "", "font": "minecraft:uniform"}]
-execute if score @s tut_pp matches 2 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "Do you have 10 cookies? If so, you've completed the quest! ", "font": "minecraft:uniform"}, {"text": "Press the NEXT QUEST button to continue.", "font": "minecraft:uniform", "color": "green", "bold": true}]
+execute if score @s tut_pp matches 2 run tellraw @s [{"text": "", "font": "minecraft:uniform", "color": "white"}, {"text": "Do you have 10 cookies? If so, you've completed the quest! ", "font": "minecraft:uniform"}, {"text": "The next quest starts as soon as you've done it.", "font": "minecraft:uniform", "color": "green", "bold": true}]
 execute if score @s tut_pp matches 2 run scoreboard players set @s tut_pp -1

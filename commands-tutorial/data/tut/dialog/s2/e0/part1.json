@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "tut:clean",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "Give Yourself a Command Block",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "In Section 1, ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "you",
@@ -52,7 +52,7 @@
             "text": " typed the commands. A ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "command block",
@@ -64,7 +64,7 @@
             "text": " is a block that runs commands on its own.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -72,14 +72,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Command blocks only open in ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Creative mode",
@@ -91,7 +91,7 @@
             "text": ".",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -99,7 +99,7 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -112,7 +112,7 @@
             "text": " - Type ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/gamemode creative",
@@ -135,7 +135,7 @@
             "text": " and press Enter. Then type ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "/give @s command_block",
@@ -158,7 +158,7 @@
             "text": " and press Enter.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -166,14 +166,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Look in your inventory. Do you see an orange block? That's a command block! If so, you've completed the quest! ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -181,11 +181,11 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "tut:clean",
             "color": "yellow",
             "bold": false
@@ -213,8 +213,9 @@
   ],
   "exit_action": {
     "label": {
-      "text": "Close",
-      "font": "tut:clean"
+      "text": "Continue",
+      "font": "tut:clean",
+      "color": "green"
     }
   }
 }

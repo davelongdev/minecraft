@@ -37,6 +37,9 @@ execute if score @s tut_btn matches 3 run function tut:___start
 execute if score @s tut_btn matches 4 if score @s tut_quests matches 2.. run function tut:internal/give_book
 execute if score @s tut_btn matches 5 run function tut:___quest
 execute if score @s tut_btn matches 6 run function tut:internal/try_complete with storage tut:main args
+# quest 1: the dialog's Try it button prints the [Done!] chat link; clicking it completes the quest
+execute if score @s tut_btn matches 7 if score @s tut_sec matches 1 if score @s tut_ex matches 0 run function tut:s1/e0/try_it
+execute if score @s tut_btn matches 8 if score @s tut_sec matches 1 if score @s tut_ex matches 0 run function tut:s1/e0/done
 
 # tut_sneak counts consecutive ticks spent sneaking (0 when not), so "matches 1" is the
 # tick shift was pressed: holding it pages once, not every tick
@@ -49,6 +52,8 @@ execute if score @s tut_pp matches 0.. if score @s tut_lp matches 1.. if score @
 execute if score @s tut_pp matches 0.. if score @s tut_lp matches 1.. if score @s tut_pm matches 1 if score @s tut_sneak matches 1 run function tut:internal/print_tick
 
 function tut:internal/buttons with storage tut:main args
+# quests complete on their own once their check passes (no NEXT QUEST button since 2026-10-26)
+function tut:internal/auto_check with storage tut:main args
 
 execute if score @s tut_sec > maxsec tut_const run function tut:internal/all_done with storage tut:main args
 execute unless score @s tut_sec > maxsec tut_const run function tut:internal/dispatch with storage tut:main args

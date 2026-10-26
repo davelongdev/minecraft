@@ -40,7 +40,10 @@ every zip update.
 2. Kids work through the exercises on their own. The actionbar always shows the goal.
    Chat shows gentle red corrections when something's not quite right.
 3. Stuck? Press QUEST again to reread the current part.
-   Three buttons on the island: QUEST (press again for the next part), NEXT QUEST (checks the task first), PREVIOUS QUEST.
+   Two buttons on the island: SHOW QUEST (press again for the next part) and PREVIOUS QUEST. There's no NEXT QUEST
+   button: a quest completes on its own as soon as the task is done (since 2026-10-26). Quest 1 is done by clicking
+   the [Done!] link its "Try it" button puts in chat; quest 2 needs a chat message (the server's chat-counter mod;
+   without the mod it passes after 10 seconds); quest 12 still ends with the TP TO NEXT ISLAND button.
    A "Leaderboard" sidebar (every player, sorted by points, persists offline) scores each quest once per player: 1 point for a section 1 quest, 2 for a section 2 quest. Redoing a quest adds nothing.
    From chat: `/function tut:___quest`, `/function tut:___previous`.
 4. Lost? `/function tut:___start` replays the current exercise and teleports home.

@@ -1,6 +1,6 @@
 # Called from an exercise tick when its check passes.
 title @s times 5 40 10
-title @s subtitle {"font":"minecraft:uniform","text":""}
+title @s subtitle {"font":"minecraft:uniform","text":"Now try the next quest!","color":"yellow"}
 title @s title {"font":"minecraft:uniform","text":"Great job!","color":"green","bold":true}
 execute at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1
 execute at @s run particle minecraft:totem_of_undying ~ ~1 ~ 0.5 0.5 0.5 0.1 40 normal @s

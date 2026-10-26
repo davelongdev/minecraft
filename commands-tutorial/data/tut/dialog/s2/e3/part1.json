@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 4 of 12",
     "font": "tut:clean",
@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "tut:clean",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "Repeat",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "See the ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "blue block",
@@ -52,7 +52,7 @@
             "text": " in the floor, just ahead? From now on, build on it so the quests can check your work.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -60,14 +60,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Remember the three boxes lined up next to each other in the command block menu? We looked at the one all the way on the right earlier. Now we're going to look at the one on the left. This one has three options:",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -75,14 +75,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "    ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Impulse",
@@ -94,7 +94,7 @@
             "text": " - runs the command once, each time it gets a signal.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -102,14 +102,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "    ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Chain",
@@ -121,7 +121,7 @@
             "text": " - runs right after another command block (more on this later).",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -129,14 +129,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "    ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Repeat",
@@ -148,7 +148,7 @@
             "text": " - runs the command 20 times every second, as long as it's active.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -156,7 +156,7 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -169,7 +169,7 @@
             "text": " - Put a new command block on the blue block. Give it the command ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "particle happy_villager ~ ~2 ~ 1 1 1 0 10",
@@ -181,7 +181,7 @@
             "text": ". Click ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Impulse",
@@ -193,7 +193,7 @@
             "text": " until it says ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Repeat",
@@ -205,7 +205,7 @@
             "text": ", set the right box to ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Always Active",
@@ -217,7 +217,7 @@
             "text": ", and click ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Done",
@@ -229,7 +229,7 @@
             "text": ".",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -237,14 +237,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Are you seeing green sparkles? (The ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "~",
@@ -256,7 +256,7 @@
             "text": " means \"right here\" - the block's own spot.) If so, you've completed the quest! ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -264,11 +264,11 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "tut:clean",
             "color": "yellow",
             "bold": false
@@ -277,20 +277,11 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Got it!",
-        "font": "tut:clean",
-        "color": "green"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
-      "text": "Close",
-      "font": "tut:clean"
+      "text": "Continue",
+      "font": "tut:clean",
+      "color": "green"
     }
   }
 }

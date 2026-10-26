@@ -1,4 +1,5 @@
-# Edge-triggered island buttons. The three quest posts are positioned at the section's quest origin
+# Edge-triggered island buttons. The quest posts (SHOW QUEST, PREVIOUS QUEST; NEXT QUEST was removed 2026-10-26,
+# quests now complete on their own in internal/auto_check) are positioned at the section's quest origin
 # (args.pz: island 1 = z 0, section 2 = z 1036 on island 2); the finish post and GO BACK post are fixed.
 # right (z8) = QUEST: press 1 prints part 1, press 2 part 2, ... (extra presses repeat the last part)
 $execute positioned $(px) 100 $(pz) if block ~7 ~1 ~8 stone_button[powered=true] unless entity @s[tag=tut_pressed] unless score @s tut_sec > maxsec tut_const run scoreboard players add @s tut_lp 1
@@ -7,17 +8,10 @@ execute store result storage tut:main args.part int 1 run scoreboard players get
 $execute positioned $(px) 100 $(pz) if block ~7 ~1 ~8 stone_button[powered=true] unless entity @s[tag=tut_pressed] unless score @s tut_sec > maxsec tut_const run function tut:internal/show_part with storage tut:main args
 $execute positioned $(px) 100 $(pz) if block ~7 ~1 ~8 stone_button[powered=true] run tag @s add tut_pressed
 $execute positioned $(px) 100 $(pz) unless block ~7 ~1 ~8 stone_button[powered=true] run tag @s remove tut_pressed
-# middle (z4) = next quest: completes the current quest if its check passes, else says so
-# (checked before `complete` below so finishing the last quest doesn't also print this the same tick)
-$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true] unless entity @s[tag=tut_done] if score @s tut_sec > maxsec tut_const run dialog show @s {type:"minecraft:notice",title:{text:"All done!",color:"light_purple",bold:true},external_title:"All done!",pause:false,body:[{type:"minecraft:plain_message",width:300,contents:{text:"You finished every quest built so far!",color:"white"}}],action:{label:"OK"}}
-$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true] unless entity @s[tag=tut_done] unless score @s tut_sec > maxsec tut_const if function tut:s$(sec)/e$(ex)/check run function tut:internal/complete with storage tut:main args
-$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true] unless entity @s[tag=tut_done] unless score @s tut_sec > maxsec tut_const unless function tut:s$(sec)/e$(ex)/check run dialog show @s {type:"minecraft:notice",title:{text:"Quest not completed yet!",color:"red",bold:true},external_title:"Quest not completed yet!",pause:false,body:[{type:"minecraft:plain_message",width:300,contents:{text:"Press the SHOW QUEST button to see what to do.",color:"white"}}],action:{label:"OK"}}
-$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true] run tag @s add tut_done
-$execute positioned $(px) 100 $(pz) unless block ~7 ~1 ~4 stone_button[powered=true] run tag @s remove tut_done
-# left (z2) = previous lesson
-$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~2 stone_button[powered=true] unless entity @s[tag=tut_prev] run function tut:___previous
-$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~2 stone_button[powered=true] run tag @s add tut_prev
-$execute positioned $(px) 100 $(pz) unless block ~7 ~1 ~2 stone_button[powered=true] run tag @s remove tut_prev
+# left (z4) = previous lesson
+$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true] unless entity @s[tag=tut_prev] run function tut:___previous
+$execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true] run tag @s add tut_prev
+$execute positioned $(px) 100 $(pz) unless block ~7 ~1 ~4 stone_button[powered=true] run tag @s remove tut_prev
 # finish post (7,6; exists only after quest 11's cage visit, tut_end 1..) = TP TO NEXT ISLAND
 $execute positioned $(px) 100 0 if block ~7 ~1 ~6 stone_button[powered=true] unless entity @s[tag=tut_fin] if score @s tut_end matches 1.. run function tut:internal/next_island with storage tut:main args
 $execute positioned $(px) 100 0 if block ~7 ~1 ~6 stone_button[powered=true] run tag @s add tut_fin

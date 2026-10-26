@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 3 of 12",
     "font": "tut:clean",
@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "tut:clean",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "Open the Book",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "You just earned a book! It's the ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Little Command Book",
@@ -52,7 +52,7 @@
             "text": ", and it's in your hotbar at the bottom of the screen.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -60,7 +60,7 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
@@ -73,7 +73,7 @@
             "text": " - Open the book. Do you see the 9 inventory boxes at the bottom of the screen? You can select the first one by pressing ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "1",
@@ -85,7 +85,7 @@
             "text": " on the keyboard. Then ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "right-click",
@@ -97,7 +97,7 @@
             "text": " to open it.",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -105,14 +105,14 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Done reading? If so, you've completed the quest! ",
             "font": "tut:clean",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -120,11 +120,11 @@
           {
             "text": "",
             "font": "tut:clean",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "Press the NEXT QUEST button to continue.",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "tut:clean",
             "color": "yellow",
             "bold": false
@@ -133,20 +133,11 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Got it!",
-        "font": "tut:clean",
-        "color": "green"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
-      "text": "Close",
-      "font": "tut:clean"
+      "text": "Continue",
+      "font": "tut:clean",
+      "color": "green"
     }
   }
 }

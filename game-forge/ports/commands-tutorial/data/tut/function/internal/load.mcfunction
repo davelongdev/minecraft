@@ -12,6 +12,15 @@ scoreboard objectives add tut_const dummy
 scoreboard objectives add tut_lp dummy
 scoreboard objectives add tut_parts dummy
 scoreboard objectives add tut_flag dummy
+# chat_count: chat messages per player, counted by the studio server's chat-counter mod, which also keeps
+# #mod chat_count at 1 every tick. Reset here so a world copied to singleplayer (no mod) knows it's missing.
+scoreboard objectives add chat_count dummy
+# quest 1: view/position when the [Done!] link was clicked (s1/e0/done)
+scoreboard objectives add tut_ry dummy
+scoreboard objectives add tut_rp dummy
+scoreboard objectives add tut_rx dummy
+scoreboard objectives add tut_rz dummy
+scoreboard players reset #mod chat_count
 scoreboard objectives add tut_walk dummy
 scoreboard objectives add tut_wx dummy
 scoreboard objectives add tut_pp dummy

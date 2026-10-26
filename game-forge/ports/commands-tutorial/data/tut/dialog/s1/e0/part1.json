@@ -20,7 +20,7 @@
       "contents": {
         "text": "",
         "font": "minecraft:default",
-        "color": "#CFE8FF",
+        "color": "white",
         "extra": [
           {
             "text": "t and Esc",
@@ -33,14 +33,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "When you press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "t",
@@ -52,7 +52,7 @@
             "text": ", a chat window in the bottom left of the screen opens up.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -60,14 +60,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "When you press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Esc",
@@ -79,7 +79,7 @@
             "text": ", the box closes, and you're back in the game.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "\n\n"
@@ -87,14 +87,14 @@
           {
             "text": "",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "white",
             "bold": false
           },
           {
             "text": "Click ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
             "text": "Try it",
@@ -103,37 +103,34 @@
             "bold": false
           },
           {
-            "text": " to close this window and test it out.",
+            "text": " to close this window. A message shows up in chat: press ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
-            "text": "\n\n"
-          },
-          {
-            "text": "",
+            "text": "t",
             "font": "minecraft:default",
-            "color": "#CFE8FF",
+            "color": "yellow",
             "bold": false
           },
           {
-            "text": "Once you've done it, click ",
+            "text": " and click ",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           },
           {
-            "text": "I did it!",
+            "text": "[Done!]",
             "font": "minecraft:default",
             "color": "#55FF55",
             "bold": false
           },
           {
-            "text": " to move to your next quest!",
+            "text": " in it to finish the quest.",
             "font": "minecraft:default",
             "bold": false,
-            "color": "#CFE8FF"
+            "color": "white"
           }
         ]
       }
@@ -146,17 +143,10 @@
         "text": "Try it",
         "font": "minecraft:default",
         "color": "yellow"
-      }
-    },
-    {
-      "label": {
-        "text": "I did it!",
-        "font": "minecraft:default",
-        "color": "green"
       },
       "action": {
         "type": "minecraft:run_command",
-        "command": "trigger tut_btn set 6"
+        "command": "trigger tut_btn set 7"
       }
     }
   ]

@@ -20,6 +20,47 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   leaderboards stay per game; playtest each game inside Game Forge (sidebars
   per team colour, the Commands ↔ Command Blocks switch, a brand-new player's
   intro, NPC Forge forms, arena deaths/respawn in its dimension).
+  Live since 2026-10-26: Personal Workshops, the longer NPC hall (8 pads a
+  side), gated/auto-advancing Command Forge with the Chat Counter mod, the
+  darker-menus pack (state in CLAUDE.md).
+- [ ] **Playtest Personal Workshops** (built 2026-10-26, only the startup was
+  checked): every land kind (One Block's grass block appears, the noise kinds
+  land on the surface), owner creative / visitor adventure, the visit list
+  shows real names (player head + `fill_player_head`), a second player.
+  Known gaps: visitors in adventure can still open the owner's chests and
+  press buttons; all Normal/biome worlds share the world seed (same terrain);
+  a full kind ("all taken") needs `COUNT` raised in a new KINDS block and a
+  restart (never renumber). The end-of-hall spruce sign behind the Workshop
+  NPC still says "coming soon" — Dave hasn't said whether that spot is the
+  Workshop's or Bed Wars'.
+- [ ] **Per-player Command Forge dimension** (Dave, 2026-10-26; parked "for
+  now"): each kid's tutorial in its own dimension. Would need a pool of
+  dimensions like the workshops (restart to add more) and `port.py`/tick
+  changes so the tutorial runs per dimension. First ask what it should fix
+  (teleporting to others' islands? seeing other players?) — islands are
+  already 1024 apart. Also parked: "reset the whole game" on gf-test (only
+  Command Forge progress, or every game).
+- [ ] **Bed Wars** (Dave, 2026-10-26) as a Game Forge dimension, unlocked by
+  finishing Command Forge — plan in `reports/Bed Wars for Game Forge.md`:
+  write our own small pack; first an evening spike on the four in-game
+  unknowns (adventure `can_break` and the mined stat, `/damage … by` kill
+  credit, NoAI villager trades, `Age:-32768` items), free sidebar colours and
+  a team-join exemption in `forge:internal/tick`; 15-minute kid rules.
+- [ ] **Forge Coins** (Dave liked the name, 2026-10-26): a currency earned by
+  quests. Undecided: what earns them, what they buy, one-off or repeat. The
+  research (`reports/Popular Minecraft minigames and RPG elements.md`) says
+  keep coins to cosmetics, no coin leaderboard, unlocks framed as "you're
+  ready" — and flags Command Forge's medal leaderboard as the risky pattern.
+- [ ] **More learning tutorials** (Dave, 2026-10-26): computer science,
+  programming, design thinking, engineering (ideas: redstone logic gates,
+  "fix the broken contraption" debugging quests, design an NPC for someone
+  else's game); a shared character sheet across games (report's suggestion).
+- [ ] **Command Forge server catch-up:** the 2026-10-26 tutorial changes (no
+  NEXT QUEST, gated quests 1–3, white text, Continue button, PREVIOUS at z4)
+  are only in Game Forge's copy; the original `command-forge` server still
+  runs the older zip and has no Chat Counter mod. Ask Dave before updating it
+  (studio servers stay as they are). Also: the last quest of section 2 shows
+  "Now try the next quest!" though there's none.
 - [ ] **Game Forge: kids' op level** — the ten studio accounts are op 1 there
   (Dave, 2026-10-25, "for now"); Command Forge quests from `/effect` on and
   NPC Forge's create/edit forms need op 2. Before raising it: add the hub
@@ -29,10 +70,13 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
 - [ ] **Game Forge hub snapshot upkeep:** after changing the hub on purpose,
   retake the known-good snapshot (`game-forge/tools/snapshot_hub.py` on the
   box, copy `hub/*.nbt` into `game-forge/data/forge/structure/hub/`, rezip,
-  reload). Delete the leftover test structure
+  reload). Since 2026-10-26 the east part is x 16..63 (the longer hall).
+  Delete the leftover test structure
   `world/generated/forge/structure/hub_auto/test_west.nbt` and, once Game
   Forge has run a while, the rollback copies in `/srv/mc/game-forge`
-  (`world.before-*`, `*.tgz`, `datapacks-retired/`, `*.bak-*`).
+  (`world.before-*` incl. `world.before-workshops-20261026`, `*.tgz`,
+  `datapacks-retired/`, `*.bak-*`), and the `gf-test` server folder when
+  it's no longer needed (port 25588 is open in nftables for it).
 - [ ] **Check one-block_2 save points across a restart:** a redstone-pulsed
   structure block keeps the template only in memory (found 2026-10-25 while
   building the Game Forge hub snapshot), so `___save_game` / `___save_as`
@@ -118,13 +162,16 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   island and being refused edits; `clear_one_npc`; the choose_name form's one
   line of white text (keep or cut); whether "Player N" default signs are OK.
 - [ ] **RPG-style game** — an RPG inside Minecraft: quests, NPCs with
-  dialogue, stats/levels, and loot. Overlaps with the NPC game above for the
+  dialogue, stats/levels, and loot. Research 2026-10-26:
+  `reports/Popular Minecraft minigames and RPG elements.md` (systems mapped
+  to vanilla 26.3; 26.3 loot tables use `modifier`/`condition`/`type` keys). Overlaps with the NPC game above for the
   dialogue layer; stats and inventory via scoreboards, storage NBT, and
   `custom_data`-tagged items.
 - [ ] **Commands tutorial map ("Command Forge"), fully in-game (no videos)** —
   IN PROGRESS in `commands-tutorial/` (targets 26.3, Prism instance folder
   `Command Forge - 26.3`, world folder `learn_commands`). Section 1 (12 quests,
-  order since 2026-10-16: t and Esc, Say Hello, Open the Book — the book is
+  order since 2026-10-16: t and Esc, Say Something in Chat (renamed from Say
+  Hello 2026-10-26), Open the Book — the book is
   first given after quest 2 — then on to the quest-12 cage trip ending in
   TP TO NEXT ISLAND) and **Section 2 (8 command block quests on island 2)**
   built and playtested through 2026-10-12 (see CLAUDE.md for the rules, text
@@ -302,9 +349,9 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
   (the eleven NCMC accounts are op level 2 on npc-game since 2026-10-23
   only because form submits need it; de-op them once the mod lands); chosen display name
   in chat/tab/name tag (Dave expected `choose_name` to change his chat name —
-  vanilla can't); a chat listener so Command Forge's "Say Hello" quest is
-  checked for real (the server sees chat; "t and Esc" never leaves the
-  client, so it stays on trust or merges into Say Hello) — Dave 2026-10-18;
+  vanilla can't); ~~a chat listener for Command Forge's chat quest~~ done
+  2026-10-26 as the separate `mods/chat-counter/` (and "t and Esc" is checked
+  by a chat-link click) — Dave 2026-10-18;
   later per-player entity hiding. Prereqs in the Java section
   below (JDK 25, Fabric template).
 - [ ] **Studio PC mouse "gyration" in Minecraft only** (2026-10-23, open): the
@@ -327,7 +374,9 @@ Report: `reports/Minecraft and Hytale Java mod setup.md`; reader doc `~/java/jav
   (JDK 27 can't run the template wrappers; the path is Arch's naming convention,
   unverified until installed).
 - [ ] Generate a Fabric 26.3 template (fabricmc.net/develop/template), `./gradlew
-  runClient`, then `build` and copy the jar into the Prism 26.3 instance after
+  runClient`, then `build` (server side done on the dell box 2026-10-26:
+  `~/mods/template` + `mods/chat-counter` build there with JDK 25; the laptop
+  still has no JDK 25 / client mod setup) and copy the jar into the Prism 26.3 instance after
   installing Fabric Loader 0.19.5 + Fabric API 0.162.0+26.3 there (Edit → Version →
   Install).
 - [ ] Pick the editor route and test the report's untested snippets: nvim-jdtls

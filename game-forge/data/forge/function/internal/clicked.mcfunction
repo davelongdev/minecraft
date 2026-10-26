@@ -5,4 +5,5 @@ execute if entity @s[tag=forge_3] on target run function forge:internal/offer3
 execute if entity @s[tag=forge_4] on target run function forge:internal/offer4
 execute if entity @s[tag=forge_5] on target run function forge:internal/offer5
 execute if entity @s[tag=forge_6] on target run function forge:internal/offer6
+execute if entity @s[tag=forge_7] on target run function forge:internal/offer7
 data remove entity @s interaction

@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Game Forge: darker blur behind menus and dialogs",
+    "min_format": 97,
+    "max_format": [
+      97,
+      99
+    ]
+  }
+}

@@ -7,7 +7,9 @@ $execute if score @s tut_end matches 1.. positioned $(px) 100 0 if block ~1 ~-2 
 $execute unless score @s tut_end matches 1.. positioned $(px) 100 0 if block ~1 ~ ~2 oak_log run function tut:internal/reset_post_clear_rel
 $execute positioned $(px) 100 0 unless block ~-29 ~-2 ~6 bedrock run function tut:internal/path_rel
 $execute positioned $(px) 100 0 if block ~-29 ~-1 ~6 stone run fill ~-30 ~-1 ~4 ~-1 ~-1 ~8 stone_bricks
-# NEXT/PREVIOUS posts appear with the first completed quest and go with a full reset (anchored on the SHOW QUEST post's log)
+# the PREVIOUS post (z4) appears with the first completed quest and goes with a full reset (anchored on the SHOW
+# QUEST post's log); islands from before 2026-10-26 have posts at z2 (PREVIOUS) and z4 (NEXT): cleared, then rebuilt
+$execute positioned $(px) 100 $(pz) if block ~7 ~ ~8 oak_log if block ~7 ~ ~2 oak_log run function tut:internal/old_posts_clear_rel
 $execute positioned $(px) 100 $(pz) if block ~7 ~ ~8 oak_log if score @s tut_quests matches 1.. unless block ~7 ~ ~4 oak_log run function tut:internal/nav_posts_rel
 $execute positioned $(px) 100 $(pz) if block ~7 ~ ~8 oak_log if score @s tut_quests matches 0 if block ~7 ~ ~4 oak_log run function tut:internal/nav_posts_clear_rel
 # older islands: the QUEST post's sign now reads SHOW QUEST (Dave, 2026-10-18); relabel once per player at the section's quest origin

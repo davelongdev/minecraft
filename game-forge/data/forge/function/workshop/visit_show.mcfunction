@@ -1,0 +1,2 @@
+# Macro (actions): the list is pasted in as SNBT
+$dialog show @s {type:"minecraft:multi_action",title:{text:"Personal Workshop",color:"gold",bold:true},external_title:"Visit a workshop",pause:false,after_action:"close",body:[{type:"minecraft:plain_message",width:300,contents:"Whose workshop do you want to visit? You can look around, but you can not change anything."}],columns:2,actions:$(actions),exit_action:{label:"Not now"}}

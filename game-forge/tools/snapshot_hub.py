@@ -22,7 +22,7 @@ from make_void_world import COMPOUND, INT, LIST, STRING, Reader, Writer  # noqa:
 
 DATA_VERSION = 5023  # 26.3
 Y0, Y1, Z0, Z1 = 55, 80, -21, 21
-PARTS = {"west": (-16, 15), "east": (16, 41)}  # x ranges; 48 blocks per side at most
+PARTS = {"west": (-16, 15), "east": (16, 63)}  # x ranges; 48 blocks per side at most (east grew from 41 on 2026-10-26, tools/extend_hub.py)
 
 
 def unwrap(v):

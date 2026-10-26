@@ -10,6 +10,8 @@ scoreboard objectives add forge_compass minecraft.used:minecraft.carrot_on_a_sti
 scoreboard objectives add forge_t1 dummy
 scoreboard objectives add forge_t2 dummy
 scoreboard objectives add forge_s1 dummy
+# Personal Workshops (tools/gen_workshops.py)
+function forge:workshop/load
 
 # World-wide settings shared by every game (the game copies' own gamerule lines are commented out)
 gamerule advance_time false

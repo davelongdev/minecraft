@@ -39,8 +39,11 @@ def line(*parts, color="white"):
 
 
 FADE_TIP = line(t("Text fading? Press t to read it again. Esc closes chat.", color="gray", italic=True))
-NEXT = t("Then press the NEXT QUEST button.", color="green", bold=True)
-CONTINUE = t("Press the NEXT QUEST button to continue.", color="green", bold=True)
+# Since 2026-10-26 quests complete on their own when their check passes (internal/auto_check; no NEXT QUEST post)
+NEXT = t("The next quest starts as soon as you've done it.", color="green", bold=True)
+CONTINUE = t("The next quest starts as soon as you've done it.", color="green", bold=True)
+# quest 12 is the exception: it finishes with the TP TO NEXT ISLAND post that appears once you're back on your island
+FINISH = t("Then go back and press the TP TO NEXT ISLAND button.", color="green", bold=True)
 BLANK = line("")
 
 
@@ -73,7 +76,8 @@ def find_suggest(components):
 
 
 DIALOG_FONT = "tut:clean"  # Liberation Sans TTF from resourcepacks/no-moon (Dave 2026-10-18: default was blocky); needs the pack
-DIALOG_BODY = "#CFE8FF"  # pale blue body text, key words stay yellow
+DIALOG_BODY = "white"  # body text, key words stay yellow (was pale blue #CFE8FF until 2026-10-26: hard to read in
+# Game Forge, which has no resource pack to darken the screen backdrop)
 
 
 def restyle(c):
@@ -97,11 +101,11 @@ def dt(text, **style):
 
 def dialog_part(sec, i, k, n, header, body_lines):
     """Build a multi_action dialog for part k of quest i from the same lines used for chat."""
-    # the green closer (CONTINUE / NEXT) goes on its own line in the dialog
+    # the green closer (CONTINUE / NEXT / FINISH) goes on its own line in the dialog
     split = []
     for l in body_lines:
         cs = tellraw_components(l)
-        if len(cs) > 2 and cs[-1] in (CONTINUE, NEXT):
+        if len(cs) > 2 and cs[-1] in (CONTINUE, NEXT, FINISH):
             split.append("tellraw @s " + json.dumps(cs[:-1], ensure_ascii=False))
             split.append("tellraw @s " + json.dumps([cs[0], cs[-1]], ensure_ascii=False))
         else:
@@ -127,25 +131,34 @@ def dialog_part(sec, i, k, n, header, body_lines):
         actions.append({"label": dt(f"Part {k + 1}", color="green"),
                         "action": {"type": "minecraft:show_dialog", "dialog": f"tut:s{sec}/e{i}/part{k + 1}"}})
     if sec == 1 and i == 0:
-        # quest 1: no NEXT QUEST post yet. "Try it" just closes the screen; "I did it!" completes the quest
-        # (trigger 6 -> internal/try_complete). Stacked in that order, no extra Close button (Dave 2026-10-18).
-        actions.append({"label": dt("Try it", color="yellow")})
-        actions.append({"label": dt("I did it!", color="green"),
-                        "action": {"type": "minecraft:run_command", "command": "trigger tut_btn set 6"}})
-    if not actions:
-        actions.append({"label": dt("Got it!", color="green")})
+        # quest 1: no NEXT QUEST post yet. "Try it" closes the screen and prints a [Done!] chat link (trigger 7 ->
+        # s1/e0/try_it); clicking it needs the chat box open, and completes the quest (trigger 8 -> s1/e0/done).
+        # Replaced the on-trust "I did it!" button 2026-10-26 (Dave: every quest gated).
+        actions.append({"label": dt("Try it", color="yellow"),
+                        "action": {"type": "minecraft:run_command", "command": "trigger tut_btn set 7"}})
     title = f"Quest {i + 1} of {TOTAL}" + (f"  (part {k} of {n})" if n > 1 else "")
-    write_dialog(f"s{sec}/e{i}/part{k}.json", {
-        "type": "minecraft:multi_action",
+    common = {
         "title": {"text": title, "font": DIALOG_FONT, "color": "gold", "bold": True},
         "external_title": {"text": f"Quest {i + 1}", "font": DIALOG_FONT},
         "pause": False,
         "can_close_with_escape": True,
         "after_action": "close",
         "body": [{"type": "minecraft:plain_message", "width": 320, "contents": {"text": "", "font": DIALOG_FONT, "color": DIALOG_BODY, "extra": comps}}],
+    }
+    # One closing button, "Continue" (Dave 2026-10-26: there used to be both "Got it!" and "Close", doing the same).
+    # A screen with nothing else to offer is a notice (multi_action needs at least one action); otherwise the
+    # extra buttons (put the command in chat, Part 2) plus Continue as the exit button. Quest 1 only has Try it.
+    if not actions:
+        write_dialog(f"s{sec}/e{i}/part{k}.json", {
+            "type": "minecraft:notice", **common,
+            "action": {"label": dt("Continue", color="green")},
+        })
+        return
+    write_dialog(f"s{sec}/e{i}/part{k}.json", {
+        "type": "minecraft:multi_action", **common,
         "columns": 1,
         "actions": actions,
-        **({} if (sec == 1 and i == 0) else {"exit_action": {"label": dt("Close")}}),
+        **({} if (sec == 1 and i == 0) else {"exit_action": {"label": dt("Continue", color="green")}}),
     })
 
 
@@ -211,14 +224,15 @@ QUESTS = [
              line(""),
              line("When you press ", key("Esc"), ", the box closes, and you're back in the game."),
              line(""),
-             line("Click ", key("Try it"), " to close this window and test it out."),
-             line(""),
-             line("Once you've done it, click ", t("I did it!", color="#55FF55"), " to move to your next quest!"),
+             line("Click ", key("Try it"), " to close this window. A message shows up in chat: press ", key("t"),
+                  " and click ", t("[Done!]", color="#55FF55"), " in it to finish the quest."),
          ]]),
 
-    dict(short="Say Hello", header="Say Hello",
+    dict(short="Say Something|in Chat", header="Say Something in Chat",
          parts=[[
-             line("Press ", key("t"), ", type ", key("hello"), ", press ", key("Enter"), ". Your words appear in chat, and all players can read your message."),
+             line("When you press ", key("t"), ", type something, and then press ", key("Enter"), ", your words appear in chat for all players to read."),
+             line(""),
+             line(key("Your Mission"), " - Say hello, or type any message into chat, to complete the quest."),
              line(""),
              line("Did your words show up in chat? If so, you've completed the quest! ", CONTINUE),
          ]]),
@@ -349,7 +363,7 @@ QUESTS = [
               line(""),
               line(key("Tab trick"), " - look at any block, type ", cmd("/tp @s ", "/tp @s "), " and press Tab. It types that block's numbers! (It can't see through glass, so use the sign's numbers for the cage.)"),
               line(""),
-              line("Made it inside? If so, you've completed the quest! The sign in the cage shows the numbers to get back to your island. ", CONTINUE)],
+              line("Made it inside? If so, you've completed the quest! The sign in the cage shows the numbers to get back to your island. ", FINISH)],
          ]),
 ]
 TOTAL = len(QUESTS)
