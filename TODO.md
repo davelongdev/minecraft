@@ -10,9 +10,39 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   world with islands per game or separate worlds, how progress and the
   leaderboard carry across, and which pack's conventions win (trigger words,
   books, buttons). First step is a short design note before touching code.
-  A `game-forge` server exists since 2026-10-24 (25587, creative, only
-  lazerbrain6562 + NCMC_11 at op 4), for now just a copy of the one-block_2
-  world as a starting point.
+  A `game-forge` server exists since 2026-10-24 (25587).
+  **IN PROGRESS since 2026-10-25** (`game-forge/`, state in CLAUDE.md): the
+  hub world holds copies of Jump Game, One Block, PvP Arena, Command Forge
+  (split into Commands / Command Blocks), and NPC Forge, each in its own
+  dimension, several namespaces kept (ported by `game-forge/tools/port.py`),
+  six lobby NPCs + Magic Compass to move around; the studio servers stay as
+  they are. Still open: tile-game and build-plots aren't in it; progress and
+  leaderboards stay per game; playtest each game inside Game Forge (sidebars
+  per team colour, the Commands ↔ Command Blocks switch, a brand-new player's
+  intro, NPC Forge forms, arena deaths/respawn in its dimension).
+- [ ] **Game Forge: kids' op level** — the ten studio accounts are op 1 there
+  (Dave, 2026-10-25, "for now"); Command Forge quests from `/effect` on and
+  NPC Forge's create/edit forms need op 2. Before raising it: add the hub
+  guard (any non-staff player in the hub forced back to adventure every tick,
+  `lazerbrain6562`/`NCMC_11` exempt via a tag); op 2 can still `/fill` and
+  `/setblock`, which only `___restore_hub` / `___hub_snapshots` undo.
+- [ ] **Game Forge hub snapshot upkeep:** after changing the hub on purpose,
+  retake the known-good snapshot (`game-forge/tools/snapshot_hub.py` on the
+  box, copy `hub/*.nbt` into `game-forge/data/forge/structure/hub/`, rezip,
+  reload). Delete the leftover test structure
+  `world/generated/forge/structure/hub_auto/test_west.nbt` and, once Game
+  Forge has run a while, the rollback copies in `/srv/mc/game-forge`
+  (`world.before-*`, `*.tgz`, `datapacks-retired/`, `*.bak-*`).
+- [ ] **Check one-block_2 save points across a restart:** a redstone-pulsed
+  structure block keeps the template only in memory (found 2026-10-25 while
+  building the Game Forge hub snapshot), so `___save_game` / `___save_as`
+  saves probably vanish when the server restarts. If so, those features need
+  another way to persist.
+- [ ] **Ember's remote access** (2026-10-25): email sent asking which address
+  to use and her Minecraft name. When she replies: Tailscale admin console →
+  Machines → `arch-dell` → Share to that address; whitelist her name on Game
+  Forge (and any server she should have). Optional: an ACL limiting shared
+  users to the game ports.
 - [ ] **Boss battle arena** (`boss-battle-arena/`, Dave's ask 2026-10-23) —
   create it; a companion to `pvp-arena/`, to fold into game-forge later.
   Nothing designed yet.
@@ -177,6 +207,10 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
      creative-basic --prune` to drop the two pre-rename snapshots (Dave
      noticed them in the `mc-pull` table; asked, not yet answered); a sudo
      line for `/usr/bin/rsync` when NOPASSWD goes.
+     2026-10-25: backups every 10 minutes while someone's on a server (plus
+     one run after the last player leaves) and **every snapshot kept** (Dave;
+     no forget/prune), plus Game Forge hub snapshots every 5 minutes. Watch
+     the repo size on the box and in `~/mc-backups` now and then.
   9. [x] 2026-10-22: `survival-basic` 25566/25576 and `creative-basic`
      25567/25577 (vanilla, random seeds, keep_inventory) via
      `server-config/new-server.sh`. Same day: `command-forge` 25568/25578
