@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 5 of 12",
     "font": "minecraft:default",
@@ -73,18 +73,7 @@
             "text": "/effect give @s glowing",
             "font": "minecraft:default",
             "color": "yellow",
-            "bold": false,
-            "click_event": {
-              "action": "suggest_command",
-              "command": "/effect give @s glowing"
-            },
-            "hover_event": {
-              "action": "show_text",
-              "value": {
-                "text": "Click to put this in your chat box",
-                "font": "minecraft:uniform"
-              }
-            }
+            "bold": false
           },
           {
             "text": "\n\n"
@@ -102,39 +91,25 @@
             "color": "white"
           },
           {
-            "text": "The next quest starts as soon as you've done it.",
+            "text": "\n\n"
+          },
+          {
+            "text": "",
             "font": "minecraft:default",
-            "color": "yellow",
+            "color": "white",
             "bold": false
           },
           {
-            "text": "   (click the blue text and it jumps into the chat box)",
+            "text": "The next quest starts as soon as you've done it.",
             "font": "minecraft:default",
-            "color": "gray",
+            "color": "yellow",
             "bold": false
           }
         ]
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Put /effect give @s glowing in my chat box",
-        "font": "minecraft:default"
-      },
-      "tooltip": {
-        "text": "Types it for you. You press Enter.",
-        "font": "minecraft:default"
-      },
-      "action": {
-        "type": "minecraft:suggest_command",
-        "command": "/effect give @s glowing"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
       "text": "Continue",
       "font": "minecraft:default",

@@ -23,10 +23,9 @@ def t(text, **style):
 
 
 def cmd(text, suggest=None):
-    """A command shown in aqua; clicking puts it in the chat box."""
-    return {"text": text, "font": FONT, "color": "aqua", "bold": True,
-            "click_event": {"action": "suggest_command", "command": suggest or text},
-            "hover_event": {"action": "show_text", "value": t("Click to put this in your chat box")}}
+    """A command shown in aqua. Not clickable: kids type every command themselves (Dave 2026-10-26; it used to
+    put `suggest or text` in the chat box, and dialogs got a "Put ... in my chat box" button)."""
+    return key(text)
 
 
 def key(text):
@@ -43,8 +42,11 @@ FADE_TIP = line(t("Text fading? Press t to read it again. Esc closes chat.", col
 NEXT = t("The next quest starts as soon as you've done it.", color="green", bold=True)
 CONTINUE = t("The next quest starts as soon as you've done it.", color="green", bold=True)
 # quest 12 is the exception: it finishes with the TP TO NEXT ISLAND post that appears once you're back on your island
-FINISH = t("Then go back and press the TP TO NEXT ISLAND button.", color="green", bold=True)
+FINISH = t("Press the TP TO NEXT ISLAND button to finish the quest.", color="green", bold=True)
 BLANK = line("")
+# a horizontal rule: struck-through spaces draw a solid gray line (dialogs have no divider element);
+# 70 spaces is about 280 px of the 320 px dialog body in the default font
+HR = line(t(" " * 70, color="gray", strikethrough=True))
 
 
 def write(rel, lines):
@@ -65,14 +67,6 @@ def write_dialog(rel, data):
 def tellraw_components(tellraw_line):
     """Turn a 'tellraw @s [...]' line back into its component list."""
     return json.loads(tellraw_line[len("tellraw @s "):])
-
-
-def find_suggest(components):
-    for c in components:
-        ce = c.get("click_event") if isinstance(c, dict) else None
-        if ce and ce.get("action") == "suggest_command":
-            return ce["command"], c.get("text", "").strip() or ce["command"]
-    return None
 
 
 DIALOG_FONT = "tut:clean"  # Liberation Sans TTF from resourcepacks/no-moon (Dave 2026-10-18: default was blocky); needs the pack
@@ -114,19 +108,12 @@ def dialog_part(sec, i, k, n, header, body_lines):
     body_lines = [l for l in split if l != BLANK]
     # the quest's name is the first line of the body; the window title is just "Quest N of T" (Dave 2026-10-18)
     comps = [dt(header, color="gold"), {"text": "\n\n"}]
-    suggest = None
     for idx, l in enumerate(body_lines):
         cs = tellraw_components(l)
         if idx:
             comps.append({"text": "\n\n"})
         comps.extend(restyle(c) for c in cs)
-        suggest = suggest or find_suggest(cs)
     actions = []
-    if suggest:
-        command, label = suggest
-        actions.append({"label": dt("Put " + (label if label.startswith("/") else "the command") + " in my chat box"),
-                        "tooltip": dt("Types it for you. You press Enter."),
-                        "action": {"type": "minecraft:suggest_command", "command": command}})
     if k < n:
         actions.append({"label": dt(f"Part {k + 1}", color="green"),
                         "action": {"type": "minecraft:show_dialog", "dialog": f"tut:s{sec}/e{i}/part{k + 1}"}})
@@ -147,7 +134,7 @@ def dialog_part(sec, i, k, n, header, body_lines):
     }
     # One closing button, "Continue" (Dave 2026-10-26: there used to be both "Got it!" and "Close", doing the same).
     # A screen with nothing else to offer is a notice (multi_action needs at least one action); otherwise the
-    # extra buttons (put the command in chat, Part 2) plus Continue as the exit button. Quest 1 only has Try it.
+    # extra buttons (Part 2) plus Continue as the exit button. Quest 1 only has Try it.
     if not actions:
         write_dialog(f"s{sec}/e{i}/part{k}.json", {
             "type": "minecraft:notice", **common,
@@ -259,9 +246,9 @@ QUESTS = [
          parts=[[
              line("The ", key("/"), " tells Minecraft: this is a command, not chat. Type this and press Enter:"),
              line(""),
-             line("    ", cmd("/effect give @s glowing")),
+             line("    ", key("/effect give @s glowing")),
              line(""),
-             line("Are you glowing? If so, you've completed the quest! ", CONTINUE, t("   (click the blue text and it jumps into the chat box)", color="gray")),
+             line("Are you glowing? If so, you've completed the quest! ", CONTINUE),
          ]]),
 
     dict(short="CLI", header="CLI", delay="shift",
@@ -309,7 +296,7 @@ QUESTS = [
          parts=[[
              [line("Minecraft has lots of commands. You don't have to remember them - the game can show you the whole list."),
               line(""),
-              line(key("/ then Tab"), " - press ", key("t"), ", type ", key("/"), ", then press ", key("Tab"), ". A list of every command pops up."),
+              line("Type ", key("/"), " then press ", key("Tab"), ". A list of every command pops up."),
               line(""),
               line("You can scroll through the list of commands with ", key("Tab"), " (down), ", key("Shift + Tab"), " (up), or the ", key("Up / Down arrow keys"), ".")],
              line(""),
@@ -334,7 +321,8 @@ QUESTS = [
               line(""),
               line(key("cookie"), " - which item to give"),
               line(""),
-              line(key("10"), " - how many to give (optional - 1 if left blank)")],
+              line(key("10"), " - how many to give (optional - 1 if left blank)"),
+              HR],
              line(""),
              [line(key("Your Mission"), " - Type ", cmd("/give @s cookie 10"), " and press Enter."),
               line(""),
@@ -359,11 +347,14 @@ QUESTS = [
              [line("Every spot has 3 numbers called ", key("coordinates"), " (", key("coords"), "): ", key("X"), " east (-X west), ", key("Y"), " up (-Y down), ", key("Z"), " south (-Z north)."),
               line(""),
               line("Press ", key("F3"), " to see your own numbers.")],
-             [line("See the bridge to the new platform? Find the glass cage there, then type ", cmd("/tp @s ", "/tp @s "), " and the 3 numbers on the sign."),
+             [line(key("Your Mission"), " - Cross the bridge to the new platform and find the glass cage. Type ", cmd("/tp @s"), " and the 3 numbers on the sign next to it, then press Enter."),
               line(""),
-              line(key("Tab trick"), " - look at any block, type ", cmd("/tp @s ", "/tp @s "), " and press Tab. It types that block's numbers! (It can't see through glass, so use the sign's numbers for the cage.)"),
+              line(key("Tab trick"), " - look at any block, type ", cmd("/tp @s"), " and press Tab. It types that block's numbers! (It can't see through glass, so use the sign's numbers for the cage.)"),
               line(""),
-              line("Made it inside? If so, you've completed the quest! The sign in the cage shows the numbers to get back to your island. ", FINISH)],
+              line("Now practice getting out! Inside the cage, a sign shows your island's numbers. Type ", cmd("/tp @s"),
+                   " and those 3 numbers to go back to your island."),
+              line(""),
+              line("Back on your island? ", FINISH)],
          ]),
 ]
 TOTAL = len(QUESTS)

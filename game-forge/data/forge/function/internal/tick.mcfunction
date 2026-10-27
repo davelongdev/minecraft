@@ -8,6 +8,10 @@ execute as @a unless items entity @s container.* *[custom_data~{forge_hub:1b}] r
 execute as @e[type=item] if items entity @s contents *[custom_data~{forge_hub:1b}] run kill @s
 execute as @a[scores={forge_compass=1..}] if items entity @s weapon.* *[custom_data~{forge_hub:1b}] run function forge:internal/lobby
 scoreboard players reset @a forge_compass
+
+# Commands tutorial finished: the title once its screen's Continue was pressed (internal/congrats)
+execute as @a[scores={forge_cong=1..}] run function forge:internal/congrats
+scoreboard players reset @a[scores={forge_cong=1..}] forge_cong
 # /trigger lobby from anywhere
 execute as @a[scores={lobby=1..}] run function forge:internal/lobby
 scoreboard players reset @a lobby

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 12 of 12  (part 2 of 2)",
     "font": "minecraft:default",
@@ -37,30 +37,25 @@
             "bold": false
           },
           {
-            "text": "See the bridge to the new platform? Find the glass cage there, then type ",
+            "text": "Your Mission",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " - Cross the bridge to the new platform and find the glass cage. Type ",
             "font": "minecraft:default",
             "bold": false,
             "color": "white"
           },
           {
-            "text": "/tp @s ",
+            "text": "/tp @s",
             "font": "minecraft:default",
             "color": "yellow",
-            "bold": false,
-            "click_event": {
-              "action": "suggest_command",
-              "command": "/tp @s "
-            },
-            "hover_event": {
-              "action": "show_text",
-              "value": {
-                "text": "Click to put this in your chat box",
-                "font": "minecraft:uniform"
-              }
-            }
+            "bold": false
           },
           {
-            "text": " and the 3 numbers on the sign.",
+            "text": " and the 3 numbers on the sign next to it, then press Enter.",
             "font": "minecraft:default",
             "bold": false,
             "color": "white"
@@ -87,21 +82,10 @@
             "color": "white"
           },
           {
-            "text": "/tp @s ",
+            "text": "/tp @s",
             "font": "minecraft:default",
             "color": "yellow",
-            "bold": false,
-            "click_event": {
-              "action": "suggest_command",
-              "command": "/tp @s "
-            },
-            "hover_event": {
-              "action": "show_text",
-              "value": {
-                "text": "Click to put this in your chat box",
-                "font": "minecraft:uniform"
-              }
-            }
+            "bold": false
           },
           {
             "text": " and press Tab. It types that block's numbers! (It can't see through glass, so use the sign's numbers for the cage.)",
@@ -119,7 +103,19 @@
             "bold": false
           },
           {
-            "text": "Made it inside? If so, you've completed the quest! The sign in the cage shows the numbers to get back to your island. ",
+            "text": "Now practice getting out! Inside the cage, a sign shows your island's numbers. Type ",
+            "font": "minecraft:default",
+            "bold": false,
+            "color": "white"
+          },
+          {
+            "text": "/tp @s",
+            "font": "minecraft:default",
+            "color": "yellow",
+            "bold": false
+          },
+          {
+            "text": " and those 3 numbers to go back to your island.",
             "font": "minecraft:default",
             "bold": false,
             "color": "white"
@@ -134,33 +130,16 @@
             "bold": false
           },
           {
-            "text": "Then go back and press the TP TO NEXT ISLAND button.",
+            "text": "When you're done, use your Magic Compass to get back to the hub.",
             "font": "minecraft:default",
-            "color": "yellow",
-            "bold": false
+            "bold": false,
+            "color": "white"
           }
         ]
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Put /tp @s in my chat box",
-        "font": "minecraft:default"
-      },
-      "tooltip": {
-        "text": "Types it for you. You press Enter.",
-        "font": "minecraft:default"
-      },
-      "action": {
-        "type": "minecraft:suggest_command",
-        "command": "/tp @s "
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
       "text": "Continue",
       "font": "minecraft:default",

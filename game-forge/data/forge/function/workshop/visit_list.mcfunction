@@ -1,4 +1,4 @@
-# As a player: a screen with one button per workshop except their own.
+# As a player: a screen with one button per workshop someone else owns.
 data modify storage forge:main ws_pick set value {actions:[]}
 data modify storage forge:main ws_work set from storage forge:main workshops
 execute if data storage forge:main ws_work[0] run function forge:workshop/visit_loop

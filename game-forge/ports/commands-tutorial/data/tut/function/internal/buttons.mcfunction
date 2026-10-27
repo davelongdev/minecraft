@@ -13,7 +13,7 @@ $execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true]
 $execute positioned $(px) 100 $(pz) if block ~7 ~1 ~4 stone_button[powered=true] run tag @s add tut_prev
 $execute positioned $(px) 100 $(pz) unless block ~7 ~1 ~4 stone_button[powered=true] run tag @s remove tut_prev
 # finish post (7,6; exists only after quest 11's cage visit, tut_end 1..) = TP TO NEXT ISLAND
-$execute positioned $(px) 100 0 if block ~7 ~1 ~6 stone_button[powered=true] unless entity @s[tag=tut_fin] if score @s tut_end matches 1.. run function tut:internal/next_island with storage tut:main args
+# [game-forge] no TP TO NEXT ISLAND button (finish_post_rel): section 2 is the Command Blocks NPC
 $execute positioned $(px) 100 0 if block ~7 ~1 ~6 stone_button[powered=true] run tag @s add tut_fin
 $execute positioned $(px) 100 0 unless block ~7 ~1 ~6 stone_button[powered=true] run tag @s remove tut_fin
 # island 2 (px, 100, 1024; 36x36), post at 1,11 (west edge, sign faces east) = GO BACK TO FIRST ISLAND

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 7 of 12",
     "font": "tut:clean",
@@ -73,18 +73,7 @@
             "text": "/give @s stick",
             "font": "tut:clean",
             "color": "yellow",
-            "bold": false,
-            "click_event": {
-              "action": "suggest_command",
-              "command": "/give @s stick"
-            },
-            "hover_event": {
-              "action": "show_text",
-              "value": {
-                "text": "Click to put this in your chat box",
-                "font": "minecraft:uniform"
-              }
-            }
+            "bold": false
           },
           {
             "text": " and press Enter.",
@@ -141,24 +130,7 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Put /give @s stick in my chat box",
-        "font": "tut:clean"
-      },
-      "tooltip": {
-        "text": "Types it for you. You press Enter.",
-        "font": "tut:clean"
-      },
-      "action": {
-        "type": "minecraft:suggest_command",
-        "command": "/give @s stick"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
       "text": "Continue",
       "font": "tut:clean",

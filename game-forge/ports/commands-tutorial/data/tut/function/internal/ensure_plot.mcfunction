@@ -31,3 +31,5 @@ $execute if score @s tut_end matches 2 positioned $(px) 100 1024 if block ~1 ~-2
 $execute if score @s tut_end matches 2 positioned $(px) 100 1024 if block ~12 ~-1 ~18 sea_lantern run setblock ~12 ~-1 ~18 blue_concrete
 $execute if score @s tut_end matches 2 positioned $(px) 100 1024 if block ~12 ~-1 ~18 glowstone run setblock ~12 ~-1 ~18 blue_concrete
 $execute if score @s tut_end matches 2 positioned $(px) 100 1024 if block ~12 ~-1 ~18 blue_wool run setblock ~12 ~-1 ~18 blue_concrete
+# [game-forge] islands finished before 2026-10-26 still have the TP TO NEXT ISLAND button: swap in the done sign
+$execute if score @s tut_end matches 1.. positioned $(px) 100 0 if block ~7 ~1 ~6 stone_button run function tut:internal/finish_post_rel

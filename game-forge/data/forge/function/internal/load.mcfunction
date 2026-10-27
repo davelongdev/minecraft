@@ -2,6 +2,8 @@
 # lobby = /trigger lobby, back to the lobby from any game.
 scoreboard objectives add forge_go trigger
 scoreboard objectives add lobby trigger
+# forge_cong: Continue on the "you finished the Commands tutorial" screen (port.py finish_island patch) -> internal/congrats
+scoreboard objectives add forge_cong trigger
 scoreboard objectives add forge_tmp dummy
 # right-clicks of the Magic Compass (a carrot on a stick underneath)
 scoreboard objectives add forge_compass minecraft.used:minecraft.carrot_on_a_stick
@@ -18,6 +20,11 @@ gamerule advance_time false
 gamerule advance_weather false
 gamerule keep_inventory true
 gamerule respawn_radius 0
+# new players and anyone without a spawnpoint start at the lobby (the old One Block spawn 0 65 0 now sits over the plaza beacon's beam hole)
+setworldspawn 22 63 0 -90 0
+# keep the spawn chunk loaded: with an adventure default gamemode, 26.3's PlayerSpawnFinder checks the spawn
+# for ground without loading the chunk, so an unloaded one drops joins/respawns to the bottom of the void (y -63)
+forceload add 22 0
 gamerule spawn_mobs false
 gamerule fall_damage false
 gamerule send_command_feedback false

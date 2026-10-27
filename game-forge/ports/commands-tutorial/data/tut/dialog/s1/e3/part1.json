@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 4 of 12",
     "font": "minecraft:default",
@@ -139,24 +139,7 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Put the command in my chat box",
-        "font": "minecraft:default"
-      },
-      "tooltip": {
-        "text": "Types it for you. You press Enter.",
-        "font": "minecraft:default"
-      },
-      "action": {
-        "type": "minecraft:suggest_command",
-        "command": "/give @s apple"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
       "text": "Continue",
       "font": "minecraft:default",

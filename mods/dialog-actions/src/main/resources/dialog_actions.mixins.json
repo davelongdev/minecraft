@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "org.newburghcreates.dialogactions.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"server": [
+		"ServerCommonPacketListenerImplMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

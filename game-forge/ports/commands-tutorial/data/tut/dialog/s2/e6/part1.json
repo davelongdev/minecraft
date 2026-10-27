@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 7 of 12",
     "font": "minecraft:default",
@@ -139,18 +139,7 @@
             "text": "/give @s stone_pressure_plate",
             "font": "minecraft:default",
             "color": "yellow",
-            "bold": false,
-            "click_event": {
-              "action": "suggest_command",
-              "command": "/give @s stone_pressure_plate"
-            },
-            "hover_event": {
-              "action": "show_text",
-              "value": {
-                "text": "Click to put this in your chat box",
-                "font": "minecraft:uniform"
-              }
-            }
+            "bold": false
           },
           {
             "text": ", put the plate on top, and walk onto it.",
@@ -228,24 +217,7 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Put /give @s stone_pressure_plate in my chat box",
-        "font": "minecraft:default"
-      },
-      "tooltip": {
-        "text": "Types it for you. You press Enter.",
-        "font": "minecraft:default"
-      },
-      "action": {
-        "type": "minecraft:suggest_command",
-        "command": "/give @s stone_pressure_plate"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
       "text": "Continue",
       "font": "minecraft:default",

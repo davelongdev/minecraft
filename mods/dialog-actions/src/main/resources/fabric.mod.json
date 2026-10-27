@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "dialog_actions",
+	"version": "${version}",
+	"name": "Dialog Actions",
+	"description": "Server-only: a dialog's minecraft:custom / dynamic/custom action whose id is an allowed function (npc:internal/...) runs that function as the player with the payload as macro arguments, so vanilla clients skip the Confirm Command Execution screen and the player needs no op.",
+	"authors": ["Newburgh Creates"],
+	"license": "MIT",
+	"environment": "server",
+	"entrypoints": {
+		"server": ["org.newburghcreates.dialogactions.DialogActions"]
+	},
+	"mixins": ["dialog_actions.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

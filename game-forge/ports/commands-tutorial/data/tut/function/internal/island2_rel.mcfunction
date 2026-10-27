@@ -4,6 +4,11 @@
 # there, so next_island tries this right after the tp and all_done retries every tick until the bedrock
 # marker exists. Floor goes in as stone; ensure_plot recolours it to prismarine bricks next tick (light update for void chunks; island2_recolor_rel).
 execute unless block ~1 ~-2 ~18 bedrock run fill ~ ~-1 ~ ~35 ~-1 ~35 stone
+# the floor spans nine chunks and fill fails silently unless all are loaded: no marker (so ensure_plot retries next tick) until every corner is in
+execute unless block ~ ~-1 ~ stone run return fail
+execute unless block ~35 ~-1 ~ stone run return fail
+execute unless block ~ ~-1 ~35 stone run return fail
+execute unless block ~35 ~-1 ~35 stone run return fail
 setblock ~1 ~-2 ~18 bedrock
 # section 2 markers (blue block, red spot, TARGET pad); re-placed by island2_recolor_rel after the floor recolour
 function tut:internal/island2_marks_rel

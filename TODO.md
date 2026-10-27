@@ -23,14 +23,32 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   Live since 2026-10-26: Personal Workshops, the longer NPC hall (8 pads a
   side), gated/auto-advancing Command Forge with the Chat Counter mod, the
   darker-menus pack (state in CLAUDE.md).
-- [ ] **Playtest Personal Workshops** (built 2026-10-26, only the startup was
-  checked): every land kind (One Block's grass block appears, the noise kinds
+- [ ] **Advanced Commands tutorial** (Dave, 2026-10-26): a follow-on to
+  Commands for what section 1 leaves out, starting with teleporting to
+  another player (`/tp @s <name>`, `/tp <name> @s`, `@p`/`@r`), then more
+  advanced commands (e.g. selectors with arguments, `/execute`, `/summon`,
+  `/fill`/`/setblock`, `/give` with components, `/time`/`/weather` where
+  allowed). Needs a lobby NPC on a free "Tutorial 4..8" pad, its own gate
+  (after Commands), and LuckPerms permissions for its dimension, since kids
+  aren't op (each command has to be granted there).
+- [ ] **Structure Blocks tutorial** (Dave, 2026-10-26): a Game Forge
+  tutorial in the style of Commands / Command Blocks that teaches structure
+  blocks (save, load, corner/data modes, rotating and mirroring a build).
+  Needs a lobby NPC on one of the free "Tutorial 4..8" pads and its own
+  gate. Gotcha: a structure saved by a redstone-pulsed block only lives in
+  server memory until restart; the Save button in its screen writes the file
+  (see the hub snapshot notes in CLAUDE.md).
+- [ ] **Playtest Personal Workshops** (built 2026-10-26; redone the same day
+  as up to 5 per player, 105 dimensions; Dave claimed and entered a Deep Dig
+  one and saw the menu): every land kind (One Block's grass block appears, the noise kinds
   land on the surface), owner creative / visitor adventure, the visit list
   shows real names (player head + `fill_player_head`), a second player.
   Known gaps: visitors in adventure can still open the owner's chests and
   press buttons; all Normal/biome worlds share the world seed (same terrain);
-  a full kind ("all taken") needs `COUNT` raised in a new KINDS block and a
-  restart (never renumber). The end-of-hall spruce sign behind the Workshop
+  a full kind ("all taken") needs `COUNT` raised (up to 99 per kind, no
+  renumbering since the 100-blocks numbering) and a restart. Still to try:
+  a second and fifth workshop (menu order, the 5 limit), visiting another
+  kid's. The end-of-hall spruce sign behind the Workshop
   NPC still says "coming soon" — Dave hasn't said whether that spot is the
   Workshop's or Bed Wars'.
 - [ ] **Per-player Command Forge dimension** (Dave, 2026-10-26; parked "for
@@ -61,12 +79,25 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   runs the older zip and has no Chat Counter mod. Ask Dave before updating it
   (studio servers stay as they are). Also: the last quest of section 2 shows
   "Now try the next quest!" though there's none.
-- [ ] **Game Forge: kids' op level** — the ten studio accounts are op 1 there
-  (Dave, 2026-10-25, "for now"); Command Forge quests from `/effect` on and
-  NPC Forge's create/edit forms need op 2. Before raising it: add the hub
-  guard (any non-staff player in the hub forced back to adventure every tick,
-  `lazerbrain6562`/`NCMC_11` exempt via a tag); op 2 can still `/fill` and
-  `/setblock`, which only `___restore_hub` / `___hub_snapshots` undo.
+- [x] **Game Forge: kids' op level** — done 2026-10-26 another way: kids are
+  no longer op at all; LuckPerms + Vanilla Permissions grant the quest
+  commands only in `forge:commands` and NPC Forge's in `forge:npc` (state in
+  CLAUDE.md), so the hub needs no guard. NCMC4 used `/effect` and command
+  blocks there.
+- [ ] **Game Forge permissions follow-ups:** drop `minecraft.command.function`
+  from `kids` in `forge:npc` once the NPC forms are confirmed working through
+  Dialog Actions (create, edit, buttons, clear, name; no confirmation screen
+  expected — not yet clicked through after the mod went in); check that Tab
+  completion updates when a kid walks between the hub and a game; decide
+  what a kid may run in their own workshop (nothing granted yet).
+- [ ] **Standalone servers vs. Game Forge copies (2026-10-26):** today's
+  Command Forge fixes live only in Game Forge (`gf-commands-tutorial.zip`):
+  checks for quests 4/7/10/11 counting their own item (in the standalone
+  pack too if it runs the auto-advancing version: 10 and 11 can't pass, 4
+  and 7 pass without the item), island 2's floor marker, type-in-only text,
+  quest 9's barrier wall, quest 12's text. Ask Dave before touching the
+  command-forge server (studio servers stay as they are). `gf-test` also
+  lags live (no LuckPerms/Dialog Actions, old packs).
 - [ ] **Game Forge hub snapshot upkeep:** after changing the hub on purpose,
   retake the known-good snapshot (`game-forge/tools/snapshot_hub.py` on the
   box, copy `hub/*.nbt` into `game-forge/data/forge/structure/hub/`, rezip,
@@ -148,7 +179,9 @@ backlogs live next to the pack, e.g. `one-block_2/IDEAS.md`.
   via a book-and-quill, sign, or anvil-renamed item the pack reads from NBT;
   (d) class server with a tiny server-side Fabric mod handling `dynamic/custom`
   dialog actions — vanilla clients, no confirmation (fits the "one tiny mod
-  as instructor plumbing" line in the modding report). Decide before gameforge; `/trigger clear_one_npc` and the two books are
+  as instructor plumbing" line in the modding report). **(d) is done for
+  Game Forge's copy (2026-10-26, `mods/dialog-actions/` + `port.py`
+  `CUSTOM_ACTIONS`); the standalone npc-game server still shows the screen.** Decide before gameforge; `/trigger clear_one_npc` and the two books are
   not yet playtested; a game built on it (see RPG below); branching
   conversations (a button opening a second screen).
   2026-10-18: ownership (each player's own NPCs; starters shared), every-tick
@@ -343,8 +376,9 @@ then Dave offered his home Arch box (i5-13400, 62 GB; details in CLAUDE.md
   `treesitter-setup.lua` to the `main` API. Try `iw dev wlp2s0 set
   power_save off` for the SSH lag until the box is on Ethernet.
 - [ ] **Server-side Fabric mod** (the "instructor plumbing" from the modding
-  report), now with a server to run it on: dialog `dynamic/custom` → mixin
-  on `handleCustomClickAction` → write to command storage / run functions, so
+  report), now with a server to run it on: ~~dialog `dynamic/custom` → mixin
+  on `handleCustomClickAction` → run functions~~ done 2026-10-26 as
+  `mods/dialog-actions/` (Game Forge only), so
   the NPC Forge forms submit with no confirmation screen and without op
   (the eleven NCMC accounts are op level 2 on npc-game since 2026-10-23
   only because form submits need it; de-op them once the mod lands); chosen display name

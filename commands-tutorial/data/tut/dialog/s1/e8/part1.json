@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:multi_action",
+  "type": "minecraft:notice",
   "title": {
     "text": "Quest 9 of 12",
     "font": "tut:clean",
@@ -52,25 +52,7 @@
             "bold": false
           },
           {
-            "text": "/ then Tab",
-            "font": "tut:clean",
-            "color": "yellow",
-            "bold": false
-          },
-          {
-            "text": " - press ",
-            "font": "tut:clean",
-            "bold": false,
-            "color": "white"
-          },
-          {
-            "text": "t",
-            "font": "tut:clean",
-            "color": "yellow",
-            "bold": false
-          },
-          {
-            "text": ", type ",
+            "text": "Type ",
             "font": "tut:clean",
             "bold": false,
             "color": "white"
@@ -82,7 +64,7 @@
             "bold": false
           },
           {
-            "text": ", then press ",
+            "text": " then press ",
             "font": "tut:clean",
             "bold": false,
             "color": "white"
@@ -250,18 +232,7 @@
             "text": "/effect give @s invisibility",
             "font": "tut:clean",
             "color": "yellow",
-            "bold": false,
-            "click_event": {
-              "action": "suggest_command",
-              "command": "/effect give @s invisibility"
-            },
-            "hover_event": {
-              "action": "show_text",
-              "value": {
-                "text": "Click to put this in your chat box",
-                "font": "minecraft:uniform"
-              }
-            }
+            "bold": false
           },
           {
             "text": " and press Enter.",
@@ -330,24 +301,7 @@
       }
     }
   ],
-  "columns": 1,
-  "actions": [
-    {
-      "label": {
-        "text": "Put /effect give @s invisibility in my chat box",
-        "font": "tut:clean"
-      },
-      "tooltip": {
-        "text": "Types it for you. You press Enter.",
-        "font": "tut:clean"
-      },
-      "action": {
-        "type": "minecraft:suggest_command",
-        "command": "/effect give @s invisibility"
-      }
-    }
-  ],
-  "exit_action": {
+  "action": {
     "label": {
       "text": "Continue",
       "font": "tut:clean",

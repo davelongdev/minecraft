@@ -11,24 +11,24 @@ execute if score ok forge_tmp matches 1 run scoreboard players set h1 forge_tmp 
 execute if score ok forge_tmp matches 0 positioned 23.5 64 -6.5 if entity @a[distance=..48] run scoreboard players add h1 forge_tmp 1
 execute if score h1 forge_tmp matches 40.. run function forge:internal/spawn1
 # One Block
-tp @e[type=villager,tag=forge_2] 27.5 64 -6.5 0 0
+tp @e[type=villager,tag=forge_2] 31.5 64 -6.5 0 0
 scoreboard players set ok forge_tmp 1
 execute store result score c forge_tmp if entity @e[type=villager,tag=forge_2]
 execute unless score c forge_tmp matches 1 run scoreboard players set ok forge_tmp 0
 execute store result score c forge_tmp if entity @e[type=interaction,tag=forge_2]
 execute unless score c forge_tmp matches 1 run scoreboard players set ok forge_tmp 0
 execute if score ok forge_tmp matches 1 run scoreboard players set h2 forge_tmp 0
-execute if score ok forge_tmp matches 0 positioned 27.5 64 -6.5 if entity @a[distance=..48] run scoreboard players add h2 forge_tmp 1
+execute if score ok forge_tmp matches 0 positioned 31.5 64 -6.5 if entity @a[distance=..48] run scoreboard players add h2 forge_tmp 1
 execute if score h2 forge_tmp matches 40.. run function forge:internal/spawn2
 # PvP Arena
-tp @e[type=villager,tag=forge_3] 31.5 64 -6.5 0 0
+tp @e[type=villager,tag=forge_3] 27.5 64 -6.5 0 0
 scoreboard players set ok forge_tmp 1
 execute store result score c forge_tmp if entity @e[type=villager,tag=forge_3]
 execute unless score c forge_tmp matches 1 run scoreboard players set ok forge_tmp 0
 execute store result score c forge_tmp if entity @e[type=interaction,tag=forge_3]
 execute unless score c forge_tmp matches 1 run scoreboard players set ok forge_tmp 0
 execute if score ok forge_tmp matches 1 run scoreboard players set h3 forge_tmp 0
-execute if score ok forge_tmp matches 0 positioned 31.5 64 -6.5 if entity @a[distance=..48] run scoreboard players add h3 forge_tmp 1
+execute if score ok forge_tmp matches 0 positioned 27.5 64 -6.5 if entity @a[distance=..48] run scoreboard players add h3 forge_tmp 1
 execute if score h3 forge_tmp matches 40.. run function forge:internal/spawn3
 # Commands
 tp @e[type=villager,tag=forge_4] 23.5 64 7.5 180 0
